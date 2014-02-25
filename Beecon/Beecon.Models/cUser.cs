@@ -2,9 +2,9 @@
 
 namespace Beecon.Models
 {
-	public class MyClass
+	public class cUser
 	{
-		public MyClass ()
+		public cUser ()
 		{
 		}
 	}
