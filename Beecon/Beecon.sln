@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beecon.Android", "Beecon\Be
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beecon.Models", "Beecon.Models\Beecon.Models.csproj", "{D7E61C2D-20E1-483A-BC9C-431BA91AB659}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beecon.MVC", "Beecon.MVC\Beecon.MVC.csproj", "{AB685C05-3D00-45A4-A7B8-BCA19D9C9619}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beecon.MVC", "Beecon.MVC\Beecon.MVC.csproj", "{B1210750-13E3-44B0-AFA0-5B5B33C03CEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,19 +17,19 @@ Global
 		{60E5C4F4-4F8C-4764-98E7-B9F19747FD1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60E5C4F4-4F8C-4764-98E7-B9F19747FD1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60E5C4F4-4F8C-4764-98E7-B9F19747FD1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1210750-13E3-44B0-AFA0-5B5B33C03CEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1210750-13E3-44B0-AFA0-5B5B33C03CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1210750-13E3-44B0-AFA0-5B5B33C03CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1210750-13E3-44B0-AFA0-5B5B33C03CEB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D7E61C2D-20E1-483A-BC9C-431BA91AB659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D7E61C2D-20E1-483A-BC9C-431BA91AB659}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7E61C2D-20E1-483A-BC9C-431BA91AB659}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7E61C2D-20E1-483A-BC9C-431BA91AB659}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB685C05-3D00-45A4-A7B8-BCA19D9C9619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB685C05-3D00-45A4-A7B8-BCA19D9C9619}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB685C05-3D00-45A4-A7B8-BCA19D9C9619}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB685C05-3D00-45A4-A7B8-BCA19D9C9619}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Beecon\Beecon.Android.csproj
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
