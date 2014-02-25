@@ -6,6 +6,7 @@ namespace Beecon.Models
 	{
 		public cUser ()
 		{
+			//Changing something (Testing Github commit SR)
 		}
 	}
 }
