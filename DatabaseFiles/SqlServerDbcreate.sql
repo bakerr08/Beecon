@@ -2,7 +2,7 @@ create database BeeconDB;
 go
 use BeeconDB;
 CREATE  TABLE tblUser (
-  UserID INT NOT NULL ,
+  UserID INT NOT NULL IDENTITY,
   Email VARCHAR(45) NULL ,
   FirstName VARCHAR(45) NULL ,
   LastName VARCHAR(45) NULL ,
@@ -15,14 +15,14 @@ CREATE  TABLE tblUser (
   PRIMARY KEY (UserID) )
   
   CREATE  TABLE tblTagPrivacyType (
-  PrivacyTypeID INT NOT NULL ,
+  PrivacyTypeID INT NOT NULL IDENTITY,
   PrivacyDescription VARCHAR(45) NULL ,
   PRIMARY KEY (PrivacyTypeID) )
 
 
 
 CREATE  TABLE tblTag (
-  TagID INT NOT NULL ,
+  TagID INT NOT NULL IDENTITY,
   TagLongitude VARCHAR(45) NULL ,
   TagLatitude VARCHAR(45) NULL ,
   TagDescription VARCHAR(45) NULL ,
@@ -48,7 +48,7 @@ CREATE  TABLE tblTag (
 -- Table mydb.tblTagRating
 -- -----------------------------------------------------
 CREATE  TABLE tblTagRating (
-  RatingID INT NOT NULL ,
+  RatingID INT NOT NULL IDENTITY,
   Rate INT NULL ,
   TagID INT NOT NULL ,
   UserID INT NOT NULL ,
@@ -70,7 +70,7 @@ CREATE  TABLE tblTagRating (
 -- Table mydb.tblCategory
 -- -----------------------------------------------------
 CREATE  TABLE tblCategory (
-  CategoryID INT NOT NULL ,
+  CategoryID INT NOT NULL IDENTITY,
   Category VARCHAR(45) NULL ,
   PRIMARY KEY (CategoryID) )
 
@@ -123,7 +123,7 @@ CREATE  TABLE tblFriendList (
 -- Table mydb.tblTagVisited
 -- -----------------------------------------------------
 CREATE  TABLE tblTagVisited (
-  VisitID INT NOT NULL ,
+  VisitID INT NOT NULL IDENTITY,
   UserID INT NOT NULL ,
   TagID INT NOT NULL ,
   VisitTime DATETIME NULL ,
@@ -145,7 +145,7 @@ CREATE  TABLE tblTagVisited (
 -- Table mydb.tblInvites
 -- -----------------------------------------------------
 CREATE  TABLE tblInvites (
-  InviteID INT NOT NULL ,
+  InviteID INT NOT NULL IDENTITY,
   UserID INT NOT NULL ,
   UserIDSentTo INT NOT NULL ,
   Accepted bit   NOT NULL ,
