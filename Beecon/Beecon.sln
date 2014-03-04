@@ -27,7 +27,7 @@ Global
 		{D7E61C2D-20E1-483A-BC9C-431BA91AB659}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Beecon\Beecon.Android.csproj
+		StartupItem = Beecon.MVC\Beecon.MVC.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,4 @@
+C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon.Models\bin\Debug\Beecon.Models.dll
+C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon.Models\bin\Debug\Beecon.Models.pdb
+C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon.Models\obj\Debug\Beecon.Models.dll
+C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon.Models\obj\Debug\Beecon.Models.pdb
