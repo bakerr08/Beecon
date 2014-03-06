@@ -166,3 +166,10 @@ CREATE  TABLE tblInvites (
     REFERENCES tblUser (UserID )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+go
+USE [BeeconDB]
+GO
+SET IDENTITY_INSERT [dbo].[tblUser] ON 
+
+INSERT [dbo].[tblUser] ([UserID], [Email], [FirstName], [LastName], [ZipCode], [Dob], [PasswordHashed], [TagsFound], [TagsPosted], [Gender]) VALUES (1, N'aragorn55@gmail.com', N'josh', N'meyer', N'54915', N'12/15/1985', NULL, 0, 0, N'male')
+SET IDENTITY_INSERT [dbo].[tblUser] OFF
