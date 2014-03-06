@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>Beecon</h1>
+            <h3></h3>
+            <br />
+        </div>
+
+        <div class="sidebar">
+            <h3>Things To See Here</h3>
+            <b>Json Operators</b>
+
+            <a href="/home/allUsers/">Get All Users</a><br />
+            <a href="/home/AllBeecon/">Get All Beecon</a><br />
+            <a href="/home/User/">Get User</a><br />
+            <a href="/home/Beecon/">Get Beecon</a><br />
+            <a href="/home/CreateUser/">Create User</a><br />
+            <a href="/home/CreateBeecon/">Create Beecon</a><br />
+            <a href="/home/DeleteBeecon/">Delete Beecon</a><br />
+            <a href="/home/DeleteUser/">Delete User</a><br />
+           
+            <br />
+        </div>
+
+        <div class="main">
+            @RenderBody()
+        </div>
+
+        <div class="clearfix"></div>
+        <br />
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
