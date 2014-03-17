@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataAccess">
+  <DataContextMoniker Name="/DataAccessDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c49ea6de-fb8b-4713-b23d-4a32972a4bec" absoluteBounds="4.125, 1.25, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/DataAccessDataContext/tblUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7cc6d84b-2761-4fc4-bd85-ceef226990ab" absoluteBounds="4.14, 1.71, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d87a355c-545f-44ff-bc9e-ce31bcc3d074" absoluteBounds="1.5, 1, 2, 2.5401025390625">
+      <DataClassMoniker Name="/DataAccessDataContext/tblBeecon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fa8e6867-3218-4f5b-a842-45637c70db56" absoluteBounds="1.5149999999999997, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.125 : 2.39505126953125); (3.5 : 2.39505126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataAccessDataContext/tblUser/tblUser_tblBeecon" />
+      <nodes>
+        <classShapeMoniker Id="c49ea6de-fb8b-4713-b23d-4a32972a4bec" />
+        <classShapeMoniker Id="d87a355c-545f-44ff-bc9e-ce31bcc3d074" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
