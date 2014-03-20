@@ -1,5 +1,5 @@
-if OBJECT_ID('BeeconDB') is not null
-drop Database  BeeconDB;
+if db_id('BeeconDB') is not null
+   drop Database  BeeconDB;
 go
 create database BeeconDB;
 go
@@ -10,7 +10,7 @@ CREATE  TABLE tblUser (
   FirstName VARCHAR(45) NULL ,
   LastName VARCHAR(45) NULL ,
   ZipCode VARCHAR(45) NULL ,
-  Dob VARCHAR(45) NULL ,
+  Dob DATETIME NULL ,
   PasswordHashed VARCHAR(45) NULL ,
   TagsFound INT NULL ,
   TagsPosted INT NULL ,
@@ -32,7 +32,7 @@ CREATE  TABLE tblTag (
   TagDateCreated DATETIME NULL ,
   TagExpired DATETIME NULL ,
   UserID INT NOT NULL ,
-  TagContent_URL VARCHAR(45) NULL ,
+  TagContent_URL VARCHAR(70) NULL ,
   PrivacyTypeID INT NOT NULL ,
   PRIMARY KEY (TagID) ,
   CONSTRAINT fk_tblTag_tblUser1
