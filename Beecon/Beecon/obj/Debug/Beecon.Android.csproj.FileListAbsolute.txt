@@ -1,16 +1,3 @@
-C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.dll
-C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.pdb
-C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.dll.mdb
-C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.Beecon.apk
-C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.Beecon-Signed.apk
-C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\Beecon.dll
-C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\Beecon.pdb
-C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\android\bin\Beecon.Beecon.apk
-C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\res\layout\main.xml
-C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\res\values\strings.xml
-C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\res\drawable\icon.png
-C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\R.cs.flag
-C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\uploadflags.txt
 C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon\bin\Debug\Beecon.dll
 C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon\bin\Debug\Beecon.pdb
 C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon\bin\Debug\Beecon.dll.mdb
@@ -24,3 +11,16 @@ C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon\obj\Debug\res\values\strings.x
 C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon\obj\Debug\res\drawable\icon.png
 C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon\obj\Debug\R.cs.flag
 C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon\obj\Debug\uploadflags.txt
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.dll
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.pdb
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.dll.mdb
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.Beecon.apk
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.Beecon-Signed.apk
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\Beecon.dll
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\Beecon.pdb
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\android\bin\Beecon.Beecon.apk
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\res\layout\main.xml
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\res\values\strings.xml
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\res\drawable\icon.png
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\R.cs.flag
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\uploadflags.txt

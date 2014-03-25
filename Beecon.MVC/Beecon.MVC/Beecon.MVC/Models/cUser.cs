@@ -10,8 +10,8 @@ namespace Beecon.Models
     {
         #region Properties
 
-        Guid id;
-        public Guid Id
+        int id;
+        public int Id
         {
             get { return id; }
             set { id = value; }
@@ -107,7 +107,7 @@ namespace Beecon.Models
         {
 
         }
-        public cUser(Guid _id, string _lastName, string _firstName, string _email, string _gender, string _address, string _city, string _state, string _zip, DateTime? _dob, string _password, int? _beeconsCreated, int? _beeconsFound)
+        public cUser(int _id, string _lastName, string _firstName, string _email, string _gender, string _address, string _city, string _state, string _zip, DateTime? _dob, string _password, int? _beeconsCreated, int? _beeconsFound)
         {
             id = _id;
             lastName = _lastName;

@@ -127,6 +127,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BeeconController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -241,6 +243,10 @@
     <Content Include="Views\Home\DeleteUser.cshtml" />
     <Content Include="Views\Home\DeleteBeecon.cshtml" />
     <Content Include="Views\Home\BeeconUser.cshtml" />
+    <Content Include="Views\Account\AllUsers.cshtml" />
+    <Content Include="Views\Account\BeeconUser.cshtml" />
+    <Content Include="Views\Beecon\AllBeecon.cshtml" />
+    <Content Include="Views\Beecon\Beecon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

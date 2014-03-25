@@ -1,9 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Beecon.Models\cUser.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Beecon.Models\cBeecons.cs">
     <Files>
       <File FileName="Beecon\MainActivity.cs" Line="1" Column="1" />
-      <File FileName="Beecon.Models\cUser.cs" Line="2" Column="34" />
+      <File FileName="Beecon.Models\cUser.cs" Line="5" Column="7" />
+      <File FileName="Beecon.Models\cBeecon.cs" Line="78" Column="3" />
+      <File FileName="Beecon.Models\cUsers.cs" Line="5" Column="23" />
+      <File FileName="Beecon.Models\cBeecons.cs" Line="11" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

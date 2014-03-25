@@ -29,3 +29,5 @@ C:\Users\Im God\Desktop\Beecon\Beecon.MVC\Beecon.MVC\Beecon.MVC\bin\System.Web.W
 C:\Users\Im God\Desktop\Beecon\Beecon.MVC\Beecon.MVC\Beecon.MVC\obj\Debug\Beecon.MVC.csprojResolveAssemblyReference.cache
 C:\Users\Im God\Desktop\Beecon\Beecon.MVC\Beecon.MVC\Beecon.MVC\obj\Debug\Beecon.MVC.dll
 C:\Users\Im God\Desktop\Beecon\Beecon.MVC\Beecon.MVC\Beecon.MVC\obj\Debug\Beecon.MVC.pdb
+C:\Users\student\Desktop\Beecon\Beecon.MVC\Beecon.MVC\Beecon.MVC\obj\Debug\Beecon.MVC.csprojResolveAssemblyReference.cache
+C:\Users\student\Desktop\Beecon\Beecon.MVC\Beecon.MVC\Beecon.MVC\obj\Debug\Beecon.MVC.dll
