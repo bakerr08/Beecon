@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Beecon.MVC.Models.Tag>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TagLongitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TagLatitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TagDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TagDateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TagExpired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TagContent_URL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TagPrivacyType.PrivacyDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TagLongitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TagLatitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TagDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TagDateCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TagExpired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TagContent_URL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TagPrivacyType.PrivacyDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TagID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TagID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TagID })
+        </td>
+    </tr>
+}
+
+</table>

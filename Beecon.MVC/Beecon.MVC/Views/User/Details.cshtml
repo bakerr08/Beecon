@@ -1,0 +1,78 @@
+﻿@model Beecon.MVC.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ZipCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ZipCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Dob)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Dob)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PasswordHashed)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PasswordHashed)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TagsFound)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TagsFound)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TagsPosted)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TagsPosted)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Gender)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gender)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.UserID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

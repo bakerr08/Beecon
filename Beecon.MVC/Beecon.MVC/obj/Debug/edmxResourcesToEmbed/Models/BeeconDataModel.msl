@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BeeconDBModelStoreContainer" CdmEntityContainer="BeeconDBEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="BeeconDBModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Category1" ColumnName="Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FriendLists">
+      <EntityTypeMapping TypeName="BeeconDBModel.FriendList">
+        <MappingFragment StoreEntitySet="FriendList">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="UserIDRequested" ColumnName="UserIDRequested" />
+          <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invites">
+      <EntityTypeMapping TypeName="BeeconDBModel.Invite">
+        <MappingFragment StoreEntitySet="Invites">
+          <ScalarProperty Name="InviteID" ColumnName="InviteID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserIDSentTo" ColumnName="UserIDSentTo" />
+          <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+          <ScalarProperty Name="Rejected" ColumnName="Rejected" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tags">
+      <EntityTypeMapping TypeName="BeeconDBModel.Tag">
+        <MappingFragment StoreEntitySet="Tag">
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="TagLongitude" ColumnName="TagLongitude" />
+          <ScalarProperty Name="TagLatitude" ColumnName="TagLatitude" />
+          <ScalarProperty Name="TagDescription" ColumnName="TagDescription" />
+          <ScalarProperty Name="TagDateCreated" ColumnName="TagDateCreated" />
+          <ScalarProperty Name="TagExpired" ColumnName="TagExpired" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TagContent_URL" ColumnName="TagContent_URL" />
+          <ScalarProperty Name="PrivacyTypeID" ColumnName="PrivacyTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TagPrivacyTypes">
+      <EntityTypeMapping TypeName="BeeconDBModel.TagPrivacyType">
+        <MappingFragment StoreEntitySet="TagPrivacyType">
+          <ScalarProperty Name="PrivacyTypeID" ColumnName="PrivacyTypeID" />
+          <ScalarProperty Name="PrivacyDescription" ColumnName="PrivacyDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TagRatings">
+      <EntityTypeMapping TypeName="BeeconDBModel.TagRating">
+        <MappingFragment StoreEntitySet="TagRating">
+          <ScalarProperty Name="RatingID" ColumnName="RatingID" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TagVisiteds">
+      <EntityTypeMapping TypeName="BeeconDBModel.TagVisited">
+        <MappingFragment StoreEntitySet="TagVisited">
+          <ScalarProperty Name="VisitID" ColumnName="VisitID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="VisitTime" ColumnName="VisitTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="BeeconDBModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="PasswordHashed" ColumnName="PasswordHashed" />
+          <ScalarProperty Name="TagsFound" ColumnName="TagsFound" />
+          <ScalarProperty Name="TagsPosted" ColumnName="TagsPosted" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="TagCategory" TypeName="BeeconDBModel.TagCategory" StoreEntitySet="TagCategory">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+      </EndProperty>
+      <EndProperty Name="Tag">
+        <ScalarProperty Name="TagID" ColumnName="TagID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

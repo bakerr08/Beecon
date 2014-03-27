@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BeeconDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BeeconDBModelStoreContainer">
+          <EntitySet Name="Category" EntityType="BeeconDBModel.Store.Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FriendList" EntityType="BeeconDBModel.Store.FriendList" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Invites" EntityType="BeeconDBModel.Store.Invites" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tag" EntityType="BeeconDBModel.Store.Tag" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TagCategory" EntityType="BeeconDBModel.Store.TagCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TagPrivacyType" EntityType="BeeconDBModel.Store.TagPrivacyType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TagRating" EntityType="BeeconDBModel.Store.TagRating" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TagVisited" EntityType="BeeconDBModel.Store.TagVisited" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="BeeconDBModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="fk_FriendList_User2" Association="BeeconDBModel.Store.fk_FriendList_User2">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="FriendList" EntitySet="FriendList" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FriendList_Users" Association="BeeconDBModel.Store.fk_FriendList_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="FriendList" EntitySet="FriendList" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Tag_TagPrivacyType1" Association="BeeconDBModel.Store.fk_Tag_TagPrivacyType1">
+            <End Role="TagPrivacyType" EntitySet="TagPrivacyType" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Tag_Users" Association="BeeconDBModel.Store.fk_Tag_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TagCategory_Category1" Association="BeeconDBModel.Store.fk_TagCategory_Category1">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="TagCategory" EntitySet="TagCategory" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TagCategory_Tag" Association="BeeconDBModel.Store.fk_TagCategory_Tag">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="TagCategory" EntitySet="TagCategory" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TagRating_Tag1" Association="BeeconDBModel.Store.fk_TagRating_Tag1">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="TagRating" EntitySet="TagRating" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TagRating_Users" Association="BeeconDBModel.Store.fk_TagRating_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TagRating" EntitySet="TagRating" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TagVisited_Tag1" Association="BeeconDBModel.Store.fk_TagVisited_Tag1">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="TagVisited" EntitySet="TagVisited" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TagVisited_Users" Association="BeeconDBModel.Store.fk_TagVisited_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TagVisited" EntitySet="TagVisited" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserID" Association="BeeconDBModel.Store.fk_UserID">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Invites" EntitySet="Invites" />
+          </AssociationSet>
+          <AssociationSet Name="User_UserID_Sent_To" Association="BeeconDBModel.Store.User_UserID_Sent_To">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Invites" EntitySet="Invites" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="FriendList">
+          <Key>
+            <PropertyRef Name="FriendID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="UserIDRequested" Type="int" Nullable="false" />
+          <Property Name="FriendID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invites">
+          <Key>
+            <PropertyRef Name="InviteID" />
+          </Key>
+          <Property Name="InviteID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserIDSentTo" Type="int" Nullable="false" />
+          <Property Name="Accepted" Type="bit" Nullable="false" />
+          <Property Name="Rejected" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagID" />
+          </Key>
+          <Property Name="TagID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TagLongitude" Type="varchar" MaxLength="45" />
+          <Property Name="TagLatitude" Type="varchar" MaxLength="45" />
+          <Property Name="TagDescription" Type="varchar" MaxLength="45" />
+          <Property Name="TagDateCreated" Type="datetime" />
+          <Property Name="TagExpired" Type="datetime" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="TagContent_URL" Type="varchar" MaxLength="70" />
+          <Property Name="PrivacyTypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TagCategory">
+          <Key>
+            <PropertyRef Name="TagID" />
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="TagID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TagPrivacyType">
+          <Key>
+            <PropertyRef Name="PrivacyTypeID" />
+          </Key>
+          <Property Name="PrivacyTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PrivacyDescription" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="TagRating">
+          <Key>
+            <PropertyRef Name="RatingID" />
+          </Key>
+          <Property Name="RatingID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Rate" Type="int" />
+          <Property Name="TagID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TagVisited">
+          <Key>
+            <PropertyRef Name="VisitID" />
+          </Key>
+          <Property Name="VisitID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="TagID" Type="int" Nullable="false" />
+          <Property Name="VisitTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="varchar" MaxLength="45" />
+          <Property Name="FirstName" Type="varchar" MaxLength="45" />
+          <Property Name="LastName" Type="varchar" MaxLength="45" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="45" />
+          <Property Name="Dob" Type="datetime" />
+          <Property Name="PasswordHashed" Type="varchar" MaxLength="45" />
+          <Property Name="TagsFound" Type="int" />
+          <Property Name="TagsPosted" Type="int" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="fk_FriendList_User2">
+          <End Role="Users" Type="BeeconDBModel.Store.Users" Multiplicity="1" />
+          <End Role="FriendList" Type="BeeconDBModel.Store.FriendList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FriendList">
+              <PropertyRef Name="UserIDRequested" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FriendList_Users">
+          <End Role="Users" Type="BeeconDBModel.Store.Users" Multiplicity="1" />
+          <End Role="FriendList" Type="BeeconDBModel.Store.FriendList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FriendList">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Tag_TagPrivacyType1">
+          <End Role="TagPrivacyType" Type="BeeconDBModel.Store.TagPrivacyType" Multiplicity="1" />
+          <End Role="Tag" Type="BeeconDBModel.Store.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TagPrivacyType">
+              <PropertyRef Name="PrivacyTypeID" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="PrivacyTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Tag_Users">
+          <End Role="Users" Type="BeeconDBModel.Store.Users" Multiplicity="1" />
+          <End Role="Tag" Type="BeeconDBModel.Store.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TagCategory_Category1">
+          <End Role="Category" Type="BeeconDBModel.Store.Category" Multiplicity="1" />
+          <End Role="TagCategory" Type="BeeconDBModel.Store.TagCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="TagCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TagCategory_Tag">
+          <End Role="Tag" Type="BeeconDBModel.Store.Tag" Multiplicity="1" />
+          <End Role="TagCategory" Type="BeeconDBModel.Store.TagCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="TagID" />
+            </Principal>
+            <Dependent Role="TagCategory">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TagRating_Tag1">
+          <End Role="Tag" Type="BeeconDBModel.Store.Tag" Multiplicity="1" />
+          <End Role="TagRating" Type="BeeconDBModel.Store.TagRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="TagID" />
+            </Principal>
+            <Dependent Role="TagRating">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TagRating_Users">
+          <End Role="Users" Type="BeeconDBModel.Store.Users" Multiplicity="1" />
+          <End Role="TagRating" Type="BeeconDBModel.Store.TagRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TagRating">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TagVisited_Tag1">
+          <End Role="Tag" Type="BeeconDBModel.Store.Tag" Multiplicity="1" />
+          <End Role="TagVisited" Type="BeeconDBModel.Store.TagVisited" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="TagID" />
+            </Principal>
+            <Dependent Role="TagVisited">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TagVisited_Users">
+          <End Role="Users" Type="BeeconDBModel.Store.Users" Multiplicity="1" />
+          <End Role="TagVisited" Type="BeeconDBModel.Store.TagVisited" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TagVisited">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserID">
+          <End Role="Users" Type="BeeconDBModel.Store.Users" Multiplicity="1" />
+          <End Role="Invites" Type="BeeconDBModel.Store.Invites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Invites">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User_UserID_Sent_To">
+          <End Role="Users" Type="BeeconDBModel.Store.Users" Multiplicity="1" />
+          <End Role="Invites" Type="BeeconDBModel.Store.Invites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Invites">
+              <PropertyRef Name="UserIDSentTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BeeconDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BeeconDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="BeeconDBModel.Category" />
+          <EntitySet Name="FriendLists" EntityType="BeeconDBModel.FriendList" />
+          <EntitySet Name="Invites" EntityType="BeeconDBModel.Invite" />
+          <EntitySet Name="Tags" EntityType="BeeconDBModel.Tag" />
+          <EntitySet Name="TagPrivacyTypes" EntityType="BeeconDBModel.TagPrivacyType" />
+          <EntitySet Name="TagRatings" EntityType="BeeconDBModel.TagRating" />
+          <EntitySet Name="TagVisiteds" EntityType="BeeconDBModel.TagVisited" />
+          <EntitySet Name="Users" EntityType="BeeconDBModel.User" />
+          <AssociationSet Name="fk_FriendList_User2" Association="BeeconDBModel.fk_FriendList_User2">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="FriendList" EntitySet="FriendLists" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FriendList_Users" Association="BeeconDBModel.fk_FriendList_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="FriendList" EntitySet="FriendLists" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserID" Association="BeeconDBModel.fk_UserID">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Invites" EntitySet="Invites" />
+          </AssociationSet>
+          <AssociationSet Name="User_UserID_Sent_To" Association="BeeconDBModel.User_UserID_Sent_To">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Invites" EntitySet="Invites" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Tag_TagPrivacyType1" Association="BeeconDBModel.fk_Tag_TagPrivacyType1">
+            <End Role="TagPrivacyType" EntitySet="TagPrivacyTypes" />
+            <End Role="Tag" EntitySet="Tags" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Tag_Users" Association="BeeconDBModel.fk_Tag_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Tag" EntitySet="Tags" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TagRating_Tag1" Association="BeeconDBModel.fk_TagRating_Tag1">
+            <End Role="Tag" EntitySet="Tags" />
+            <End Role="TagRating" EntitySet="TagRatings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TagVisited_Tag1" Association="BeeconDBModel.fk_TagVisited_Tag1">
+            <End Role="Tag" EntitySet="Tags" />
+            <End Role="TagVisited" EntitySet="TagVisiteds" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TagRating_Users" Association="BeeconDBModel.fk_TagRating_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TagRating" EntitySet="TagRatings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TagVisited_Users" Association="BeeconDBModel.fk_TagVisited_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TagVisited" EntitySet="TagVisiteds" />
+          </AssociationSet>
+          <AssociationSet Name="TagCategory" Association="BeeconDBModel.TagCategory">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Tag" EntitySet="Tags" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Category1" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Tags" Relationship="BeeconDBModel.TagCategory" FromRole="Category" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="FriendList">
+          <Key>
+            <PropertyRef Name="FriendID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserIDRequested" Type="Int32" Nullable="false" />
+          <Property Name="FriendID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="BeeconDBModel.fk_FriendList_User2" FromRole="FriendList" ToRole="Users" />
+          <NavigationProperty Name="User1" Relationship="BeeconDBModel.fk_FriendList_Users" FromRole="FriendList" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Invite">
+          <Key>
+            <PropertyRef Name="InviteID" />
+          </Key>
+          <Property Name="InviteID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserIDSentTo" Type="Int32" Nullable="false" />
+          <Property Name="Accepted" Type="Boolean" Nullable="false" />
+          <Property Name="Rejected" Type="Boolean" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="User" Relationship="BeeconDBModel.fk_UserID" FromRole="Invites" ToRole="Users" />
+          <NavigationProperty Name="User1" Relationship="BeeconDBModel.User_UserID_Sent_To" FromRole="Invites" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="TagID" />
+          </Key>
+          <Property Name="TagID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TagLongitude" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="TagLatitude" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="TagDescription" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="TagDateCreated" Type="DateTime" Precision="3" />
+          <Property Name="TagExpired" Type="DateTime" Precision="3" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="TagContent_URL" Type="String" MaxLength="70" Unicode="false" FixedLength="false" />
+          <Property Name="PrivacyTypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TagPrivacyType" Relationship="BeeconDBModel.fk_Tag_TagPrivacyType1" FromRole="Tag" ToRole="TagPrivacyType" />
+          <NavigationProperty Name="User" Relationship="BeeconDBModel.fk_Tag_Users" FromRole="Tag" ToRole="Users" />
+          <NavigationProperty Name="TagRatings" Relationship="BeeconDBModel.fk_TagRating_Tag1" FromRole="Tag" ToRole="TagRating" />
+          <NavigationProperty Name="TagVisiteds" Relationship="BeeconDBModel.fk_TagVisited_Tag1" FromRole="Tag" ToRole="TagVisited" />
+          <NavigationProperty Name="Categories" Relationship="BeeconDBModel.TagCategory" FromRole="Tag" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="TagPrivacyType">
+          <Key>
+            <PropertyRef Name="PrivacyTypeID" />
+          </Key>
+          <Property Name="PrivacyTypeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PrivacyDescription" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Tags" Relationship="BeeconDBModel.fk_Tag_TagPrivacyType1" FromRole="TagPrivacyType" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="TagRating">
+          <Key>
+            <PropertyRef Name="RatingID" />
+          </Key>
+          <Property Name="RatingID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Rate" Type="Int32" />
+          <Property Name="TagID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tag" Relationship="BeeconDBModel.fk_TagRating_Tag1" FromRole="TagRating" ToRole="Tag" />
+          <NavigationProperty Name="User" Relationship="BeeconDBModel.fk_TagRating_Users" FromRole="TagRating" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="TagVisited">
+          <Key>
+            <PropertyRef Name="VisitID" />
+          </Key>
+          <Property Name="VisitID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="TagID" Type="Int32" Nullable="false" />
+          <Property Name="VisitTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Tag" Relationship="BeeconDBModel.fk_TagVisited_Tag1" FromRole="TagVisited" ToRole="Tag" />
+          <NavigationProperty Name="User" Relationship="BeeconDBModel.fk_TagVisited_Users" FromRole="TagVisited" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="FirstName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Dob" Type="DateTime" Precision="3" />
+          <Property Name="PasswordHashed" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="TagsFound" Type="Int32" />
+          <Property Name="TagsPosted" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="FriendLists" Relationship="BeeconDBModel.fk_FriendList_User2" FromRole="Users" ToRole="FriendList" />
+          <NavigationProperty Name="FriendLists1" Relationship="BeeconDBModel.fk_FriendList_Users" FromRole="Users" ToRole="FriendList" />
+          <NavigationProperty Name="Invites" Relationship="BeeconDBModel.fk_UserID" FromRole="Users" ToRole="Invites" />
+          <NavigationProperty Name="Invites1" Relationship="BeeconDBModel.User_UserID_Sent_To" FromRole="Users" ToRole="Invites" />
+          <NavigationProperty Name="Tags" Relationship="BeeconDBModel.fk_Tag_Users" FromRole="Users" ToRole="Tag" />
+          <NavigationProperty Name="TagRatings" Relationship="BeeconDBModel.fk_TagRating_Users" FromRole="Users" ToRole="TagRating" />
+          <NavigationProperty Name="TagVisiteds" Relationship="BeeconDBModel.fk_TagVisited_Users" FromRole="Users" ToRole="TagVisited" />
+        </EntityType>
+        <Association Name="fk_FriendList_User2">
+          <End Role="Users" Type="BeeconDBModel.User" Multiplicity="1" />
+          <End Role="FriendList" Type="BeeconDBModel.FriendList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FriendList">
+              <PropertyRef Name="UserIDRequested" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FriendList_Users">
+          <End Role="Users" Type="BeeconDBModel.User" Multiplicity="1" />
+          <End Role="FriendList" Type="BeeconDBModel.FriendList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="FriendList">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserID">
+          <End Role="Users" Type="BeeconDBModel.User" Multiplicity="1" />
+          <End Role="Invites" Type="BeeconDBModel.Invite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Invites">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User_UserID_Sent_To">
+          <End Role="Users" Type="BeeconDBModel.User" Multiplicity="1" />
+          <End Role="Invites" Type="BeeconDBModel.Invite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Invites">
+              <PropertyRef Name="UserIDSentTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Tag_TagPrivacyType1">
+          <End Role="TagPrivacyType" Type="BeeconDBModel.TagPrivacyType" Multiplicity="1" />
+          <End Role="Tag" Type="BeeconDBModel.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TagPrivacyType">
+              <PropertyRef Name="PrivacyTypeID" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="PrivacyTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Tag_Users">
+          <End Role="Users" Type="BeeconDBModel.User" Multiplicity="1" />
+          <End Role="Tag" Type="BeeconDBModel.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TagRating_Tag1">
+          <End Role="Tag" Type="BeeconDBModel.Tag" Multiplicity="1" />
+          <End Role="TagRating" Type="BeeconDBModel.TagRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="TagID" />
+            </Principal>
+            <Dependent Role="TagRating">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TagVisited_Tag1">
+          <End Role="Tag" Type="BeeconDBModel.Tag" Multiplicity="1" />
+          <End Role="TagVisited" Type="BeeconDBModel.TagVisited" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="TagID" />
+            </Principal>
+            <Dependent Role="TagVisited">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TagRating_Users">
+          <End Role="Users" Type="BeeconDBModel.User" Multiplicity="1" />
+          <End Role="TagRating" Type="BeeconDBModel.TagRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TagRating">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TagVisited_Users">
+          <End Role="Users" Type="BeeconDBModel.User" Multiplicity="1" />
+          <End Role="TagVisited" Type="BeeconDBModel.TagVisited" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="TagVisited">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TagCategory">
+          <End Role="Category" Type="BeeconDBModel.Category" Multiplicity="*" />
+          <End Role="Tag" Type="BeeconDBModel.Tag" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BeeconDBModelStoreContainer" CdmEntityContainer="BeeconDBEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="BeeconDBModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Category1" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FriendLists">
+            <EntityTypeMapping TypeName="BeeconDBModel.FriendList">
+              <MappingFragment StoreEntitySet="FriendList">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="UserIDRequested" ColumnName="UserIDRequested" />
+                <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invites">
+            <EntityTypeMapping TypeName="BeeconDBModel.Invite">
+              <MappingFragment StoreEntitySet="Invites">
+                <ScalarProperty Name="InviteID" ColumnName="InviteID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserIDSentTo" ColumnName="UserIDSentTo" />
+                <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+                <ScalarProperty Name="Rejected" ColumnName="Rejected" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="BeeconDBModel.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="TagLongitude" ColumnName="TagLongitude" />
+                <ScalarProperty Name="TagLatitude" ColumnName="TagLatitude" />
+                <ScalarProperty Name="TagDescription" ColumnName="TagDescription" />
+                <ScalarProperty Name="TagDateCreated" ColumnName="TagDateCreated" />
+                <ScalarProperty Name="TagExpired" ColumnName="TagExpired" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TagContent_URL" ColumnName="TagContent_URL" />
+                <ScalarProperty Name="PrivacyTypeID" ColumnName="PrivacyTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TagPrivacyTypes">
+            <EntityTypeMapping TypeName="BeeconDBModel.TagPrivacyType">
+              <MappingFragment StoreEntitySet="TagPrivacyType">
+                <ScalarProperty Name="PrivacyTypeID" ColumnName="PrivacyTypeID" />
+                <ScalarProperty Name="PrivacyDescription" ColumnName="PrivacyDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TagRatings">
+            <EntityTypeMapping TypeName="BeeconDBModel.TagRating">
+              <MappingFragment StoreEntitySet="TagRating">
+                <ScalarProperty Name="RatingID" ColumnName="RatingID" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TagVisiteds">
+            <EntityTypeMapping TypeName="BeeconDBModel.TagVisited">
+              <MappingFragment StoreEntitySet="TagVisited">
+                <ScalarProperty Name="VisitID" ColumnName="VisitID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="VisitTime" ColumnName="VisitTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="BeeconDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="PasswordHashed" ColumnName="PasswordHashed" />
+                <ScalarProperty Name="TagsFound" ColumnName="TagsFound" />
+                <ScalarProperty Name="TagsPosted" ColumnName="TagsPosted" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="TagCategory" TypeName="BeeconDBModel.TagCategory" StoreEntitySet="TagCategory">
+            <EndProperty Name="Category">
+              <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+            </EndProperty>
+            <EndProperty Name="Tag">
+              <ScalarProperty Name="TagID" ColumnName="TagID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
