@@ -4,7 +4,7 @@ go
 create database BeeconDB;
 go
 use BeeconDB;
-CREATE  TABLE tblUser (
+CREATE  TABLE User (
   UserID INT NOT NULL IDENTITY,
   Email VARCHAR(45) NULL ,
   FirstName VARCHAR(45) NULL ,
@@ -17,14 +17,14 @@ CREATE  TABLE tblUser (
   Gender VARCHAR(10) NULL ,
   PRIMARY KEY (UserID) )
   
-  CREATE  TABLE tblTagPrivacyType (
+  CREATE  TABLE TagPrivacyType (
   PrivacyTypeID INT NOT NULL IDENTITY,
   PrivacyDescription VARCHAR(45) NULL ,
   PRIMARY KEY (PrivacyTypeID) )
 
 
 
-CREATE  TABLE tblTag (
+CREATE  TABLE Tag (
   TagID INT NOT NULL IDENTITY,
   TagLongitude VARCHAR(45) NULL ,
   TagLatitude VARCHAR(45) NULL ,
@@ -50,7 +50,7 @@ CREATE  TABLE tblTag (
 -- -----------------------------------------------------
 -- Table mydb.tblTagRating
 -- -----------------------------------------------------
-CREATE  TABLE tblTagRating (
+CREATE  TABLE TagRating (
   RatingID INT NOT NULL IDENTITY,
   Rate INT NULL ,
   TagID INT NOT NULL ,
@@ -72,7 +72,7 @@ CREATE  TABLE tblTagRating (
 -- -----------------------------------------------------
 -- Table mydb.tblCategory
 -- -----------------------------------------------------
-CREATE  TABLE tblCategory (
+CREATE  TABLE Category (
   CategoryID INT NOT NULL IDENTITY,
   Category VARCHAR(45) NULL ,
   PRIMARY KEY (CategoryID) )
@@ -82,7 +82,7 @@ CREATE  TABLE tblCategory (
 -- -----------------------------------------------------
 -- Table mydb.tblTagCategory
 -- -----------------------------------------------------
-CREATE  TABLE tblTagCategory (
+CREATE  TABLE TagCategory (
   TagID INT NOT NULL ,
   CategoryID INT NOT NULL ,
   PRIMARY KEY (TagID, CategoryID) ,
@@ -103,7 +103,7 @@ CREATE  TABLE tblTagCategory (
 -- -----------------------------------------------------
 -- Table mydb.tblFriendList
 -- -----------------------------------------------------
-CREATE  TABLE tblFriendList (
+CREATE  TABLE FriendList (
   UserID INT NOT NULL ,
   Created DATETIME NOT NULL ,
   UserIDRequested INT NOT NULL ,
@@ -125,7 +125,7 @@ CREATE  TABLE tblFriendList (
 -- -----------------------------------------------------
 -- Table mydb.tblTagVisited
 -- -----------------------------------------------------
-CREATE  TABLE tblTagVisited (
+CREATE  TABLE TagVisited (
   VisitID INT NOT NULL IDENTITY,
   UserID INT NOT NULL ,
   TagID INT NOT NULL ,
@@ -147,7 +147,7 @@ CREATE  TABLE tblTagVisited (
 -- -----------------------------------------------------
 -- Table mydb.tblInvites
 -- -----------------------------------------------------
-CREATE  TABLE tblInvites (
+CREATE  TABLE Invites (
   InviteID INT NOT NULL IDENTITY,
   UserID INT NOT NULL ,
   UserIDSentTo INT NOT NULL ,
@@ -169,7 +169,3 @@ CREATE  TABLE tblInvites (
 go
 USE [BeeconDB]
 GO
-SET IDENTITY_INSERT [dbo].[tblUser] ON 
-
-INSERT [dbo].[tblUser] ([UserID], [Email], [FirstName], [LastName], [ZipCode], [Dob], [PasswordHashed], [TagsFound], [TagsPosted], [Gender]) VALUES (1, N'aragorn55@gmail.com', N'josh', N'meyer', N'54915', N'12/15/1985', NULL, 0, 0, N'male')
-SET IDENTITY_INSERT [dbo].[tblUser] OFF
