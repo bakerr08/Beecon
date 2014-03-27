@@ -2,3 +2,9 @@ C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon.Models\bin\Debug\Beecon.Models
 C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon.Models\bin\Debug\Beecon.Models.pdb
 C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon.Models\obj\Debug\Beecon.Models.dll
 C:\Users\Im God\Desktop\test\Beecon\Beecon\Beecon.Models\obj\Debug\Beecon.Models.pdb
+C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models\obj\Debug\Beecon.Models.csprojResolveAssemblyReference.cache
+C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models\bin\Debug\Beecon.Models.dll
+C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models\bin\Debug\Beecon.Models.pdb
+C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models\bin\Debug\Newtonsoft.Json.dll
+C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models\obj\Debug\Beecon.Models.dll
+C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models\obj\Debug\Beecon.Models.pdb

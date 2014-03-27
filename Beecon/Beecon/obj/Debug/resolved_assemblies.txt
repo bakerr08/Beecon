@@ -1,1 +1,2 @@
 C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.dll
+C:\Users\student\Desktop\Beecon\Beecon\Components\json.net-4.5.11\lib\android\Newtonsoft.Json.dll

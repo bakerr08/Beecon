@@ -127,7 +127,7 @@ namespace Beecon.Models
 			
 		public string ConvertToJson(cUser _user)
 		{
-			var json = JsonConvert.SerializeObject (user);
+			var json = JsonConvert.SerializeObject (_user);
 			return json;
 
 		}

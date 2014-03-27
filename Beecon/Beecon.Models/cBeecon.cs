@@ -78,14 +78,14 @@ namespace Beecon.Models
 
 		public string ConvertToJson(cBeecon _beecon)
 		{
-			var json = JsonConvert.SerializeObject (beecon);
+			var json = JsonConvert.SerializeObject (_beecon);
 			return json;
 
 		}
 
 		public cBeecon ConvertJsonToUser(string json)
 		{
-			var beecon = JsonConvert.DeserializeObject<cUser> (json);
+			var beecon = JsonConvert.DeserializeObject<cBeecon> (json);
 			return beecon;
 		}
 

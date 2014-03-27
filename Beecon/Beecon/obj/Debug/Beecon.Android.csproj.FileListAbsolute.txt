@@ -16,6 +16,7 @@ C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.pdb
 C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.dll.mdb
 C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.Beecon.apk
 C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Beecon.Beecon-Signed.apk
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Newtonsoft.Json.dll
 C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\Beecon.dll
 C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\Beecon.pdb
 C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\android\bin\Beecon.Beecon.apk
