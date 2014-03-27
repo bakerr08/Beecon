@@ -37,7 +37,7 @@ CREATE  TABLE Tag (
   PRIMARY KEY (TagID) ,
   CONSTRAINT fk_Tag_Users
     FOREIGN KEY (UserID )
-    REFERENCES User (UserID )
+    REFERENCES Users (UserID )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT fk_Tag_TagPrivacyType1
@@ -63,7 +63,7 @@ CREATE  TABLE TagRating (
     ON UPDATE NO ACTION,
   CONSTRAINT fk_TagRating_Users
     FOREIGN KEY (UserID )
-    REFERENCES User (UserID )
+    REFERENCES Users (UserID )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 
@@ -111,12 +111,12 @@ CREATE  TABLE FriendList (
   PRIMARY KEY (FriendID) ,
   CONSTRAINT fk_FriendList_Users
     FOREIGN KEY (UserID )
-    REFERENCES User (UserID )
+    REFERENCES Users (UserID )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT fk_FriendList_User2
     FOREIGN KEY (UserIDRequested )
-    REFERENCES User (UserID )
+    REFERENCES Users (UserID )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 
@@ -133,7 +133,7 @@ CREATE  TABLE TagVisited (
   PRIMARY KEY (VisitID) ,
   CONSTRAINT fk_TagVisited_Users
     FOREIGN KEY (UserID )
-    REFERENCES User (UserID )
+    REFERENCES Users (UserID )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT fk_TagVisited_Tag1
@@ -158,12 +158,12 @@ CREATE  TABLE Invites (
 
   CONSTRAINT fk_UserID
     FOREIGN KEY (UserID )
-    REFERENCES User (UserID )
+    REFERENCES Users (UserID )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT User_UserID_Sent_To
     FOREIGN KEY (UserIDSentTo )
-    REFERENCES User (UserID )
+    REFERENCES Users (UserID )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 go
