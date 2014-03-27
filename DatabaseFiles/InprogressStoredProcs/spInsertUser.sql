@@ -9,6 +9,6 @@ create proc spInsertUser
   @TagsPosted INT = NULL ,
   @Gender VARCHAR(10) = NULL
 as
-insert into tblUser
+insert into Users
 values (@Email, @FirstName, @LastName, @ZipCode, @Dob, @PasswordHashed, @TagsFound, @TagsPosted, @Gender);
 return @@IDENTITY;

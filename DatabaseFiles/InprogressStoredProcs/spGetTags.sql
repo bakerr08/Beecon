@@ -1,4 +1,4 @@
 create proc spGetTag
 as
 select * 
-from tblTag;
+from Tag;
