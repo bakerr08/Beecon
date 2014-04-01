@@ -1,6 +1,7 @@
 use BeeconDB;
 GO
-create proc spInsertUser
+create proc spUPDATEUser
+ @UserID VARCHAR(45) = NULL,
   @Email VARCHAR(45) = NULL,
   @FirstName VARCHAR(45) = NULL,
   @LastName VARCHAR(45) = NULL,
@@ -11,9 +12,11 @@ create proc spInsertUser
   @TagsPosted INT = NULL,
   @Gender VARCHAR(10) = NULL
 as
-insert into Users
-values (@Email, @FirstName, @LastName, @ZipCode, @Dob, @PasswordHashed, @TagsFound, @TagsPosted, @Gender);
-return @@IDENTITY;
+UPDATE  Users
+set Email = @Email, FirstName = @FirstName,  LastName = @LastName, ZipCode  = @ZipCode,
+ Dob  = @Dob, PasswordHashed  = @PasswordHashed, TagsFound  = @TagsFound,
+ TagsPosted  = @TagsPosted, Gender = @Gender
+ where UserID = @UserID;
 GO
 use BeeconDB;
 GO
