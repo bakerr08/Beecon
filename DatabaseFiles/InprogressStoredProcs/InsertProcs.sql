@@ -13,97 +13,93 @@ insert into Users
 values (@Email, @FirstName, @LastName, @ZipCode, @Dob, @PasswordHashed, @TagsFound, @TagsPosted, @Gender);
 return @@IDENTITY;
 
-CREATE  TABLE Tag (
-  TagID INT NOT NULL IDENTITY,
-  TagLongitude VARCHAR(45) NULL ,
-  TagLatitude VARCHAR(45) NULL ,
-  TagDescription VARCHAR(45) NULL ,
-  TagDateCreated DATETIME NULL ,
-  TagExpired DATETIME NULL ,
-  UserID INT NOT NULL ,
-  TagContent_URL VARCHAR(70) NULL ,
-  PrivacyTypeID INT NOT NULL ,
+CREATE  proc spInsertTag (
+
+  @TagLongitude VARCHAR(45) = NULL ,
+  @TagLatitude VARCHAR(45) = NULL ,
+  @TagDescription VARCHAR(45) = NULL ,
+  @TagDateCreated DATETIME = NULL ,
+  @TagExpired DATETIME = NULL ,
+  @UserID INT NOT = NULL ,
+  @TagContent_URL VARCHAR(70) = NULL ,
+  @PrivacyTypeID INT NOT = NULL ,
+ as
+insert into Tag
+values (@TagLongitude, @TagLatitude, @TagDescription, @TagDateCreated, @TagExpired, @UserID, @TagContent_URL, @PrivacyTypeID);
+return @@IDENTITY; 
   
   
-  
-  CREATE  TABLE TagRating (
-  RatingID INT NOT NULL IDENTITY,
-  Rate INT NULL ,
-  TagID INT NOT NULL ,
-  UserID INT NOT NULL ,
-  PRIMARY KEY (RatingID) ,
-  CONSTRAINT fk_TagRating_Tag1
-    FOREIGN KEY (TagID )
-    REFERENCES Tag (TagID )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT fk_TagRating_Users
-    FOREIGN KEY (UserID )
-    REFERENCES Users (UserID )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  CREATE  proc spInsertTagRating (
+  @Rate INT = NULL ,
+  @TagID INT NOT = NULL ,
+  @UserID INT NOT = NULL ,
+  as
+insert into TagRating
+values (@Rate, @TagID, @UserID);
+return @@IDENTITY; 
 
 
 
 -- -----------------------------------------------------
--- Table mydb.tblCategory
+-- proc spInsertmydb.tblCategory
 -- -----------------------------------------------------
-CREATE  TABLE Category (
-  CategoryID INT NOT NULL IDENTITY,
-  Category VARCHAR(45) NULL ,
-  PRIMARY KEY (CategoryID) )
-
-
-
--- -----------------------------------------------------
--- Table mydb.tblTagCategory
--- -----------------------------------------------------
-CREATE  TABLE TagCategory (
-  TagID INT NOT NULL ,
-  CategoryID INT NOT NULL ,
-  PRIMARY KEY (TagID, CategoryID) ,
-
-  CONSTRAINT fk_TagCategory_Tag
-    FOREIGN KEY (TagID )
-    REFERENCES Tag (TagID )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT fk_TagCategory_Category1
-    FOREIGN KEY (CategoryID )
-    REFERENCES Category (CategoryID )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+CREATE  proc spInsertCategory (
+  @Category VARCHAR(45) = NULL ,
+as
+insert into Category
+values (@Category);
+return @@IDENTITY; 
 
 
 
 -- -----------------------------------------------------
--- Table mydb.tblFriendList
+-- proc spInsertmydb.tblTagCategory
 -- -----------------------------------------------------
-CREATE  TABLE FriendList (
-  UserID INT NOT NULL ,
-  Created DATETIME NOT NULL ,
-  UserIDRequested INT NOT NULL ,
-  FriendID INT NOT NULL ,
-
--- -----------------------------------------------------
--- Table mydb.tblTagVisited
--- -----------------------------------------------------
-CREATE  TABLE TagVisited (
-  VisitID INT NOT NULL IDENTITY,
-  UserID INT NOT NULL ,
-  TagID INT NOT NULL ,
-  VisitTime DATETIME NULL ,
-
+CREATE  proc spInsertTagCategory (
+  @TagID INT NOT = NULL ,
+  @CategoryID INT NOT = NULL ,
+  as
+insert into TagCategory
+values (@TagID, @CategoryID);
+return @@IDENTITY; 
 
 
 
 -- -----------------------------------------------------
--- Table mydb.tblInvites
+-- proc spInsertmydb.tblFriendList
 -- -----------------------------------------------------
-CREATE  TABLE Invites (
-  InviteID INT NOT NULL IDENTITY,
-  UserID INT NOT NULL ,
-  UserIDSentTo INT NOT NULL ,
-  Accepted bit   NOT NULL ,
-  Rejected bit   NOT NULL ,
-  Created DATETIME NULL ,
+CREATE  proc spInsertFriendList (
+  @UserID INT NOT = NULL ,
+  @Created DATETIME NOT = NULL ,
+  @UserIDRequested INT NOT = NULL ,
+as
+insert into FriendList
+values (@UserID, @Created, @UserIDRequested, @FriendID);
+return @@IDENTITY; 
+-- -----------------------------------------------------
+-- proc spInsertmydb.tblTagVisited
+-- -----------------------------------------------------
+CREATE  proc spInsertTagVisited (
+  @UserID INT NOT = NULL ,
+  @TagID INT NOT = NULL ,
+  @VisitTime DATETIME = NULL ,
+as
+insert into TagVisited
+values (@UserID, @TagID, @VisitTime);
+return @@IDENTITY; 
+
+
+
+-- -----------------------------------------------------
+-- proc spInsertmydb.tblInvites
+-- -----------------------------------------------------
+CREATE  proc spInsertInvites (
+  @UserID INT NOT = NULL ,
+  @UserIDSentTo INT NOT = NULL ,
+  @Accepted bit   NOT = NULL ,
+  @Rejected bit   NOT = NULL ,
+  @Created DATETIME = NULL ,
+as
+insert into Invites
+values (@UserID, @UserIDSentTo, @Accepted, @Rejected, @Created);
+return @@IDENTITY; 

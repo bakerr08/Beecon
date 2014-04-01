@@ -104,10 +104,11 @@ CREATE  TABLE TagCategory (
 -- Table mydb.tblFriendList
 -- -----------------------------------------------------
 CREATE  TABLE FriendList (
+  FriendID INT NOT NULL IDENTITY,
   UserID INT NOT NULL ,
   Created DATETIME NOT NULL ,
   UserIDRequested INT NOT NULL ,
-  FriendID INT NOT NULL ,
+  
   PRIMARY KEY (FriendID) ,
   CONSTRAINT fk_FriendList_Users
     FOREIGN KEY (UserID )
