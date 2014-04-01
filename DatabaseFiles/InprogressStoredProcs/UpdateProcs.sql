@@ -1,6 +1,6 @@
 use BeeconDB;
 GO
-create proc spUPDATEUser
+create proc spUpdateUser
  @UserID VARCHAR(45) = NULL,
   @Email VARCHAR(45) = NULL,
   @FirstName VARCHAR(45) = NULL,
@@ -27,15 +27,16 @@ GO
 use BeeconDB;
  GO
   
-  CREATE  proc spUpdateTagPrivacyType
-  @PrivacyDescription VARCHAR(45) = NULL,
+ CREATE  proc spUpdateTagPrivacyType
+ @PrivacyTypeID INT,
+  @PrivacyDescription VARCHAR(45) = NULL
   
   as
 update  TagPrivacyType
-set PrivacyDescription = @PrivacyDescription;
-return @@IDENTITY; 
+set PrivacyDescription = @PrivacyDescription
+where PrivacyTypeID = @PrivacyTypeID;
 GO
-CREATE  proc spUPDATETag 
+CREATE  proc spUpdateTag 
 
   @TagID INT,
   @TagLongitude VARCHAR(45) = NULL,
@@ -56,10 +57,10 @@ TagExpired = @TagExpired,
 UserID = @UserID, 
 TagContent_URL = @TagContent_URL, 
 PrivacyTypeID = @PrivacyTypeID
-where UserID = @UserID;
+where TagID = @TagID;
   GO
   
-CREATE  proc spUPDATETagRating 
+CREATE  proc spUpdateTagRating 
   @RatingID INT,
   @Rate INT = NULL,
   @TagID INT,
@@ -67,8 +68,8 @@ CREATE  proc spUPDATETagRating
   as
 update TagRating
 set Rate = @Rate, TagID = @TagID, UserID = @UserID
-where RatingID 
-return @@IDENTITY; 
+where RatingID =  @RatingID
+
 
 GO
 
@@ -76,12 +77,12 @@ GO
 -- proc spInsertmydb.tblCategory
 -- -----------------------------------------------------
 CREATE  proc spUpdateCategory 
-  @CategoryID INT 
+  @CategoryID INT ,
   @Category VARCHAR(45) = NULL
 as
 update Category
-set  = @Category);
-return @@IDENTITY; 
+set Category  = @Category
+where CategoryID = @CategoryID;
 GO
 
 
@@ -93,8 +94,8 @@ CREATE  proc spUpdateTagCategory
   @CategoryID INT
   as
 update TagCategory
-set  = @CategoryID);
-return @@IDENTITY; 
+set  CategoryID = @CategoryID
+where TagID = @TagID;
 GO
 
 
@@ -102,27 +103,31 @@ GO
 -- proc spUpdatemydb.tblFriendList
 -- -----------------------------------------------------
 CREATE  proc spUpdateFriendList 
-  @FriendID INT 
+  @FriendID INT ,
   @UserID INT,
   @Created DATETIME,
   @UserIDRequested INT
 as
 update FriendList
-set = @UserID,  = @Created,  = @UserIDRequested);
-return @@IDENTITY; 
+set UserID = @UserID, 
+Created = @Created,
+UserIDRequested = @UserIDRequested
+where FriendID = @FriendID;
 GO
 -- -----------------------------------------------------
 -- proc spUpdatemydb.tblTagVisited
 -- -----------------------------------------------------
 CREATE  proc spUpdateTagVisited 
-  @VisitID INT 
+  @VisitID INT ,
   @UserID INT,
   @TagID INT,
   @VisitTime DATETIME = NULL
 as
 update TagVisited
-set = @UserID,  = @TagID,  = @VisitTime);
-return @@IDENTITY; 
+set UserID = @UserID,
+ TagID = @TagID,
+ VisitTime = @VisitTime
+where VisitID = @VisitID;
 
 GO
 
@@ -130,7 +135,7 @@ GO
 -- proc spUpdatemydb.tblInvites
 -- -----------------------------------------------------
 CREATE  proc spUpdateInvites 
-  @InviteID INT 
+  @InviteID INT ,
   @UserID INT,
   @UserIDSentTo INT,
   @Accepted bit,  
@@ -138,5 +143,10 @@ CREATE  proc spUpdateInvites
   @Created DATETIME = NULL
 as
 update Invites
-set = @UserID,  = @UserIDSentTo,  = @Accepted,  = @Rejected,  = @Created);
-return @@IDENTITY; 
+set UserID = @UserID,
+ UserIDSentTo = @UserIDSentTo,
+ Accepted = @Accepted,
+ Rejected = @Rejected,
+ Created = @Created
+where InviteID = @InviteID;
+go
