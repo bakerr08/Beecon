@@ -174,6 +174,11 @@ create proc spGetAllTag
 as
 select * 
 from Tag;
+GO
+create proc spGetAllTagPrivacyType
+as
+select * 
+from TagPrivacyType;
 go
 create proc spGetAllUsers
 as
@@ -213,11 +218,19 @@ go
 use BeeconDB
 GO
 create proc spGetTagByID
- @UserID INT
+ @TagID INT
 as
 select * 
 from Tag
-where  UserID = @UserID;
+where  TagID = @TagID;
+
+go
+create proc spGetTagPrivacyTypeByID
+ @PrivacyTypeID INT
+as
+select * 
+from Tag
+where  PrivacyTypeID = @PrivacyTypeID;
 
 go
 create proc spGetUsersByID
@@ -345,6 +358,15 @@ values (@TagLongitude, @TagLatitude, @TagDescription, @TagDateCreated, @TagExpir
 return @@IDENTITY; 
   GO
   
+  CREATE  proc spInsertTagPrivacyType
+  @PrivacyDescription VARCHAR(45) = NULL,
+  
+  as
+insert into TagPrivacyType
+values (@PrivacyDescription);
+return @@IDENTITY; 
+GO
+  
   CREATE  proc spInsertTagRating 
   @Rate INT = NULL,
   @TagID INT,
@@ -353,7 +375,6 @@ return @@IDENTITY;
 insert into TagRating
 values (@Rate, @TagID, @UserID);
 return @@IDENTITY; 
-
 GO
 
 -- -----------------------------------------------------
