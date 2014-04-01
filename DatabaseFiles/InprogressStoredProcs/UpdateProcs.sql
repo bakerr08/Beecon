@@ -1,6 +1,4 @@
-use BeeconDB;
-GO
-create proc spUPDATEUser
+create proc spUpdateUser
  @UserID VARCHAR(45) = NULL,
   @Email VARCHAR(45) = NULL,
   @FirstName VARCHAR(45) = NULL,
@@ -13,15 +11,30 @@ create proc spUPDATEUser
   @Gender VARCHAR(10) = NULL
 as
 UPDATE  Users
-set Email = @Email, FirstName = @FirstName,  LastName = @LastName, ZipCode  = @ZipCode,
- Dob  = @Dob, PasswordHashed  = @PasswordHashed, TagsFound  = @TagsFound,
- TagsPosted  = @TagsPosted, Gender = @Gender
+set Email = @Email, 
+FirstName = @FirstName,  
+LastName = @LastName, 
+ZipCode  = @ZipCode,
+ Dob  = @Dob,
+ PasswordHashed  = @PasswordHashed, 
+ TagsFound  = @TagsFound,
+ TagsPosted  = @TagsPosted, 
+ Gender = @Gender
  where UserID = @UserID;
+ GO
+  
+ CREATE  proc spUpdateTagPrivacyType
+ @PrivacyTypeID INT,
+  @PrivacyDescription VARCHAR(45) = NULL
+  
+  as
+update  TagPrivacyType
+set PrivacyDescription = @PrivacyDescription
+where PrivacyTypeID = @PrivacyTypeID;
 GO
-use BeeconDB;
-GO
-CREATE  proc spInsertTag 
+CREATE  proc spUpdateTag 
 
+  @TagID INT,
   @TagLongitude VARCHAR(45) = NULL,
   @TagLatitude VARCHAR(45) = NULL,
   @TagDescription VARCHAR(45) = NULL,
@@ -31,83 +44,105 @@ CREATE  proc spInsertTag
   @TagContent_URL VARCHAR(70) = NULL,
   @PrivacyTypeID INT
   AS
-insert into Tag
-values (@TagLongitude, @TagLatitude, @TagDescription, @TagDateCreated, @TagExpired, @UserID, @TagContent_URL, @PrivacyTypeID);
-return @@IDENTITY; 
+update Tag
+set TagLongitude = @TagLongitude, 
+TagLatitude = @TagLatitude, 
+TagDescription = @TagDescription, 
+TagDateCreated = @TagDateCreated, 
+TagExpired = @TagExpired, 
+UserID = @UserID, 
+TagContent_URL = @TagContent_URL, 
+PrivacyTypeID = @PrivacyTypeID
+where TagID = @TagID;
   GO
   
-  CREATE  proc spInsertTagRating 
+CREATE  proc spUpdateTagRating 
+  @RatingID INT,
   @Rate INT = NULL,
   @TagID INT,
   @UserID INT
   as
-insert into TagRating
-values (@Rate, @TagID, @UserID);
-return @@IDENTITY; 
+update TagRating
+set Rate = @Rate, TagID = @TagID, UserID = @UserID
+where RatingID =  @RatingID
+
 
 GO
 
 -- -----------------------------------------------------
 -- proc spInsertmydb.tblCategory
 -- -----------------------------------------------------
-CREATE  proc spInsertCategory 
+CREATE  proc spUpdateCategory 
+  @CategoryID INT ,
   @Category VARCHAR(45) = NULL
 as
-insert into Category
-values (@Category);
-return @@IDENTITY; 
+update Category
+set Category  = @Category
+where CategoryID = @CategoryID;
 GO
 
 
 -- -----------------------------------------------------
 -- proc spInsertmydb.tblTagCategory
 -- -----------------------------------------------------
-CREATE  proc spInsertTagCategory 
+CREATE  proc spUpdateTagCategory 
   @TagID INT,
   @CategoryID INT
   as
-insert into TagCategory
-values (@TagID, @CategoryID);
-return @@IDENTITY; 
+update TagCategory
+set  CategoryID = @CategoryID
+where TagID = @TagID;
 GO
 
 
 -- -----------------------------------------------------
--- proc spInsertmydb.tblFriendList
+-- proc spUpdatemydb.tblFriendList
 -- -----------------------------------------------------
-CREATE  proc spInsertFriendList 
+CREATE  proc spUpdateFriendList 
+  @FriendID INT ,
   @UserID INT,
   @Created DATETIME,
   @UserIDRequested INT
 as
-insert into FriendList
-values (@UserID, @Created, @UserIDRequested);
-return @@IDENTITY; 
+update FriendList
+set UserID = @UserID, 
+Created = @Created,
+UserIDRequested = @UserIDRequested
+where FriendID = @FriendID;
 GO
 -- -----------------------------------------------------
--- proc spInsertmydb.tblTagVisited
+-- proc spUpdatemydb.tblTagVisited
 -- -----------------------------------------------------
-CREATE  proc spInsertTagVisited 
+CREATE  proc spUpdateTagVisited 
+  @VisitID INT ,
   @UserID INT,
   @TagID INT,
   @VisitTime DATETIME = NULL
 as
-insert into TagVisited
-values (@UserID, @TagID, @VisitTime);
-return @@IDENTITY; 
+update TagVisited
+set UserID = @UserID,
+ TagID = @TagID,
+ VisitTime = @VisitTime
+where VisitID = @VisitID;
 
 GO
 
 -- -----------------------------------------------------
--- proc spInsertmydb.tblInvites
+-- proc spUpdatemydb.tblInvites
 -- -----------------------------------------------------
-CREATE  proc spInsertInvites 
+CREATE  proc spUpdateInvites 
+  @InviteID INT ,
   @UserID INT,
   @UserIDSentTo INT,
   @Accepted bit,  
   @Rejected bit,
   @Created DATETIME = NULL
 as
-insert into Invites
-values (@UserID, @UserIDSentTo, @Accepted, @Rejected, @Created);
-return @@IDENTITY; 
+update Invites
+set UserID = @UserID,
+ UserIDSentTo = @UserIDSentTo,
+ Accepted = @Accepted,
+ Rejected = @Rejected,
+ Created = @Created
+where InviteID = @InviteID;
+go
