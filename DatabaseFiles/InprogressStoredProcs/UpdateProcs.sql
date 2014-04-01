@@ -1,5 +1,3 @@
-use BeeconDB;
-GO
 create proc spUpdateUser
  @UserID VARCHAR(45) = NULL,
   @Email VARCHAR(45) = NULL,
@@ -23,8 +21,6 @@ ZipCode  = @ZipCode,
  TagsPosted  = @TagsPosted, 
  Gender = @Gender
  where UserID = @UserID;
-GO
-use BeeconDB;
  GO
   
  CREATE  proc spUpdateTagPrivacyType
