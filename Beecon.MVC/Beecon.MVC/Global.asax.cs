@@ -6,6 +6,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.Security;
+using WebMatrix.WebData;
 
 namespace Beecon.MVC
 {
@@ -16,6 +18,16 @@ namespace Beecon.MVC
     {
         protected void Application_Start()
         {
+
+
+            if (!WebSecurity.Initialized)
+                WebSecurity.InitializeDatabaseConnection("DefaultConnection",
+                     "Users", "UserID", "Email", autoCreateTables: true);
+
+
+
+
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

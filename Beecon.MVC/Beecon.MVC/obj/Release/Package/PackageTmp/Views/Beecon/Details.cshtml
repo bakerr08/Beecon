@@ -1,0 +1,71 @@
+﻿@model Beecon.MVC.Models.Tag
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Tag</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TagLongitude)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TagLongitude)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TagLatitude)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TagLatitude)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TagDescription)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TagDescription)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TagDateCreated)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TagDateCreated)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TagExpired)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TagExpired)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TagContent_URL)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TagContent_URL)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TagPrivacyType.PrivacyDescription)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TagPrivacyType.PrivacyDescription)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.TagID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

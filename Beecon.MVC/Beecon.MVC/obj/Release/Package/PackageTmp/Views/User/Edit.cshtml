@@ -1,0 +1,102 @@
+﻿@model Beecon.MVC.Models.User
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>User</legend>
+
+        @Html.HiddenFor(model => model.UserID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ZipCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ZipCode)
+            @Html.ValidationMessageFor(model => model.ZipCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Dob)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Dob)
+            @Html.ValidationMessageFor(model => model.Dob)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PasswordHashed)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PasswordHashed)
+            @Html.ValidationMessageFor(model => model.PasswordHashed)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TagsFound)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TagsFound)
+            @Html.ValidationMessageFor(model => model.TagsFound)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TagsPosted)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TagsPosted)
+            @Html.ValidationMessageFor(model => model.TagsPosted)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Gender)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Gender)
+            @Html.ValidationMessageFor(model => model.Gender)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
