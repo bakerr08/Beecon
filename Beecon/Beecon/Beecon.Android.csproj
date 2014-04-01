@@ -48,6 +48,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Components\json.net-4.5.11\lib\android\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Mobile">
+      <HintPath>..\Components\xamarin.mobile-0.7.1\lib\android\Xamarin.Mobile.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -68,6 +71,11 @@
   <ItemGroup>
     <XamarinComponentReference Include="json.net">
       <Version>4.5.11</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="xamarin.mobile">
+      <InstallationInProgress>True</InstallationInProgress>
+      <Version>0.7.1</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>

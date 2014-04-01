@@ -17,7 +17,7 @@
         p1:inputType="textEmailAddress"
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
-        p1:id="@+id/editText1" />
+        p1:id="@+id/Email" />
     <TextView
         p1:text="Password"
         p1:textAppearance="?android:attr/textAppearanceMedium"

@@ -16,7 +16,7 @@ namespace Beecon
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
-
+			//get element by id
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
