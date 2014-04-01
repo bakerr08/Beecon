@@ -371,7 +371,7 @@ return @@IDENTITY;
   GO
   
   CREATE  proc spInsertTagPrivacyType
-  @PrivacyDescription VARCHAR(45) = NULL,
+  @PrivacyDescription VARCHAR(45) = NULL
   
   as
 insert into TagPrivacyType
