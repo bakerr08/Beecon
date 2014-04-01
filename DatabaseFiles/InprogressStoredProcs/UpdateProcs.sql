@@ -13,9 +13,15 @@ create proc spUPDATEUser
   @Gender VARCHAR(10) = NULL
 as
 UPDATE  Users
-set Email = @Email, FirstName = @FirstName,  LastName = @LastName, ZipCode  = @ZipCode,
- Dob  = @Dob, PasswordHashed  = @PasswordHashed, TagsFound  = @TagsFound,
- TagsPosted  = @TagsPosted, Gender = @Gender
+set Email = @Email, 
+FirstName = @FirstName,  
+LastName = @LastName, 
+ZipCode  = @ZipCode,
+ Dob  = @Dob,
+ PasswordHashed  = @PasswordHashed, 
+ TagsFound  = @TagsFound,
+ TagsPosted  = @TagsPosted, 
+ Gender = @Gender
  where UserID = @UserID;
 GO
 use BeeconDB;
