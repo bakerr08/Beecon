@@ -50,13 +50,13 @@ CREATE  TABLE Tag (
   CONSTRAINT fk_Tag_Users
     FOREIGN KEY (UserID )
     REFERENCES Users (UserID )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT fk_Tag_TagPrivacyType1
     FOREIGN KEY (PrivacyTypeID )
     REFERENCES TagPrivacyType (PrivacyTypeID )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 
 
 -- -----------------------------------------------------
@@ -71,13 +71,13 @@ CREATE  TABLE TagRating (
   CONSTRAINT fk_TagRating_Tag1
     FOREIGN KEY (TagID )
     REFERENCES Tag (TagID )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT fk_TagRating_Users
     FOREIGN KEY (UserID )
     REFERENCES Users (UserID )
-    ON DELETE  NO ACTION
-    ON UPDATE  NO ACTION)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 
 
 
@@ -102,13 +102,13 @@ CREATE  TABLE TagCategory (
   CONSTRAINT fk_TagCategory_Tag
     FOREIGN KEY (TagID )
     REFERENCES Tag (TagID )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT fk_TagCategory_Category1
     FOREIGN KEY (CategoryID )
     REFERENCES Category (CategoryID )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 
 
 
@@ -125,8 +125,8 @@ CREATE  TABLE FriendList (
   CONSTRAINT fk_FriendList_Users
     FOREIGN KEY (UserID )
     REFERENCES Users (UserID )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT fk_FriendList_User2
     FOREIGN KEY (UserIDRequested )
     REFERENCES Users (UserID )
@@ -147,8 +147,8 @@ CREATE  TABLE TagVisited (
   CONSTRAINT fk_TagVisited_Users
     FOREIGN KEY (UserID )
     REFERENCES Users (UserID )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT fk_TagVisited_Tag1
     FOREIGN KEY (TagID )
     REFERENCES Tag (TagID )
@@ -172,8 +172,8 @@ CREATE  TABLE Invites (
   CONSTRAINT fk_UserID
     FOREIGN KEY (UserID )
     REFERENCES Users (UserID )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT User_UserID_Sent_To
     FOREIGN KEY (UserIDSentTo )
     REFERENCES Users (UserID )

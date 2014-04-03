@@ -5,21 +5,40 @@ create proc spDeleteInvitesByInviteID
 as
 delete from Invites
 where  InviteID = @InviteID;
-
-go
 GO
 
-create proc spDeleteTagByID
+create proc spDeleteTagByUserID
  @UserID INT
 as
-delete * from Tag
-where  UserID = @UserID;
+delete from Tag
+where UserID = @UserID;
 
+go
+create proc spDeleteTagByID
+ @TagID INT
+as
+delete from TagRating
+where  TagID = @TagID;
+delete from TagVisited
+where  TagID = @TagID;
+delete  from Tag
+where  TagID = @TagID;
+delete from TagCatagory
+where  TagID = @TagID;
 go
 create proc spDeleteUsersByID
 @UserID INT
 as
-
+delete from TagVisited
+where  UserID = @UserID;
+delete from FriendList
+where  UserIDRequested = @UserID;
+delete from FriendList
+where  UserID = @UserID;
+delete from Invites
+where  UserIDSentTo = @UserID;
+delete from Invites
+where  UserID = @UserID;
 delete from Users
 where  UserID = @UserID;
 go
@@ -33,17 +52,10 @@ go
 create proc spDeleteCategoryByID
 @CategoryID INT
 as
+delete from TagCategory
+where  CategoryID = @CategoryID;
 delete from Category
 where  CategoryID = @CategoryID;
-
-go
-create proc spDeleteCategoryByTagID
-@TagID INT
-as
-delete from Category c
-join TagCategory tc on
-c.CategoryID = tc.CategoryID
-where  tc.TagID = @TagID;
 
 go
 create proc spDeleteTagCategoryByTagID
@@ -79,7 +91,7 @@ create proc spDeleteTagVisitedByVisitID
 as
 delete from TagVisited
 where  VisitID = @VisitID;
-
+go
 
 create proc spDeleteInvitesByUserID
 @UserID INT
