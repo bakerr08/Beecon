@@ -25,3 +25,9 @@ C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\res\values\strings.xml
 C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\res\drawable\icon.png
 C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\R.cs.flag
 C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\uploadflags.txt
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Xamarin.Mobile.dll
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Xamarin.Mobile.pdb
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Xamarin.Mobile.xml
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\res\layout\start.xml
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\obj\Debug\res\layout\signup.xml
+C:\Users\student\Desktop\Beecon\Beecon\Beecon\bin\Debug\Xamarin.Mobile.dll.mdb
