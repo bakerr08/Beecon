@@ -12,11 +12,14 @@ namespace Beecon.MVC.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
-    public partial class BeeconDBEntities : DbContext
+    public partial class BeeconDBEntitiesBOB : DbContext
     {
-        public BeeconDBEntities()
-            : base("name=BeeconDBEntities")
+        public BeeconDBEntitiesBOB()
+            : base("name=BeeconDBEntitiesBOB")
         {
         }
     
@@ -33,5 +36,569 @@ namespace Beecon.MVC.Models
         public DbSet<TagRating> TagRatings { get; set; }
         public DbSet<TagVisited> TagVisiteds { get; set; }
         public DbSet<User> Users { get; set; }
+    
+        public virtual ObjectResult<spGetAllCategory_Result> spGetAllCategory()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetAllCategory_Result>("spGetAllCategory");
+        }
+    
+        public virtual ObjectResult<spGetAllFriendList_Result> spGetAllFriendList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetAllFriendList_Result>("spGetAllFriendList");
+        }
+    
+        public virtual ObjectResult<spGetAllInvites_Result> spGetAllInvites()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetAllInvites_Result>("spGetAllInvites");
+        }
+    
+        public virtual ObjectResult<spGetAllTag_Result> spGetAllTag()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetAllTag_Result>("spGetAllTag");
+        }
+    
+        public virtual ObjectResult<spGetAllTagCategory_Result> spGetAllTagCategory()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetAllTagCategory_Result>("spGetAllTagCategory");
+        }
+    
+        public virtual ObjectResult<spGetAllTagPrivacyType_Result> spGetAllTagPrivacyType()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetAllTagPrivacyType_Result>("spGetAllTagPrivacyType");
+        }
+    
+        public virtual ObjectResult<spGetAllTagRating_Result> spGetAllTagRating()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetAllTagRating_Result>("spGetAllTagRating");
+        }
+    
+        public virtual ObjectResult<spGetAllTagVisited_Result> spGetAllTagVisited()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetAllTagVisited_Result>("spGetAllTagVisited");
+        }
+    
+        public virtual ObjectResult<spGetAllUsers_Result> spGetAllUsers()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetAllUsers_Result>("spGetAllUsers");
+        }
+    
+        public virtual ObjectResult<spGetCategoryByID_Result> spGetCategoryByID(Nullable<int> categoryID)
+        {
+            var categoryIDParameter = categoryID.HasValue ?
+                new ObjectParameter("CategoryID", categoryID) :
+                new ObjectParameter("CategoryID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetCategoryByID_Result>("spGetCategoryByID", categoryIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetCategoryByTagID_Result> spGetCategoryByTagID(Nullable<int> tagID)
+        {
+            var tagIDParameter = tagID.HasValue ?
+                new ObjectParameter("TagID", tagID) :
+                new ObjectParameter("TagID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetCategoryByTagID_Result>("spGetCategoryByTagID", tagIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetFriendListByID_Result> spGetFriendListByID(Nullable<int> friendID)
+        {
+            var friendIDParameter = friendID.HasValue ?
+                new ObjectParameter("FriendID", friendID) :
+                new ObjectParameter("FriendID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetFriendListByID_Result>("spGetFriendListByID", friendIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetFriendListByUserID_Result> spGetFriendListByUserID(Nullable<int> userID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetFriendListByUserID_Result>("spGetFriendListByUserID", userIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetInvitesByInviteID_Result> spGetInvitesByInviteID(Nullable<int> inviteID)
+        {
+            var inviteIDParameter = inviteID.HasValue ?
+                new ObjectParameter("InviteID", inviteID) :
+                new ObjectParameter("InviteID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetInvitesByInviteID_Result>("spGetInvitesByInviteID", inviteIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetInvitesByUserID_Result> spGetInvitesByUserID(Nullable<int> userID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetInvitesByUserID_Result>("spGetInvitesByUserID", userIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetTagByID_Result> spGetTagByID(Nullable<int> tagID)
+        {
+            var tagIDParameter = tagID.HasValue ?
+                new ObjectParameter("TagID", tagID) :
+                new ObjectParameter("TagID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetTagByID_Result>("spGetTagByID", tagIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetTagCategoryByTagID_Result> spGetTagCategoryByTagID(Nullable<int> tagID)
+        {
+            var tagIDParameter = tagID.HasValue ?
+                new ObjectParameter("TagID", tagID) :
+                new ObjectParameter("TagID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetTagCategoryByTagID_Result>("spGetTagCategoryByTagID", tagIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetTagPrivacyTypeByID_Result> spGetTagPrivacyTypeByID(Nullable<int> privacyTypeID)
+        {
+            var privacyTypeIDParameter = privacyTypeID.HasValue ?
+                new ObjectParameter("PrivacyTypeID", privacyTypeID) :
+                new ObjectParameter("PrivacyTypeID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetTagPrivacyTypeByID_Result>("spGetTagPrivacyTypeByID", privacyTypeIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetTagRatingByID_Result> spGetTagRatingByID(Nullable<int> ratingID)
+        {
+            var ratingIDParameter = ratingID.HasValue ?
+                new ObjectParameter("RatingID", ratingID) :
+                new ObjectParameter("RatingID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetTagRatingByID_Result>("spGetTagRatingByID", ratingIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetTagVisitedByUserID_Result> spGetTagVisitedByUserID(Nullable<int> userID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetTagVisitedByUserID_Result>("spGetTagVisitedByUserID", userIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetTagVisitedByVisitID_Result> spGetTagVisitedByVisitID(Nullable<int> visitID)
+        {
+            var visitIDParameter = visitID.HasValue ?
+                new ObjectParameter("VisitID", visitID) :
+                new ObjectParameter("VisitID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetTagVisitedByVisitID_Result>("spGetTagVisitedByVisitID", visitIDParameter);
+        }
+    
+        public virtual ObjectResult<spGetUsersByID_Result> spGetUsersByID(Nullable<int> userID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spGetUsersByID_Result>("spGetUsersByID", userIDParameter);
+        }
+    
+        public virtual int spInsertCategory(string category)
+        {
+            var categoryParameter = category != null ?
+                new ObjectParameter("Category", category) :
+                new ObjectParameter("Category", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertCategory", categoryParameter);
+        }
+    
+        public virtual int spInsertFriendList(Nullable<int> userID, Nullable<System.DateTime> created, Nullable<int> userIDRequested)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var createdParameter = created.HasValue ?
+                new ObjectParameter("Created", created) :
+                new ObjectParameter("Created", typeof(System.DateTime));
+    
+            var userIDRequestedParameter = userIDRequested.HasValue ?
+                new ObjectParameter("UserIDRequested", userIDRequested) :
+                new ObjectParameter("UserIDRequested", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertFriendList", userIDParameter, createdParameter, userIDRequestedParameter);
+        }
+    
+        public virtual int spInsertInvites(Nullable<int> userID, Nullable<int> userIDSentTo, Nullable<bool> accepted, Nullable<bool> rejected, Nullable<System.DateTime> created)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var userIDSentToParameter = userIDSentTo.HasValue ?
+                new ObjectParameter("UserIDSentTo", userIDSentTo) :
+                new ObjectParameter("UserIDSentTo", typeof(int));
+    
+            var acceptedParameter = accepted.HasValue ?
+                new ObjectParameter("Accepted", accepted) :
+                new ObjectParameter("Accepted", typeof(bool));
+    
+            var rejectedParameter = rejected.HasValue ?
+                new ObjectParameter("Rejected", rejected) :
+                new ObjectParameter("Rejected", typeof(bool));
+    
+            var createdParameter = created.HasValue ?
+                new ObjectParameter("Created", created) :
+                new ObjectParameter("Created", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertInvites", userIDParameter, userIDSentToParameter, acceptedParameter, rejectedParameter, createdParameter);
+        }
+    
+        public virtual int spInsertTag(string tagLongitude, string tagLatitude, string tagDescription, Nullable<System.DateTime> tagDateCreated, Nullable<System.DateTime> tagExpired, Nullable<int> userID, string tagContent_URL, Nullable<int> privacyTypeID)
+        {
+            var tagLongitudeParameter = tagLongitude != null ?
+                new ObjectParameter("TagLongitude", tagLongitude) :
+                new ObjectParameter("TagLongitude", typeof(string));
+    
+            var tagLatitudeParameter = tagLatitude != null ?
+                new ObjectParameter("TagLatitude", tagLatitude) :
+                new ObjectParameter("TagLatitude", typeof(string));
+    
+            var tagDescriptionParameter = tagDescription != null ?
+                new ObjectParameter("TagDescription", tagDescription) :
+                new ObjectParameter("TagDescription", typeof(string));
+    
+            var tagDateCreatedParameter = tagDateCreated.HasValue ?
+                new ObjectParameter("TagDateCreated", tagDateCreated) :
+                new ObjectParameter("TagDateCreated", typeof(System.DateTime));
+    
+            var tagExpiredParameter = tagExpired.HasValue ?
+                new ObjectParameter("TagExpired", tagExpired) :
+                new ObjectParameter("TagExpired", typeof(System.DateTime));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var tagContent_URLParameter = tagContent_URL != null ?
+                new ObjectParameter("TagContent_URL", tagContent_URL) :
+                new ObjectParameter("TagContent_URL", typeof(string));
+    
+            var privacyTypeIDParameter = privacyTypeID.HasValue ?
+                new ObjectParameter("PrivacyTypeID", privacyTypeID) :
+                new ObjectParameter("PrivacyTypeID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertTag", tagLongitudeParameter, tagLatitudeParameter, tagDescriptionParameter, tagDateCreatedParameter, tagExpiredParameter, userIDParameter, tagContent_URLParameter, privacyTypeIDParameter);
+        }
+    
+        public virtual int spInsertTagCategory(Nullable<int> tagID, Nullable<int> categoryID)
+        {
+            var tagIDParameter = tagID.HasValue ?
+                new ObjectParameter("TagID", tagID) :
+                new ObjectParameter("TagID", typeof(int));
+    
+            var categoryIDParameter = categoryID.HasValue ?
+                new ObjectParameter("CategoryID", categoryID) :
+                new ObjectParameter("CategoryID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertTagCategory", tagIDParameter, categoryIDParameter);
+        }
+    
+        public virtual int spInsertTagPrivacyType(string privacyDescription)
+        {
+            var privacyDescriptionParameter = privacyDescription != null ?
+                new ObjectParameter("PrivacyDescription", privacyDescription) :
+                new ObjectParameter("PrivacyDescription", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertTagPrivacyType", privacyDescriptionParameter);
+        }
+    
+        public virtual int spInsertTagRating(Nullable<int> rate, Nullable<int> tagID, Nullable<int> userID)
+        {
+            var rateParameter = rate.HasValue ?
+                new ObjectParameter("Rate", rate) :
+                new ObjectParameter("Rate", typeof(int));
+    
+            var tagIDParameter = tagID.HasValue ?
+                new ObjectParameter("TagID", tagID) :
+                new ObjectParameter("TagID", typeof(int));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertTagRating", rateParameter, tagIDParameter, userIDParameter);
+        }
+    
+        public virtual int spInsertTagVisited(Nullable<int> userID, Nullable<int> tagID, Nullable<System.DateTime> visitTime)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var tagIDParameter = tagID.HasValue ?
+                new ObjectParameter("TagID", tagID) :
+                new ObjectParameter("TagID", typeof(int));
+    
+            var visitTimeParameter = visitTime.HasValue ?
+                new ObjectParameter("VisitTime", visitTime) :
+                new ObjectParameter("VisitTime", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertTagVisited", userIDParameter, tagIDParameter, visitTimeParameter);
+        }
+    
+        public virtual int spInsertUser(string email, string firstName, string lastName, string zipCode, string dob, string passwordHashed, Nullable<int> tagsFound, Nullable<int> tagsPosted, string gender)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var firstNameParameter = firstName != null ?
+                new ObjectParameter("FirstName", firstName) :
+                new ObjectParameter("FirstName", typeof(string));
+    
+            var lastNameParameter = lastName != null ?
+                new ObjectParameter("LastName", lastName) :
+                new ObjectParameter("LastName", typeof(string));
+    
+            var zipCodeParameter = zipCode != null ?
+                new ObjectParameter("ZipCode", zipCode) :
+                new ObjectParameter("ZipCode", typeof(string));
+    
+            var dobParameter = dob != null ?
+                new ObjectParameter("Dob", dob) :
+                new ObjectParameter("Dob", typeof(string));
+    
+            var passwordHashedParameter = passwordHashed != null ?
+                new ObjectParameter("PasswordHashed", passwordHashed) :
+                new ObjectParameter("PasswordHashed", typeof(string));
+    
+            var tagsFoundParameter = tagsFound.HasValue ?
+                new ObjectParameter("TagsFound", tagsFound) :
+                new ObjectParameter("TagsFound", typeof(int));
+    
+            var tagsPostedParameter = tagsPosted.HasValue ?
+                new ObjectParameter("TagsPosted", tagsPosted) :
+                new ObjectParameter("TagsPosted", typeof(int));
+    
+            var genderParameter = gender != null ?
+                new ObjectParameter("Gender", gender) :
+                new ObjectParameter("Gender", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertUser", emailParameter, firstNameParameter, lastNameParameter, zipCodeParameter, dobParameter, passwordHashedParameter, tagsFoundParameter, tagsPostedParameter, genderParameter);
+        }
+    
+        public virtual int spUpdateCategory(Nullable<int> categoryID, string category)
+        {
+            var categoryIDParameter = categoryID.HasValue ?
+                new ObjectParameter("CategoryID", categoryID) :
+                new ObjectParameter("CategoryID", typeof(int));
+    
+            var categoryParameter = category != null ?
+                new ObjectParameter("Category", category) :
+                new ObjectParameter("Category", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateCategory", categoryIDParameter, categoryParameter);
+        }
+    
+        public virtual int spUpdateFriendList(Nullable<int> friendID, Nullable<int> userID, Nullable<System.DateTime> created, Nullable<int> userIDRequested)
+        {
+            var friendIDParameter = friendID.HasValue ?
+                new ObjectParameter("FriendID", friendID) :
+                new ObjectParameter("FriendID", typeof(int));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var createdParameter = created.HasValue ?
+                new ObjectParameter("Created", created) :
+                new ObjectParameter("Created", typeof(System.DateTime));
+    
+            var userIDRequestedParameter = userIDRequested.HasValue ?
+                new ObjectParameter("UserIDRequested", userIDRequested) :
+                new ObjectParameter("UserIDRequested", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateFriendList", friendIDParameter, userIDParameter, createdParameter, userIDRequestedParameter);
+        }
+    
+        public virtual int spUpdateInvites(Nullable<int> inviteID, Nullable<int> userID, Nullable<int> userIDSentTo, Nullable<bool> accepted, Nullable<bool> rejected, Nullable<System.DateTime> created)
+        {
+            var inviteIDParameter = inviteID.HasValue ?
+                new ObjectParameter("InviteID", inviteID) :
+                new ObjectParameter("InviteID", typeof(int));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var userIDSentToParameter = userIDSentTo.HasValue ?
+                new ObjectParameter("UserIDSentTo", userIDSentTo) :
+                new ObjectParameter("UserIDSentTo", typeof(int));
+    
+            var acceptedParameter = accepted.HasValue ?
+                new ObjectParameter("Accepted", accepted) :
+                new ObjectParameter("Accepted", typeof(bool));
+    
+            var rejectedParameter = rejected.HasValue ?
+                new ObjectParameter("Rejected", rejected) :
+                new ObjectParameter("Rejected", typeof(bool));
+    
+            var createdParameter = created.HasValue ?
+                new ObjectParameter("Created", created) :
+                new ObjectParameter("Created", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateInvites", inviteIDParameter, userIDParameter, userIDSentToParameter, acceptedParameter, rejectedParameter, createdParameter);
+        }
+    
+        public virtual int spUpdateTag(Nullable<int> tagID, string tagLongitude, string tagLatitude, string tagDescription, Nullable<System.DateTime> tagDateCreated, Nullable<System.DateTime> tagExpired, Nullable<int> userID, string tagContent_URL, Nullable<int> privacyTypeID)
+        {
+            var tagIDParameter = tagID.HasValue ?
+                new ObjectParameter("TagID", tagID) :
+                new ObjectParameter("TagID", typeof(int));
+    
+            var tagLongitudeParameter = tagLongitude != null ?
+                new ObjectParameter("TagLongitude", tagLongitude) :
+                new ObjectParameter("TagLongitude", typeof(string));
+    
+            var tagLatitudeParameter = tagLatitude != null ?
+                new ObjectParameter("TagLatitude", tagLatitude) :
+                new ObjectParameter("TagLatitude", typeof(string));
+    
+            var tagDescriptionParameter = tagDescription != null ?
+                new ObjectParameter("TagDescription", tagDescription) :
+                new ObjectParameter("TagDescription", typeof(string));
+    
+            var tagDateCreatedParameter = tagDateCreated.HasValue ?
+                new ObjectParameter("TagDateCreated", tagDateCreated) :
+                new ObjectParameter("TagDateCreated", typeof(System.DateTime));
+    
+            var tagExpiredParameter = tagExpired.HasValue ?
+                new ObjectParameter("TagExpired", tagExpired) :
+                new ObjectParameter("TagExpired", typeof(System.DateTime));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var tagContent_URLParameter = tagContent_URL != null ?
+                new ObjectParameter("TagContent_URL", tagContent_URL) :
+                new ObjectParameter("TagContent_URL", typeof(string));
+    
+            var privacyTypeIDParameter = privacyTypeID.HasValue ?
+                new ObjectParameter("PrivacyTypeID", privacyTypeID) :
+                new ObjectParameter("PrivacyTypeID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateTag", tagIDParameter, tagLongitudeParameter, tagLatitudeParameter, tagDescriptionParameter, tagDateCreatedParameter, tagExpiredParameter, userIDParameter, tagContent_URLParameter, privacyTypeIDParameter);
+        }
+    
+        public virtual int spUpdateTagCategory(Nullable<int> tagID, Nullable<int> categoryID)
+        {
+            var tagIDParameter = tagID.HasValue ?
+                new ObjectParameter("TagID", tagID) :
+                new ObjectParameter("TagID", typeof(int));
+    
+            var categoryIDParameter = categoryID.HasValue ?
+                new ObjectParameter("CategoryID", categoryID) :
+                new ObjectParameter("CategoryID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateTagCategory", tagIDParameter, categoryIDParameter);
+        }
+    
+        public virtual int spUpdateTagPrivacyType(Nullable<int> privacyTypeID, string privacyDescription)
+        {
+            var privacyTypeIDParameter = privacyTypeID.HasValue ?
+                new ObjectParameter("PrivacyTypeID", privacyTypeID) :
+                new ObjectParameter("PrivacyTypeID", typeof(int));
+    
+            var privacyDescriptionParameter = privacyDescription != null ?
+                new ObjectParameter("PrivacyDescription", privacyDescription) :
+                new ObjectParameter("PrivacyDescription", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateTagPrivacyType", privacyTypeIDParameter, privacyDescriptionParameter);
+        }
+    
+        public virtual int spUpdateTagRating(Nullable<int> ratingID, Nullable<int> rate, Nullable<int> tagID, Nullable<int> userID)
+        {
+            var ratingIDParameter = ratingID.HasValue ?
+                new ObjectParameter("RatingID", ratingID) :
+                new ObjectParameter("RatingID", typeof(int));
+    
+            var rateParameter = rate.HasValue ?
+                new ObjectParameter("Rate", rate) :
+                new ObjectParameter("Rate", typeof(int));
+    
+            var tagIDParameter = tagID.HasValue ?
+                new ObjectParameter("TagID", tagID) :
+                new ObjectParameter("TagID", typeof(int));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateTagRating", ratingIDParameter, rateParameter, tagIDParameter, userIDParameter);
+        }
+    
+        public virtual int spUpdateTagVisited(Nullable<int> visitID, Nullable<int> userID, Nullable<int> tagID, Nullable<System.DateTime> visitTime)
+        {
+            var visitIDParameter = visitID.HasValue ?
+                new ObjectParameter("VisitID", visitID) :
+                new ObjectParameter("VisitID", typeof(int));
+    
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var tagIDParameter = tagID.HasValue ?
+                new ObjectParameter("TagID", tagID) :
+                new ObjectParameter("TagID", typeof(int));
+    
+            var visitTimeParameter = visitTime.HasValue ?
+                new ObjectParameter("VisitTime", visitTime) :
+                new ObjectParameter("VisitTime", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateTagVisited", visitIDParameter, userIDParameter, tagIDParameter, visitTimeParameter);
+        }
+    
+        public virtual int spUpdateUser(string userID, string email, string firstName, string lastName, string zipCode, string dob, string passwordHashed, Nullable<int> tagsFound, Nullable<int> tagsPosted, string gender)
+        {
+            var userIDParameter = userID != null ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var firstNameParameter = firstName != null ?
+                new ObjectParameter("FirstName", firstName) :
+                new ObjectParameter("FirstName", typeof(string));
+    
+            var lastNameParameter = lastName != null ?
+                new ObjectParameter("LastName", lastName) :
+                new ObjectParameter("LastName", typeof(string));
+    
+            var zipCodeParameter = zipCode != null ?
+                new ObjectParameter("ZipCode", zipCode) :
+                new ObjectParameter("ZipCode", typeof(string));
+    
+            var dobParameter = dob != null ?
+                new ObjectParameter("Dob", dob) :
+                new ObjectParameter("Dob", typeof(string));
+    
+            var passwordHashedParameter = passwordHashed != null ?
+                new ObjectParameter("PasswordHashed", passwordHashed) :
+                new ObjectParameter("PasswordHashed", typeof(string));
+    
+            var tagsFoundParameter = tagsFound.HasValue ?
+                new ObjectParameter("TagsFound", tagsFound) :
+                new ObjectParameter("TagsFound", typeof(int));
+    
+            var tagsPostedParameter = tagsPosted.HasValue ?
+                new ObjectParameter("TagsPosted", tagsPosted) :
+                new ObjectParameter("TagsPosted", typeof(int));
+    
+            var genderParameter = gender != null ?
+                new ObjectParameter("Gender", gender) :
+                new ObjectParameter("Gender", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUpdateUser", userIDParameter, emailParameter, firstNameParameter, lastNameParameter, zipCodeParameter, dobParameter, passwordHashedParameter, tagsFoundParameter, tagsPostedParameter, genderParameter);
+        }
     }
 }

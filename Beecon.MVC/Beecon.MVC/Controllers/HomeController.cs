@@ -11,7 +11,7 @@ namespace Beecon.MVC.Controllers
     public class HomeController : Controller
     {
 
-        BeeconDBEntities db = new BeeconDBEntities();
+        BeeconDBEntitiesBOB db = new BeeconDBEntitiesBOB();
 
 
 

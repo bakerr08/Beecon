@@ -10,16 +10,14 @@
 namespace Beecon.MVC.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class FriendList
+    public partial class spGetAllInvites_Result
     {
-        public int FriendID { get; set; }
+        public int InviteID { get; set; }
         public int UserID { get; set; }
-        public System.DateTime Created { get; set; }
-        public int UserIDRequested { get; set; }
-    
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
+        public int UserIDSentTo { get; set; }
+        public bool Accepted { get; set; }
+        public bool Rejected { get; set; }
+        public Nullable<System.DateTime> Created { get; set; }
     }
 }

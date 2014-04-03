@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="BeeconDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="BeeconDBEntities" p1:LazyLoadingEnabled="true">
+  <EntityContainer Name="BeeconDBEntitiesBOB" p1:LazyLoadingEnabled="true">
     <EntitySet Name="Categories" EntityType="BeeconDBModel.Category" />
     <EntitySet Name="FriendLists" EntityType="BeeconDBModel.FriendList" />
     <EntitySet Name="Invites" EntityType="BeeconDBModel.Invite" />
@@ -53,6 +53,168 @@
       <End Role="Category" EntitySet="Categories" />
       <End Role="Tag" EntitySet="Tags" />
     </AssociationSet>
+    <FunctionImport Name="spGetAllCategory" ReturnType="Collection(BeeconDBModel.spGetAllCategory_Result)" />
+    <FunctionImport Name="spGetAllFriendList" ReturnType="Collection(BeeconDBModel.spGetAllFriendList_Result)" />
+    <FunctionImport Name="spGetAllInvites" ReturnType="Collection(BeeconDBModel.spGetAllInvites_Result)" />
+    <FunctionImport Name="spGetAllTag" ReturnType="Collection(BeeconDBModel.spGetAllTag_Result)" />
+    <FunctionImport Name="spGetAllTagCategory" ReturnType="Collection(BeeconDBModel.spGetAllTagCategory_Result)" />
+    <FunctionImport Name="spGetAllTagPrivacyType" ReturnType="Collection(BeeconDBModel.spGetAllTagPrivacyType_Result)" />
+    <FunctionImport Name="spGetAllTagRating" ReturnType="Collection(BeeconDBModel.spGetAllTagRating_Result)" />
+    <FunctionImport Name="spGetAllTagVisited" ReturnType="Collection(BeeconDBModel.spGetAllTagVisited_Result)" />
+    <FunctionImport Name="spGetAllUsers" ReturnType="Collection(BeeconDBModel.spGetAllUsers_Result)" />
+    <FunctionImport Name="spGetCategoryByID" ReturnType="Collection(BeeconDBModel.spGetCategoryByID_Result)">
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetCategoryByTagID" ReturnType="Collection(BeeconDBModel.spGetCategoryByTagID_Result)">
+      <Parameter Name="TagID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetFriendListByID" ReturnType="Collection(BeeconDBModel.spGetFriendListByID_Result)">
+      <Parameter Name="FriendID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetFriendListByUserID" ReturnType="Collection(BeeconDBModel.spGetFriendListByUserID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetInvitesByInviteID" ReturnType="Collection(BeeconDBModel.spGetInvitesByInviteID_Result)">
+      <Parameter Name="InviteID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetInvitesByUserID" ReturnType="Collection(BeeconDBModel.spGetInvitesByUserID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetTagByID" ReturnType="Collection(BeeconDBModel.spGetTagByID_Result)">
+      <Parameter Name="TagID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetTagCategoryByTagID" ReturnType="Collection(BeeconDBModel.spGetTagCategoryByTagID_Result)">
+      <Parameter Name="TagID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetTagPrivacyTypeByID" ReturnType="Collection(BeeconDBModel.spGetTagPrivacyTypeByID_Result)">
+      <Parameter Name="PrivacyTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetTagRatingByID" ReturnType="Collection(BeeconDBModel.spGetTagRatingByID_Result)">
+      <Parameter Name="RatingID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetTagVisitedByUserID" ReturnType="Collection(BeeconDBModel.spGetTagVisitedByUserID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetTagVisitedByVisitID" ReturnType="Collection(BeeconDBModel.spGetTagVisitedByVisitID_Result)">
+      <Parameter Name="VisitID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetUsersByID" ReturnType="Collection(BeeconDBModel.spGetUsersByID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertCategory">
+      <Parameter Name="Category" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertFriendList">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="Created" Mode="In" Type="DateTime" />
+      <Parameter Name="UserIDRequested" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertInvites">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="UserIDSentTo" Mode="In" Type="Int32" />
+      <Parameter Name="Accepted" Mode="In" Type="Boolean" />
+      <Parameter Name="Rejected" Mode="In" Type="Boolean" />
+      <Parameter Name="Created" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertTag">
+      <Parameter Name="TagLongitude" Mode="In" Type="String" />
+      <Parameter Name="TagLatitude" Mode="In" Type="String" />
+      <Parameter Name="TagDescription" Mode="In" Type="String" />
+      <Parameter Name="TagDateCreated" Mode="In" Type="DateTime" />
+      <Parameter Name="TagExpired" Mode="In" Type="DateTime" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="TagContent_URL" Mode="In" Type="String" />
+      <Parameter Name="PrivacyTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertTagCategory">
+      <Parameter Name="TagID" Mode="In" Type="Int32" />
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertTagPrivacyType">
+      <Parameter Name="PrivacyDescription" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertTagRating">
+      <Parameter Name="Rate" Mode="In" Type="Int32" />
+      <Parameter Name="TagID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertTagVisited">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="TagID" Mode="In" Type="Int32" />
+      <Parameter Name="VisitTime" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertUser">
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="ZipCode" Mode="In" Type="String" />
+      <Parameter Name="Dob" Mode="In" Type="String" />
+      <Parameter Name="PasswordHashed" Mode="In" Type="String" />
+      <Parameter Name="TagsFound" Mode="In" Type="Int32" />
+      <Parameter Name="TagsPosted" Mode="In" Type="Int32" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateCategory">
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+      <Parameter Name="Category" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateFriendList">
+      <Parameter Name="FriendID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="Created" Mode="In" Type="DateTime" />
+      <Parameter Name="UserIDRequested" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateInvites">
+      <Parameter Name="InviteID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="UserIDSentTo" Mode="In" Type="Int32" />
+      <Parameter Name="Accepted" Mode="In" Type="Boolean" />
+      <Parameter Name="Rejected" Mode="In" Type="Boolean" />
+      <Parameter Name="Created" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateTag">
+      <Parameter Name="TagID" Mode="In" Type="Int32" />
+      <Parameter Name="TagLongitude" Mode="In" Type="String" />
+      <Parameter Name="TagLatitude" Mode="In" Type="String" />
+      <Parameter Name="TagDescription" Mode="In" Type="String" />
+      <Parameter Name="TagDateCreated" Mode="In" Type="DateTime" />
+      <Parameter Name="TagExpired" Mode="In" Type="DateTime" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="TagContent_URL" Mode="In" Type="String" />
+      <Parameter Name="PrivacyTypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateTagCategory">
+      <Parameter Name="TagID" Mode="In" Type="Int32" />
+      <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateTagPrivacyType">
+      <Parameter Name="PrivacyTypeID" Mode="In" Type="Int32" />
+      <Parameter Name="PrivacyDescription" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateTagRating">
+      <Parameter Name="RatingID" Mode="In" Type="Int32" />
+      <Parameter Name="Rate" Mode="In" Type="Int32" />
+      <Parameter Name="TagID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateTagVisited">
+      <Parameter Name="VisitID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="TagID" Mode="In" Type="Int32" />
+      <Parameter Name="VisitTime" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="spUpdateUser">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="ZipCode" Mode="In" Type="String" />
+      <Parameter Name="Dob" Mode="In" Type="String" />
+      <Parameter Name="PasswordHashed" Mode="In" Type="String" />
+      <Parameter Name="TagsFound" Mode="In" Type="Int32" />
+      <Parameter Name="TagsPosted" Mode="In" Type="Int32" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Category">
     <Key>
@@ -66,10 +228,10 @@
     <Key>
       <PropertyRef Name="FriendID" />
     </Key>
+    <Property Name="FriendID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="UserID" Type="Int32" Nullable="false" />
     <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UserIDRequested" Type="Int32" Nullable="false" />
-    <Property Name="FriendID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="User" Relationship="BeeconDBModel.fk_FriendList_User2" FromRole="FriendList" ToRole="Users" />
     <NavigationProperty Name="User1" Relationship="BeeconDBModel.fk_FriendList_Users" FromRole="FriendList" ToRole="Users" />
   </EntityType>
@@ -281,4 +443,159 @@
     <End Role="Category" Type="BeeconDBModel.Category" Multiplicity="*" />
     <End Role="Tag" Type="BeeconDBModel.Tag" Multiplicity="*" />
   </Association>
+  <ComplexType Name="spGetAllCategory_Result">
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="45" />
+  </ComplexType>
+  <ComplexType Name="spGetAllFriendList_Result">
+    <Property Type="Int32" Name="FriendID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="DateTime" Name="Created" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="UserIDRequested" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetAllInvites_Result">
+    <Property Type="Int32" Name="InviteID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="UserIDSentTo" Nullable="false" />
+    <Property Type="Boolean" Name="Accepted" Nullable="false" />
+    <Property Type="Boolean" Name="Rejected" Nullable="false" />
+    <Property Type="DateTime" Name="Created" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="spGetAllTag_Result">
+    <Property Type="Int32" Name="TagID" Nullable="false" />
+    <Property Type="String" Name="TagLongitude" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="TagLatitude" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="TagDescription" Nullable="true" MaxLength="45" />
+    <Property Type="DateTime" Name="TagDateCreated" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="TagExpired" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="TagContent_URL" Nullable="true" MaxLength="70" />
+    <Property Type="Int32" Name="PrivacyTypeID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetAllTagCategory_Result">
+    <Property Type="Int32" Name="TagID" Nullable="false" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetAllTagPrivacyType_Result">
+    <Property Type="Int32" Name="PrivacyTypeID" Nullable="false" />
+    <Property Type="String" Name="PrivacyDescription" Nullable="true" MaxLength="45" />
+  </ComplexType>
+  <ComplexType Name="spGetAllTagRating_Result">
+    <Property Type="Int32" Name="RatingID" Nullable="false" />
+    <Property Type="Int32" Name="Rate" Nullable="true" />
+    <Property Type="Int32" Name="TagID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetAllTagVisited_Result">
+    <Property Type="Int32" Name="VisitID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="TagID" Nullable="false" />
+    <Property Type="DateTime" Name="VisitTime" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="spGetAllUsers_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="ZipCode" Nullable="true" MaxLength="45" />
+    <Property Type="DateTime" Name="Dob" Nullable="true" Precision="23" />
+    <Property Type="String" Name="PasswordHashed" Nullable="true" MaxLength="45" />
+    <Property Type="Int32" Name="TagsFound" Nullable="true" />
+    <Property Type="Int32" Name="TagsPosted" Nullable="true" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="spGetCategoryByID_Result">
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="45" />
+  </ComplexType>
+  <ComplexType Name="spGetCategoryByTagID_Result">
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="Category" Nullable="true" MaxLength="45" />
+    <Property Type="Int32" Name="TagID" Nullable="false" />
+    <Property Type="Int32" Name="CategoryID1" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetFriendListByID_Result">
+    <Property Type="Int32" Name="FriendID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="DateTime" Name="Created" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="UserIDRequested" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetFriendListByUserID_Result">
+    <Property Type="Int32" Name="FriendID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="DateTime" Name="Created" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="UserIDRequested" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetInvitesByInviteID_Result">
+    <Property Type="Int32" Name="InviteID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="UserIDSentTo" Nullable="false" />
+    <Property Type="Boolean" Name="Accepted" Nullable="false" />
+    <Property Type="Boolean" Name="Rejected" Nullable="false" />
+    <Property Type="DateTime" Name="Created" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="spGetInvitesByUserID_Result">
+    <Property Type="Int32" Name="InviteID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="UserIDSentTo" Nullable="false" />
+    <Property Type="Boolean" Name="Accepted" Nullable="false" />
+    <Property Type="Boolean" Name="Rejected" Nullable="false" />
+    <Property Type="DateTime" Name="Created" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="spGetTagByID_Result">
+    <Property Type="Int32" Name="TagID" Nullable="false" />
+    <Property Type="String" Name="TagLongitude" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="TagLatitude" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="TagDescription" Nullable="true" MaxLength="45" />
+    <Property Type="DateTime" Name="TagDateCreated" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="TagExpired" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="TagContent_URL" Nullable="true" MaxLength="70" />
+    <Property Type="Int32" Name="PrivacyTypeID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetTagCategoryByTagID_Result">
+    <Property Type="Int32" Name="TagID" Nullable="false" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetTagPrivacyTypeByID_Result">
+    <Property Type="Int32" Name="TagID" Nullable="false" />
+    <Property Type="String" Name="TagLongitude" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="TagLatitude" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="TagDescription" Nullable="true" MaxLength="45" />
+    <Property Type="DateTime" Name="TagDateCreated" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="TagExpired" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="TagContent_URL" Nullable="true" MaxLength="70" />
+    <Property Type="Int32" Name="PrivacyTypeID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetTagRatingByID_Result">
+    <Property Type="Int32" Name="RatingID" Nullable="false" />
+    <Property Type="Int32" Name="Rate" Nullable="true" />
+    <Property Type="Int32" Name="TagID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetTagVisitedByUserID_Result">
+    <Property Type="Int32" Name="VisitID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="TagID" Nullable="false" />
+    <Property Type="DateTime" Name="VisitTime" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="spGetTagVisitedByVisitID_Result">
+    <Property Type="Int32" Name="VisitID" Nullable="false" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="TagID" Nullable="false" />
+    <Property Type="DateTime" Name="VisitTime" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="spGetUsersByID_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="45" />
+    <Property Type="String" Name="ZipCode" Nullable="true" MaxLength="45" />
+    <Property Type="DateTime" Name="Dob" Nullable="true" Precision="23" />
+    <Property Type="String" Name="PasswordHashed" Nullable="true" MaxLength="45" />
+    <Property Type="Int32" Name="TagsFound" Nullable="true" />
+    <Property Type="Int32" Name="TagsPosted" Nullable="true" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+  </ComplexType>
 </Schema>

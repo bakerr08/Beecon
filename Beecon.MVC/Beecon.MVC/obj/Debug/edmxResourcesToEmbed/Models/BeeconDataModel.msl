@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BeeconDBModelStoreContainer" CdmEntityContainer="BeeconDBEntities">
+  <EntityContainerMapping StorageEntityContainer="BeeconDBModelStoreContainer" CdmEntityContainer="BeeconDBEntitiesBOB">
     <EntitySetMapping Name="Categories">
       <EntityTypeMapping TypeName="BeeconDBModel.Category">
         <MappingFragment StoreEntitySet="Category">
@@ -12,10 +12,10 @@
     <EntitySetMapping Name="FriendLists">
       <EntityTypeMapping TypeName="BeeconDBModel.FriendList">
         <MappingFragment StoreEntitySet="FriendList">
+          <ScalarProperty Name="FriendID" ColumnName="FriendID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="UserIDRequested" ColumnName="UserIDRequested" />
-          <ScalarProperty Name="FriendID" ColumnName="FriendID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -98,5 +98,266 @@
         <ScalarProperty Name="TagID" ColumnName="TagID" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllCategory" FunctionName="BeeconDBModel.Store.spGetAllCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetAllCategory_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllFriendList" FunctionName="BeeconDBModel.Store.spGetAllFriendList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetAllFriendList_Result">
+          <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="UserIDRequested" ColumnName="UserIDRequested" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllInvites" FunctionName="BeeconDBModel.Store.spGetAllInvites">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetAllInvites_Result">
+          <ScalarProperty Name="InviteID" ColumnName="InviteID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserIDSentTo" ColumnName="UserIDSentTo" />
+          <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+          <ScalarProperty Name="Rejected" ColumnName="Rejected" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllTag" FunctionName="BeeconDBModel.Store.spGetAllTag">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetAllTag_Result">
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="TagLongitude" ColumnName="TagLongitude" />
+          <ScalarProperty Name="TagLatitude" ColumnName="TagLatitude" />
+          <ScalarProperty Name="TagDescription" ColumnName="TagDescription" />
+          <ScalarProperty Name="TagDateCreated" ColumnName="TagDateCreated" />
+          <ScalarProperty Name="TagExpired" ColumnName="TagExpired" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TagContent_URL" ColumnName="TagContent_URL" />
+          <ScalarProperty Name="PrivacyTypeID" ColumnName="PrivacyTypeID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllTagCategory" FunctionName="BeeconDBModel.Store.spGetAllTagCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetAllTagCategory_Result">
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllTagPrivacyType" FunctionName="BeeconDBModel.Store.spGetAllTagPrivacyType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetAllTagPrivacyType_Result">
+          <ScalarProperty Name="PrivacyTypeID" ColumnName="PrivacyTypeID" />
+          <ScalarProperty Name="PrivacyDescription" ColumnName="PrivacyDescription" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllTagRating" FunctionName="BeeconDBModel.Store.spGetAllTagRating">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetAllTagRating_Result">
+          <ScalarProperty Name="RatingID" ColumnName="RatingID" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllTagVisited" FunctionName="BeeconDBModel.Store.spGetAllTagVisited">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetAllTagVisited_Result">
+          <ScalarProperty Name="VisitID" ColumnName="VisitID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="VisitTime" ColumnName="VisitTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetAllUsers" FunctionName="BeeconDBModel.Store.spGetAllUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetAllUsers_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="PasswordHashed" ColumnName="PasswordHashed" />
+          <ScalarProperty Name="TagsFound" ColumnName="TagsFound" />
+          <ScalarProperty Name="TagsPosted" ColumnName="TagsPosted" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetCategoryByID" FunctionName="BeeconDBModel.Store.spGetCategoryByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetCategoryByID_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetCategoryByTagID" FunctionName="BeeconDBModel.Store.spGetCategoryByTagID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetCategoryByTagID_Result">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="CategoryID1" ColumnName="CategoryID1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetFriendListByID" FunctionName="BeeconDBModel.Store.spGetFriendListByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetFriendListByID_Result">
+          <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="UserIDRequested" ColumnName="UserIDRequested" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetFriendListByUserID" FunctionName="BeeconDBModel.Store.spGetFriendListByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetFriendListByUserID_Result">
+          <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="UserIDRequested" ColumnName="UserIDRequested" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetInvitesByInviteID" FunctionName="BeeconDBModel.Store.spGetInvitesByInviteID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetInvitesByInviteID_Result">
+          <ScalarProperty Name="InviteID" ColumnName="InviteID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserIDSentTo" ColumnName="UserIDSentTo" />
+          <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+          <ScalarProperty Name="Rejected" ColumnName="Rejected" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetInvitesByUserID" FunctionName="BeeconDBModel.Store.spGetInvitesByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetInvitesByUserID_Result">
+          <ScalarProperty Name="InviteID" ColumnName="InviteID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserIDSentTo" ColumnName="UserIDSentTo" />
+          <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+          <ScalarProperty Name="Rejected" ColumnName="Rejected" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetTagByID" FunctionName="BeeconDBModel.Store.spGetTagByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetTagByID_Result">
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="TagLongitude" ColumnName="TagLongitude" />
+          <ScalarProperty Name="TagLatitude" ColumnName="TagLatitude" />
+          <ScalarProperty Name="TagDescription" ColumnName="TagDescription" />
+          <ScalarProperty Name="TagDateCreated" ColumnName="TagDateCreated" />
+          <ScalarProperty Name="TagExpired" ColumnName="TagExpired" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TagContent_URL" ColumnName="TagContent_URL" />
+          <ScalarProperty Name="PrivacyTypeID" ColumnName="PrivacyTypeID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetTagCategoryByTagID" FunctionName="BeeconDBModel.Store.spGetTagCategoryByTagID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetTagCategoryByTagID_Result">
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetTagPrivacyTypeByID" FunctionName="BeeconDBModel.Store.spGetTagPrivacyTypeByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetTagPrivacyTypeByID_Result">
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="TagLongitude" ColumnName="TagLongitude" />
+          <ScalarProperty Name="TagLatitude" ColumnName="TagLatitude" />
+          <ScalarProperty Name="TagDescription" ColumnName="TagDescription" />
+          <ScalarProperty Name="TagDateCreated" ColumnName="TagDateCreated" />
+          <ScalarProperty Name="TagExpired" ColumnName="TagExpired" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TagContent_URL" ColumnName="TagContent_URL" />
+          <ScalarProperty Name="PrivacyTypeID" ColumnName="PrivacyTypeID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetTagRatingByID" FunctionName="BeeconDBModel.Store.spGetTagRatingByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetTagRatingByID_Result">
+          <ScalarProperty Name="RatingID" ColumnName="RatingID" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetTagVisitedByUserID" FunctionName="BeeconDBModel.Store.spGetTagVisitedByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetTagVisitedByUserID_Result">
+          <ScalarProperty Name="VisitID" ColumnName="VisitID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="VisitTime" ColumnName="VisitTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetTagVisitedByVisitID" FunctionName="BeeconDBModel.Store.spGetTagVisitedByVisitID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetTagVisitedByVisitID_Result">
+          <ScalarProperty Name="VisitID" ColumnName="VisitID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="VisitTime" ColumnName="VisitTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetUsersByID" FunctionName="BeeconDBModel.Store.spGetUsersByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BeeconDBModel.spGetUsersByID_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="PasswordHashed" ColumnName="PasswordHashed" />
+          <ScalarProperty Name="TagsFound" ColumnName="TagsFound" />
+          <ScalarProperty Name="TagsPosted" ColumnName="TagsPosted" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spInsertCategory" FunctionName="BeeconDBModel.Store.spInsertCategory" />
+    <FunctionImportMapping FunctionImportName="spInsertFriendList" FunctionName="BeeconDBModel.Store.spInsertFriendList" />
+    <FunctionImportMapping FunctionImportName="spInsertInvites" FunctionName="BeeconDBModel.Store.spInsertInvites" />
+    <FunctionImportMapping FunctionImportName="spInsertTag" FunctionName="BeeconDBModel.Store.spInsertTag" />
+    <FunctionImportMapping FunctionImportName="spInsertTagCategory" FunctionName="BeeconDBModel.Store.spInsertTagCategory" />
+    <FunctionImportMapping FunctionImportName="spInsertTagPrivacyType" FunctionName="BeeconDBModel.Store.spInsertTagPrivacyType" />
+    <FunctionImportMapping FunctionImportName="spInsertTagRating" FunctionName="BeeconDBModel.Store.spInsertTagRating" />
+    <FunctionImportMapping FunctionImportName="spInsertTagVisited" FunctionName="BeeconDBModel.Store.spInsertTagVisited" />
+    <FunctionImportMapping FunctionImportName="spInsertUser" FunctionName="BeeconDBModel.Store.spInsertUser" />
+    <FunctionImportMapping FunctionImportName="spUpdateCategory" FunctionName="BeeconDBModel.Store.spUpdateCategory" />
+    <FunctionImportMapping FunctionImportName="spUpdateFriendList" FunctionName="BeeconDBModel.Store.spUpdateFriendList" />
+    <FunctionImportMapping FunctionImportName="spUpdateInvites" FunctionName="BeeconDBModel.Store.spUpdateInvites" />
+    <FunctionImportMapping FunctionImportName="spUpdateTag" FunctionName="BeeconDBModel.Store.spUpdateTag" />
+    <FunctionImportMapping FunctionImportName="spUpdateTagCategory" FunctionName="BeeconDBModel.Store.spUpdateTagCategory" />
+    <FunctionImportMapping FunctionImportName="spUpdateTagPrivacyType" FunctionName="BeeconDBModel.Store.spUpdateTagPrivacyType" />
+    <FunctionImportMapping FunctionImportName="spUpdateTagRating" FunctionName="BeeconDBModel.Store.spUpdateTagRating" />
+    <FunctionImportMapping FunctionImportName="spUpdateTagVisited" FunctionName="BeeconDBModel.Store.spUpdateTagVisited" />
+    <FunctionImportMapping FunctionImportName="spUpdateUser" FunctionName="BeeconDBModel.Store.spUpdateUser" />
   </EntityContainerMapping>
 </Mapping>

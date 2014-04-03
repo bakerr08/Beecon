@@ -8,6 +8,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using WebMatrix.WebData;
+using Beecon.MVC.Models;
 
 namespace Beecon.MVC
 {
@@ -18,7 +19,9 @@ namespace Beecon.MVC
     {
         protected void Application_Start()
         {
-
+            BeeconDBEntitiesBOB context = new BeeconDBEntitiesBOB();
+            Beecon.MVC.DAL.BeeconInitializer init = new DAL.BeeconInitializer();
+            init.Seed(context);
 
             if (!WebSecurity.Initialized)
                 WebSecurity.InitializeDatabaseConnection("DefaultConnection",

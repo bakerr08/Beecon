@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6cabcc0753504dfdaeea4810867bcf99" Name="Diagram1">
+      <Diagram DiagramId="668c89489eb8453aa948554cbbb31780" Name="Diagram1">
         <EntityTypeShape EntityType="BeeconDBModel.Category" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BeeconDBModel.FriendList" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BeeconDBModel.Invite" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />

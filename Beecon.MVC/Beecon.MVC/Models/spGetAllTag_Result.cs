@@ -10,16 +10,17 @@
 namespace Beecon.MVC.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class FriendList
+    public partial class spGetAllTag_Result
     {
-        public int FriendID { get; set; }
+        public int TagID { get; set; }
+        public string TagLongitude { get; set; }
+        public string TagLatitude { get; set; }
+        public string TagDescription { get; set; }
+        public Nullable<System.DateTime> TagDateCreated { get; set; }
+        public Nullable<System.DateTime> TagExpired { get; set; }
         public int UserID { get; set; }
-        public System.DateTime Created { get; set; }
-        public int UserIDRequested { get; set; }
-    
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
+        public string TagContent_URL { get; set; }
+        public int PrivacyTypeID { get; set; }
     }
 }

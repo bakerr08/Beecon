@@ -11,7 +11,7 @@ namespace Beecon.MVC.Controllers
 {
     public class BeeconController : Controller
     {
-        private BeeconDBEntities db = new BeeconDBEntities();
+        private BeeconDBEntitiesBOB db = new BeeconDBEntitiesBOB();
 
         //
         // GET: /Beecon/

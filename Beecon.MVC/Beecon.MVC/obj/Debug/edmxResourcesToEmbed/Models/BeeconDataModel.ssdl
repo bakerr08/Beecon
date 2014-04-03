@@ -70,10 +70,10 @@
     <Key>
       <PropertyRef Name="FriendID" />
     </Key>
+    <Property Name="FriendID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="UserIDRequested" Type="int" Nullable="false" />
-    <Property Name="FriendID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Invites">
     <Key>
@@ -292,4 +292,166 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="spGetAllCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllFriendList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllInvites" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllTag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllTagCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllTagPrivacyType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllTagRating" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllTagVisited" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetAllUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spGetCategoryByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetCategoryByTagID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TagID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetFriendListByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FriendID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetFriendListByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetInvitesByInviteID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InviteID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetInvitesByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetTagByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TagID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetTagCategoryByTagID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TagID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetTagPrivacyTypeByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PrivacyTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetTagRatingByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RatingID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetTagVisitedByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetTagVisitedByVisitID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VisitID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spGetUsersByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spInsertCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Category" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spInsertFriendList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="Created" Type="datetime" Mode="In" />
+    <Parameter Name="UserIDRequested" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spInsertInvites" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="UserIDSentTo" Type="int" Mode="In" />
+    <Parameter Name="Accepted" Type="bit" Mode="In" />
+    <Parameter Name="Rejected" Type="bit" Mode="In" />
+    <Parameter Name="Created" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="spInsertTag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TagLongitude" Type="varchar" Mode="In" />
+    <Parameter Name="TagLatitude" Type="varchar" Mode="In" />
+    <Parameter Name="TagDescription" Type="varchar" Mode="In" />
+    <Parameter Name="TagDateCreated" Type="datetime" Mode="In" />
+    <Parameter Name="TagExpired" Type="datetime" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="TagContent_URL" Type="varchar" Mode="In" />
+    <Parameter Name="PrivacyTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spInsertTagCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TagID" Type="int" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spInsertTagPrivacyType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PrivacyDescription" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spInsertTagRating" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Rate" Type="int" Mode="In" />
+    <Parameter Name="TagID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spInsertTagVisited" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="TagID" Type="int" Mode="In" />
+    <Parameter Name="VisitTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="spInsertUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="FirstName" Type="varchar" Mode="In" />
+    <Parameter Name="LastName" Type="varchar" Mode="In" />
+    <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+    <Parameter Name="Dob" Type="varchar" Mode="In" />
+    <Parameter Name="PasswordHashed" Type="varchar" Mode="In" />
+    <Parameter Name="TagsFound" Type="int" Mode="In" />
+    <Parameter Name="TagsPosted" Type="int" Mode="In" />
+    <Parameter Name="Gender" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spUpdateCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+    <Parameter Name="Category" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spUpdateFriendList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FriendID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="Created" Type="datetime" Mode="In" />
+    <Parameter Name="UserIDRequested" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spUpdateInvites" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InviteID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="UserIDSentTo" Type="int" Mode="In" />
+    <Parameter Name="Accepted" Type="bit" Mode="In" />
+    <Parameter Name="Rejected" Type="bit" Mode="In" />
+    <Parameter Name="Created" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="spUpdateTag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TagID" Type="int" Mode="In" />
+    <Parameter Name="TagLongitude" Type="varchar" Mode="In" />
+    <Parameter Name="TagLatitude" Type="varchar" Mode="In" />
+    <Parameter Name="TagDescription" Type="varchar" Mode="In" />
+    <Parameter Name="TagDateCreated" Type="datetime" Mode="In" />
+    <Parameter Name="TagExpired" Type="datetime" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="TagContent_URL" Type="varchar" Mode="In" />
+    <Parameter Name="PrivacyTypeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spUpdateTagCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TagID" Type="int" Mode="In" />
+    <Parameter Name="CategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spUpdateTagPrivacyType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PrivacyTypeID" Type="int" Mode="In" />
+    <Parameter Name="PrivacyDescription" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spUpdateTagRating" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RatingID" Type="int" Mode="In" />
+    <Parameter Name="Rate" Type="int" Mode="In" />
+    <Parameter Name="TagID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spUpdateTagVisited" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VisitID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="TagID" Type="int" Mode="In" />
+    <Parameter Name="VisitTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="spUpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="FirstName" Type="varchar" Mode="In" />
+    <Parameter Name="LastName" Type="varchar" Mode="In" />
+    <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+    <Parameter Name="Dob" Type="varchar" Mode="In" />
+    <Parameter Name="PasswordHashed" Type="varchar" Mode="In" />
+    <Parameter Name="TagsFound" Type="int" Mode="In" />
+    <Parameter Name="TagsPosted" Type="int" Mode="In" />
+    <Parameter Name="Gender" Type="varchar" Mode="In" />
+  </Function>
 </Schema>

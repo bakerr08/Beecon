@@ -188,10 +188,12 @@
     <Compile Include="Controllers\BeeconController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DAL\BeeconInitializer.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModel.Methods.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\BeeconDataModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -215,6 +217,72 @@
       <DependentUpon>BeeconDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Invite.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetAllCategory_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetAllFriendList_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetAllInvites_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetAllTagCategory_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetAllTagPrivacyType_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetAllTagRating_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetAllTagVisited_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetAllTag_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetAllUsers_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetCategoryByID_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetCategoryByTagID_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetFriendListByID_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetFriendListByUserID_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetInvitesByInviteID_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetInvitesByUserID_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetTagByID_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetTagCategoryByTagID_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetTagPrivacyTypeByID_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetTagRatingByID_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetTagVisitedByUserID_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetTagVisitedByVisitID_Result.cs">
+      <DependentUpon>BeeconDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGetUsersByID_Result.cs">
       <DependentUpon>BeeconDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tag.cs">
@@ -379,7 +447,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DAL\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
