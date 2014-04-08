@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using Beecon.MVC.Models;
+using Newtonsoft.Json;
 
 namespace Beecon.MVC.Controllers
 {
@@ -41,5 +42,29 @@ namespace Beecon.MVC.Controllers
 
             return View();
         }
+
+        public string GetOneUsers()
+        {
+        
+
+            //DbSet<User> users = db.Users;
+
+            var json = JsonConvert.SerializeObject(User);
+            return json;
+        }
+
+
+
+        public string GetAllUsers()
+        {
+            string json = " ";
+
+            //DbSet<User> users = db.Users;
+
+           // var json = JsonConvert.SerializeObject();
+            return json;
+        }
+
+
     }
 }
