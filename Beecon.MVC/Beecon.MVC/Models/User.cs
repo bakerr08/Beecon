@@ -23,6 +23,12 @@ namespace Beecon.MVC.Models
             this.Tags = new HashSet<Tag>();
             this.TagRatings = new HashSet<TagRating>();
             this.TagVisiteds = new HashSet<TagVisited>();
+
+
+
+
+
+
         }
     
         public int UserID { get; set; }

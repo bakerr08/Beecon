@@ -24,7 +24,7 @@ namespace Beecon.MVC.Controllers
 
 
             DbSet<User> users = db.Users;
-            ViewData["users"] = users;
+
 
             return View();
         }

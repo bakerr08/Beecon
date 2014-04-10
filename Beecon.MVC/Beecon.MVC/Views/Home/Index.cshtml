@@ -28,7 +28,8 @@
     <li>@Html.ActionLink("Create User", "GetAllUsers")</li>
     <li>@Html.ActionLink("Create Beecon", "GetAllUsers")</li>
     <li>@Html.ActionLink("Delete User", "GetAllUsers")</li>
-    <li>@Html.ActionLink("Delte Beecon", "GetAllUsers")</li>
+    <li>@Html.ActionLink("Delete Beecon", "GetAllUsers")</li>
+  
 </ul>
 
 @Scripts.Render("~/bundles/jquery")
@@ -41,4 +42,34 @@
     });
 
 
+    $('#Get all Users').change(function () {
+        $.post('@Url.Action("GetAllUsers","Home")', function (data) {
+             $('#txtJson').text("Json is " + data);
+         });
+     });
+
+
+    $('#Get all Users').change(function () {
+        $.post('@Url.Action("GetAllUsers","Home")', function (data) {
+            $('#txtJson').text("Json is " + data);
+        });
+    });
+
+    $('#Get all Users').change(function () {
+        $.post('@Url.Action("GetAllUsers","Home")', function (data) {
+            $('#txtJson').text("Json is " + data);
+        });
+    });
+
+    $('#Get all Users').change(function () {
+        $.post('@Url.Action("GetAllUsers","Home")', function (data) {
+            $('#txtJson').text("Json is " + data);
+        });
+    });
+
+    $('#Get all Users').change(function () {
+        $.post('@Url.Action("GetAllUsers","Home")', function (data) {
+            $('#txtJson').text("Json is " + data);
+        });
+    });
 </script>

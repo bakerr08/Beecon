@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Beecon.MVC.Models;
+using Newtonsoft.Json;
 
 namespace Beecon.MVC.Controllers
 {
@@ -19,6 +20,23 @@ namespace Beecon.MVC.Controllers
         public ActionResult Index()
         {
             return View(db.Users.ToList());
+        }
+
+        public ActionResult GetAllUsers()
+        {
+
+           // JsonConvert.SerializeObject(YourPOCOHere, Formatting.Indented, new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Serialize });
+
+            //var users = from u in db.Users select u;
+
+            var users = db.Users.ToList();
+            //List<string> pooplist = new List<string>();
+
+            ViewData["users"] = users;
+            return View();
+
+
+
         }
 
         //

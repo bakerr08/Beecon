@@ -444,6 +444,7 @@
     <Content Include="Views\Beecon\Edit.cshtml" />
     <Content Include="Views\Beecon\Delete.cshtml" />
     <Content Include="Views\GetAllUsers\GetAllUsers.cshtml" />
+    <Content Include="Views\User\GetAllUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
