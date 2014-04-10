@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "GetAllUsers";
+    Layout = null;
+
+
+
+    var BeeconUser = ViewBag.BeeconUser;
+    
+    
+    
+}
+
+
+
+
+
+ @Html.Raw(",\"user\":[")  
+
+    
+                @Html.Raw(",")
+                 
+            
+            @Html.Raw("{")
+               @Html.Raw(String.Format("\"user_id\": \"{0}\",", BeeconUser.UserID))
+            if (u.Email == null)
+            {
+                u.Email = "Simpsons@gmail.com";
+            }
+               @Html.Raw(String.Format("\"Email\": \"{0}\",", BeeconUser.Email))
+            if (u.FirstName == null)
+            {
+                u.FirstName = "Bart";
+            }
+               @Html.Raw(String.Format("\"firstname\": \"{0}\",", BeeconUser.FirstName))
+            if (u.LastName == null)
+            {
+                u.LastName = "Simpsons";
+            }
+               @Html.Raw(String.Format("\"LastName\": \"{0}\",", BeeconUser.LastName))
+            if (u.ZipCode == null)
+            {
+                u.ZipCode = "54911";
+            }
+               @Html.Raw(String.Format("\"zipcode\": \"{0}\",", BeeconUser.ZipCode))
+            if (u.TagsFound == null)
+            {
+                u.TagsFound = 0;
+            }
+               @Html.Raw(String.Format("\"tagsfound\": \"{0}\",", BeeconUser.TagsFound))
+            if (u.TagsPosted == null)
+            {
+                u.TagsPosted = 0;
+            }
+               @Html.Raw(String.Format("\"tagsPosted\": \"{0}\"", BeeconUser.TagsPosted))
+            if (u.Gender == null)
+            {
+                u.Gender = "Male";
+            }
+               @Html.Raw(String.Format("\"gender\": \"{0}\"", BeeconUser.Gender))
+
+            @Html.Raw("}")
+
+        }
+
+         @Html.Raw("]")  

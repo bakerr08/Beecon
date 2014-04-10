@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "GetAllTags";
+    Layout = null;
+
+
+
+    var Beecon = ViewBag.Beecon;
+
+    
+    
+    
+}
+
+
+
+ @Html.Raw(",\"Tag\":[")  
+
+                @Html.Raw(",")
+            
+            
+            
+            
+            @Html.Raw("{")
+               @Html.Raw(String.Format("\"Tag_id\": \"{0}\",", Beecon.TagID))
+            if (Beecon.TagLongitude == null)
+            {
+                Beecon.TagLongitude = "32165498";
+            }
+               @Html.Raw(String.Format("\"TagLongitude\": \"{0}\",", Beecon.TagLongitude))
+            if (Beecon.TagLatitude == null)
+            {
+                Beecon.TagLatitude = "3216546";
+            }
+               @Html.Raw(String.Format("\"TagLatitude\": \"{0}\",", Beecon.TagLatitude))
+            if (Beecon.TagDescription == null)
+            {
+                Beecon.TagDescription = "Simpsons";
+            }
+               @Html.Raw(String.Format("\"TagDescription\": \"{0}\",", Beecon.TagDescription))
+            if (Beecon.TagDateCreated == null)
+            {
+                Beecon.TagDateCreated = DateTime.Now;
+            }
+               @Html.Raw(String.Format("\"TagDateCreated\": \"{0}\",", Beecon.TagDateCreated))
+            if (Beecon.TagExpired == null)
+            {
+                Beecon.TagExpired = DateTime.Now;
+            }
+               @Html.Raw(String.Format("\"TagExpired\": \"{0}\",", Beecon.TagExpired))
+            if (Beecon.UserID == null)
+            {
+                Beecon.UserID = 1;
+            }
+               @Html.Raw(String.Format("\"UserID\": \"{0}\"", Beecon.UserID))
+            if (Beecon.TagContent_URL == null)
+            {
+                Beecon.TagContent_URL = "Male";
+            }
+               @Html.Raw(String.Format("\"TagContent_URL\": \"{0}\"", Beecon.TagContent_URL))
+            if (Beecon.PrivacyTypeID == null)
+            {
+                Beecon.PrivacyTypeID = "Friends";
+            }
+               @Html.Raw(String.Format("\"PrivacyTypeID\": \"{0}\"", Beecon.PrivacyTypeID))
+            
+
+            @Html.Raw("}")
+        }
+         @Html.Raw("]")  

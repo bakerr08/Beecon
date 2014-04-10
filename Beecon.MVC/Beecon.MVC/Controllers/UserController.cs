@@ -25,18 +25,20 @@ namespace Beecon.MVC.Controllers
         public ActionResult GetAllUsers()
         {
 
-           // JsonConvert.SerializeObject(YourPOCOHere, Formatting.Indented, new JsonSerializerSettings() { ReferenceLoopHandling = ReferenceLoopHandling.Serialize });
-
-            //var users = from u in db.Users select u;
-
             var users = db.Users.ToList();
-            //List<string> pooplist = new List<string>();
-
             ViewData["users"] = users;
             return View();
+        }
 
+        public ActionResult GetUser()
+        {
 
+            var users = db.Users.ToList();
 
+            var BeeconUser = users[1];
+
+            ViewData["BeeconUser"] = BeeconUser;
+            return View();
         }
 
         //

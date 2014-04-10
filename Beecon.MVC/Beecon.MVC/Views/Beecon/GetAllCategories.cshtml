@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "GetAllCategories";
+    Layout = null;
+
+
+
+    var Categories = ViewBag.Categories;
+
+    var CategoriesCount = 1;
+    
+    
+    
+}
+
+
+
+
+
+ @Html.Raw(",\"Categoriess\":[")  
+        @foreach (var t in Categories) 
+        {
+            if (CategoriesCount > 0) 
+            {
+                @Html.Raw(",")
+            }
+            
+            
+            
+            @Html.Raw("{")
+               @Html.Raw(String.Format("\"Categories_id\": \"{0}\",", t.CategoryID))
+            if (t.Categories == null)
+            {
+                t.Categories = "Produce";
+            }
+               @Html.Raw(String.Format("\"Categories\": \"{0}\",", t.Category))
+
+            
+            
+            CategoriesCount++;
+            @Html.Raw("}")
+        }
+         @Html.Raw("]")  

@@ -128,5 +128,38 @@ namespace Beecon.MVC.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+
+
+
+
+        public ActionResult GetAllBeecons()
+        {
+
+            var Tags = db.Tags.ToList();
+            ViewData["Tags"] = Tags;
+            return View();
+        }
+
+        public ActionResult GetBeecon()
+        {
+
+            var Beecons = db.Tags.ToList();
+
+            var Beecon = Beecons[1];
+
+            ViewData["Beecon"] = Beecon;
+            return View();
+        }
+
+
+        public ActionResult GetAllCategories()
+        {
+
+            var Categories = db.Categories.ToList();
+            ViewData["Categories"] = Categories;
+            return View();
+        }
+
     }
 }
