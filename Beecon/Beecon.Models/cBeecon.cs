@@ -8,73 +8,80 @@ namespace Beecon.Models
 {
 	public class cBeecon
 	{
-			#region Beecon Properties
+		#region Beecon Properties
 
-			int beeconID;
+		int beeconID;
+		public int BeeconID
+		{
+			get { return beeconID; }
+			set { beeconID = value; }
+		}
+		
+		string beeconLongitude;
+		public string BeeconLongitude
+		{
+			get { return beeconLongitude; }
+			set { beeconLongitude = value; }
+		}
+		
+		string beeconLatitude;
+		public string BeeconLatitude
+		{
+			get { return beeconLatitude; }
+			set { beeconLatitude = value; }
+		}
+		
+		string beeconDescription;
+		public string BeeconDescription
+		{
+			get { return beeconDescription; }
+			set { beeconDescription = value; }
+		}
+		
+		DateTime beeconDateCreated;
+		public DateTime BeeconDateCreated
+		{
+			get { return beeconDateCreated; }
+			set { beeconDateCreated = value; }
+		}
+		
+		DateTime beeconDateExpired;
+		public DateTime BeeconDateExpired
+		{
+			get { return beeconDateExpired; }
+			set { beeconDateExpired = value; }
+		}
+		
+		int userId;
+		public int UserId
+		{
+			get { return userId; }
+			set { userId = value; }
+		}
+		
+		string beeconContentURL;
+		public string BeeconContentURL
+		{
+			get { return beeconContentURL; }
+			set { beeconContentURL = value; }
+		}
+		
+		int beeconPrivacyTypeID;
+		public int BeeconPrivacyTypeID
+		{
+			get { return beeconPrivacyTypeID; }
+			set { beeconPrivacyTypeID = value; }
+		}
 
-			public int BeeconID
-			{
-				get { return beeconID; }
-				set { beeconID = value; }
-			}
-			string beeconLongitude;
+		#endregion
 
-			public string BeeconLongitude
-			{
-				get { return beeconLongitude; }
-				set { beeconLongitude = value; }
-			}
-			string beeconLatitude;
+		public cBeecon()
+		{
+		}
 
-			public string BeeconLatitude
-			{
-				get { return beeconLatitude; }
-				set { beeconLatitude = value; }
-			}
-			string beeconDescription;
-
-			public string BeeconDescription
-			{
-				get { return beeconDescription; }
-				set { beeconDescription = value; }
-			}
-			DateTime beeconDateCreated;
-
-			public DateTime BeeconDateCreated
-			{
-				get { return beeconDateCreated; }
-				set { beeconDateCreated = value; }
-			}
-			DateTime beeconDateExpired;
-
-			public DateTime BeeconDateExpired
-			{
-				get { return beeconDateExpired; }
-				set { beeconDateExpired = value; }
-			}
-			int userId;
-
-			public int UserId
-			{
-				get { return userId; }
-				set { userId = value; }
-			}
-			string beeconContentURL;
-
-			public string BeeconContentURL
-			{
-				get { return beeconContentURL; }
-				set { beeconContentURL = value; }
-			}
-			int beeconPrivacyTypeID;
-
-			public int BeeconPrivacyTypeID
-			{
-				get { return beeconPrivacyTypeID; }
-				set { beeconPrivacyTypeID = value; }
-			}
-
-			#endregion
+		public cBeecon(int _id, string _latitude, string _longitude, string _description, DateTime _datecreated, DateTime _dateexpired, int _userid, string _beeconcontentURL)
+		{
+		}
 
 		public string ConvertToJson(cBeecon _beecon)
 		{
@@ -88,9 +95,6 @@ namespace Beecon.Models
 			var beecon = JsonConvert.DeserializeObject<cBeecon> (json);
 			return beecon;
 		}
-
-
-
 	}
 }
 

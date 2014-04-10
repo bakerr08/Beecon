@@ -38,34 +38,6 @@ namespace Beecon.Models
 			set { lastName = value; }
 		}
 
-		string gender;
-		public string Gender
-		{
-			get { return gender; }
-			set { gender = value; }
-		}
-
-		string address;
-		public string Address
-		{
-			get { return address; }
-			set { address = value; }
-		}
-
-		string city;
-		public string City
-		{
-			get { return city; }
-			set { city = value; }
-		}
-
-		string state;
-		public string State
-		{
-			get { return state; }
-			set { state = value; }
-		}
-
 		string zip;
 		public string Zip
 		{
@@ -100,6 +72,21 @@ namespace Beecon.Models
 			get { return beeconsCreated; }
 			set { beeconsCreated = value; }
 		}
+
+		string gender;
+		public string Gender
+		{
+			get { return gender; }
+			set { gender = value; }
+		}
+
+		string address;
+		public string Address
+		{
+			get { return address; }
+			set { address = value; }
+		}
+			
 		#endregion
 
 
@@ -107,7 +94,8 @@ namespace Beecon.Models
 		{
 
 		}
-		public cUser(int _id, string _lastName, string _firstName, string _email, string _gender, string _address, string _city, string _state, string _zip, DateTime? _dob, string _password, int? _beeconsCreated, int? _beeconsFound)
+
+		public cUser(int _id, string _lastName, string _firstName, string _email, string _gender, string _address, string _zip, DateTime? _dob, string _password, int? _beeconsCreated, int? _beeconsFound)
 		{
 			id = _id;
 			lastName = _lastName;
@@ -115,14 +103,11 @@ namespace Beecon.Models
 			email = _email;
 			gender = _gender;
 			address = _address;
-			city = _city;
-			state = _state;
 			zip = _zip;
 			dob = _dob;
 			password = _password;
 			beeconsCreated = _beeconsCreated;
 			beeconsFound = _beeconsFound;
-
 		}
 			
 		public string ConvertToJson(cUser _user)
