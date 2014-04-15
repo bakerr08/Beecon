@@ -13,15 +13,16 @@
 
 
 
- @Html.Raw(",\"Tag\":[")  
+ @Html.Raw("{\"Tag\":")  
 
-                @Html.Raw(",")
+
             
             
             
             
             @Html.Raw("{")
                @Html.Raw(String.Format("\"Tag_id\": \"{0}\",", Beecon.TagID))
+@{
             if (Beecon.TagLongitude == null)
             {
                 Beecon.TagLongitude = "32165498";
@@ -51,12 +52,12 @@
             {
                 Beecon.UserID = 1;
             }
-               @Html.Raw(String.Format("\"UserID\": \"{0}\"", Beecon.UserID))
+               @Html.Raw(String.Format("\"UserID\": \"{0}\",", Beecon.UserID))
             if (Beecon.TagContent_URL == null)
             {
                 Beecon.TagContent_URL = "Male";
             }
-               @Html.Raw(String.Format("\"TagContent_URL\": \"{0}\"", Beecon.TagContent_URL))
+               @Html.Raw(String.Format("\"TagContent_URL\": \"{0}\",", Beecon.TagContent_URL))
             if (Beecon.PrivacyTypeID == null)
             {
                 Beecon.PrivacyTypeID = "Friends";
@@ -65,5 +66,6 @@
             
 
             @Html.Raw("}")
+@Html.Raw("}")  
         }
-         @Html.Raw("]")  
+         

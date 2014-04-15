@@ -30,12 +30,14 @@ namespace Beecon.MVC.Controllers
             return View();
         }
 
-        public ActionResult GetUser()
+        public ActionResult GetUser(string json)
         {
 
-            var users = db.Users.ToList();
+            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
 
-            var BeeconUser = users[1];
+            int _userid = data.UserID;
+
+            var BeeconUser = db.Users.First(u => u.UserID == _userid);
 
             ViewData["BeeconUser"] = BeeconUser;
             return View();

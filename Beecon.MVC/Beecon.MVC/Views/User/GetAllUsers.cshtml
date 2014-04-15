@@ -16,10 +16,10 @@
 
 
 
- @Html.Raw(",\"users\":[")  
+ @Html.Raw("{\"users\":[")  
         @foreach(var u in users) 
         {
-            if (userCount > 0) 
+            if (userCount > 1) 
             {
                 @Html.Raw(",")
             }
@@ -57,7 +57,7 @@
             {
                 u.TagsPosted = 0;
             }
-               @Html.Raw(String.Format("\"tagsPosted\": \"{0}\"", u.TagsPosted))
+               @Html.Raw(String.Format("\"tagsPosted\": \"{0}\",", u.TagsPosted))
             if (u.Gender == null)
             {
                 u.Gender = "Male";
@@ -66,4 +66,4 @@
             userCount++;
             @Html.Raw("}")
         }
-         @Html.Raw("]")  
+         @Html.Raw("]}")  

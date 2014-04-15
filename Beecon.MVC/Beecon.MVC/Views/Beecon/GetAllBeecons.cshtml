@@ -16,10 +16,10 @@
 
 
 
- @Html.Raw(",\"Tags\":[")  
+ @Html.Raw("{\"Tags\":[")  
         @foreach(var t in Tags) 
         {
-            if (TagCount > 0) 
+            if (TagCount > 1) 
             {
                 @Html.Raw(",")
             }
@@ -57,12 +57,12 @@
             {
                 t.UserID = 1;
             }
-               @Html.Raw(String.Format("\"UserID\": \"{0}\"", t.UserID))
+               @Html.Raw(String.Format("\"UserID\": \"{0}\",", t.UserID))
             if (t.TagContent_URL == null)
             {
                 t.TagContent_URL = "Male";
             }
-               @Html.Raw(String.Format("\"TagContent_URL\": \"{0}\"", t.TagContent_URL))
+               @Html.Raw(String.Format("\"TagContent_URL\": \"{0}\",", t.TagContent_URL))
             if (t.PrivacyTypeID == null)
             {
                 t.PrivacyTypeID = "Friends";
@@ -71,5 +71,6 @@
             
             TagCount++;
             @Html.Raw("}")
-        }
-         @Html.Raw("]")  
+         }
+         @Html.Raw("]}")  
+       

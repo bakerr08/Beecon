@@ -12,54 +12,54 @@
 
 
 
+@Html.Raw("{")
 
-
- @Html.Raw(",\"user\":[")  
+ @Html.Raw("\"user\":")  
 
     
-                @Html.Raw(",")
+
                  
             
             @Html.Raw("{")
                @Html.Raw(String.Format("\"user_id\": \"{0}\",", BeeconUser.UserID))
-            if (u.Email == null)
+            @{
+                if (BeeconUser.Email == null)
             {
-                u.Email = "Simpsons@gmail.com";
+                BeeconUser.Email = "Simpsons@gmail.com";
             }
+            
                @Html.Raw(String.Format("\"Email\": \"{0}\",", BeeconUser.Email))
-            if (u.FirstName == null)
+            if (BeeconUser.FirstName == null)
             {
-                u.FirstName = "Bart";
+                BeeconUser.FirstName = "Bart";
             }
                @Html.Raw(String.Format("\"firstname\": \"{0}\",", BeeconUser.FirstName))
-            if (u.LastName == null)
+            if (BeeconUser.LastName == null)
             {
-                u.LastName = "Simpsons";
+                BeeconUser.LastName = "Simpsons";
             }
                @Html.Raw(String.Format("\"LastName\": \"{0}\",", BeeconUser.LastName))
-            if (u.ZipCode == null)
+            if (BeeconUser.ZipCode == null)
             {
-                u.ZipCode = "54911";
+                BeeconUser.ZipCode = "54911";
             }
                @Html.Raw(String.Format("\"zipcode\": \"{0}\",", BeeconUser.ZipCode))
-            if (u.TagsFound == null)
+            if (BeeconUser.TagsFound == null)
             {
-                u.TagsFound = 0;
+                BeeconUser.TagsFound = 0;
             }
                @Html.Raw(String.Format("\"tagsfound\": \"{0}\",", BeeconUser.TagsFound))
-            if (u.TagsPosted == null)
+            if (BeeconUser.TagsPosted == null)
             {
-                u.TagsPosted = 0;
+                BeeconUser.TagsPosted = 0;
             }
-               @Html.Raw(String.Format("\"tagsPosted\": \"{0}\"", BeeconUser.TagsPosted))
-            if (u.Gender == null)
+               @Html.Raw(String.Format("\"tagsPosted\": \"{0}\",", BeeconUser.TagsPosted))
+            if (BeeconUser.Gender == null)
             {
-                u.Gender = "Male";
+                BeeconUser.Gender = "Male";
             }
                @Html.Raw(String.Format("\"gender\": \"{0}\"", BeeconUser.Gender))
 
             @Html.Raw("}")
-
-        }
-
-         @Html.Raw("]")  
+                 @Html.Raw("}")
+            }
