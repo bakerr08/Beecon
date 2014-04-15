@@ -79,13 +79,23 @@ namespace Beecon.Models
 		{
 		}
 
-		public cBeecon(int _id, string _latitude, string _longitude, string _description, DateTime _datecreated, DateTime _dateexpired, int _userid, string _beeconcontentURL)
+		public cBeecon(int _id, string _latitude, string _longitude, string _description, DateTime _datecreated, 
+					   DateTime _dateexpired, int _userid, string _beeconcontentURL, int _beeconprivacytypeid)
 		{
+			BeeconID = _id;
+			BeeconLatitude = _latitude;
+			BeeconLongitude = _longitude;
+			BeeconDescription = _description;
+			BeeconDateCreated = _datecreated;
+			BeeconDateExpired = _dateexpired;
+			UserId = _userid;
+			beeconContentURL = _beeconcontentURL;
+			BeeconPrivacyTypeID = _beeconprivacytypeid;
 		}
 
 		public string ConvertToJson(cBeecon _beecon)
 		{
-			var json = JsonConvert.SerializeObject (_beecon);
+			string json = JsonConvert.SerializeObject (_beecon);
 			return json;
 
 		}
@@ -94,6 +104,17 @@ namespace Beecon.Models
 		{
 			var beecon = JsonConvert.DeserializeObject<cBeecon> (json);
 			return beecon;
+		}
+
+		public void CreateBeecon(cBeecon _beecon)
+		{
+			cBeecon beecon = new cBeecon ();
+			beecon = _beecon;
+
+			//build JSON string
+			//post to website
+
+
 		}
 	}
 }

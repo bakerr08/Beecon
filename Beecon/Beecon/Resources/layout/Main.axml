@@ -11,7 +11,7 @@
         p1:text="Create Beecon"
         p1:layout_width="145.0dp"
         p1:layout_height="wrap_content"
-        p1:id="@+id/CreateBeecon"
+        p1:id="@+id/btnCreateBeecon"
         p1:layout_marginLeft="85.0dp"
         p1:layout_marginTop="50.0dp" />
     <Button
