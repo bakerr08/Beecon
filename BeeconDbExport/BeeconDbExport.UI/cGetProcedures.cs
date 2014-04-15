@@ -29,6 +29,27 @@ namespace BeeconDbExport.UI
             // Data is accessible through the DataReader object here.
 
             con.Close();
+			// oleDbCommand1.CommandText = "UpdateAuthor";
+			// oleDbCommand1.CommandType = System.Data.CommandType.StoredProcedure;
+
+			// oleDbCommand1.Parameters["au_id"].Value = "172-32-1176";
+			// oleDbCommand1.Parameters["au_lname"].Value = "White";
+			// oleDbCommand1.Parameters["au_fname"].Value = "Johnson";
+
+			// oleDbConnection1.Open();
+			// oleDbCommand1.ExecuteNonQuery();
+			// oleDbConnection1.Close();
+			// int returnValue;
+
+			// oleDbCommand1.CommandText = "CountAuthors";
+			// oleDbCommand1.CommandType = CommandType.StoredProcedure;
+
+			// oleDbConnection1.Open();
+			// oleDbCommand1.ExecuteNonQuery();
+			// oleDbConnection1.Close();
+
+			// returnValue = (int)(oleDbCommand1.Parameters["retvalue"].Value);
+			// MessageBox.Show("Return Value = " + returnValue.ToString());
 
         }
     }
