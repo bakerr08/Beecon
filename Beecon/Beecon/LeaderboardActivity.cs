@@ -11,14 +11,14 @@ using Android.Widget;
 
 namespace Beecon
 {
-	[Activity (Label = "CreateActivity")]			
-	public class CreateActivity : Activity
+	[Activity (Label = "LeaderboardActivity")]			
+	public class LeaderboardActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
-			SetContentView (Resource.Layout.Create);
-
+			SetContentView (Resource.Layout.Leaderboard);
+			// Create your application here
 		}
 	}
 }
