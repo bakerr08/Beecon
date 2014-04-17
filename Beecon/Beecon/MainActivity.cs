@@ -19,17 +19,10 @@ namespace Beecon
 
 			Button btnCreateBeecon = FindViewById<Button> (Resource.Id.btnCreateBeecon);
 
-			btnCreateBeecon.Click += delegate{
-				//switch to view to gather beecon deatils
-			}
-
-			// Get our button from the layout resource,
-			// and attach an event to it
-			/*Button button = FindViewById<Button> (Resource.Id.myButton);
-			
-			button.Click += delegate {
-				button.Text = string.Format ("{0} clicks!", count++);
-			};*/
+			btnCreateBeecon.Click += delegate {
+				//switch to view to gather beecon deatails
+				StartActivity (typeof(CreateActivity));
+			};
 		}
 	}
 }

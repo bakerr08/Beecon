@@ -2,30 +2,12 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Beecon.Models\cBeecon.cs" Line="109" Column="14" />
-      <File FileName="Beecon.Models\cUser.cs" Line="1" Column="1" />
-      <File FileName="Beecon.Models\cUsers.cs" Line="1" Column="1" />
-      <File FileName="Beecon\MainActivity.cs" Line="24" Column="5" />
+      <File FileName="Beecon\StartActivity.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Beecon.Android" expanded="True">
-            <Node name="ComponentReferenceFolder" expanded="True" />
-            <Node name="Resources" expanded="True">
-              <Node name="layout" expanded="True">
-                <Node name="Start.axml" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-          <Node name="Beecon.Models" expanded="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Beecon.Android MonoForAntroid.PreferredDevice="3.7in WVGA (Nexus One)" />
+  <MonoDevelop.Ide.ItemProperties.Beecon.Android MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" />
 </Properties>

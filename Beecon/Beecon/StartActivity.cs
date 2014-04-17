@@ -19,24 +19,15 @@ namespace Beecon
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.Start);
 
-			Button SignIn = FindViewById<Button> (Resource.Id.SignIn);
-			var SignUp = FindViewById<Button> (Resource.Id.SignUp);
-			String Email = (Resource.Id.Email.ToString());
-			String Password = (Resource.Id.Password.ToString());
-			String TextError = (Resource.Id.InputError);
+			Button SignIn = FindViewById<Button> (Resource.Id.btnSignIn);
+			var SignUp = FindViewById<Button> (Resource.Id.btnSignUp);
+			String Email = (Resource.Id.txtEmail.ToString());
+			String Password = (Resource.Id.txtPassword.ToString());
+			String TextError = (Resource.Id.InputError.ToString());
 
 			SignIn.Click += delegate {
 				//Error Handling
-				/*private void ErrorsBox(Object, EventArgs e)
-				{
-					AlertDialog.Builder ErrorMessage;
-					ErrorMessage = new AlertDialog.Builder(this);
-					ErrorMessage.SetTitle("Error");
-					ErrorMessage.SetMessage("The email or passowrd you entered is incorrect. Please try again");
-					ErrorMessage.SetCancelable(false);
-					ErrorMessage.SetPositiveButton("OK", delegate { Finish();});
-					ErrorMessage.Show();
-				}*/
+
 				if (Email == String.Empty){
 
 				
@@ -55,6 +46,17 @@ namespace Beecon
 				StartActivity (typeof(StartActivity));
 			};
 		}
+		//Error Box Pop up
+		/*private void ErrorsBox(Object, EventArgs e)
+		{
+			AlertDialog.Builder ErrorMessage;
+			ErrorMessage = new AlertDialog.Builder(this);
+			ErrorMessage.SetTitle("Error");
+			ErrorMessage.SetMessage("The email or passowrd you entered is incorrect. Please try again");
+			ErrorMessage.SetCancelable(false);
+			ErrorMessage.SetPositiveButton("OK", delegate { Finish();});
+			ErrorMessage.Show();
+		}*/
 	}
 }
 

@@ -18,7 +18,7 @@
         p1:text="View Map"
         p1:layout_width="145.0dp"
         p1:layout_height="wrap_content"
-        p1:id="@+id/button1"
+        p1:id="@+id/btnViewMap"
         p1:layout_marginLeft="85.0dp"
         p1:layout_marginTop="45.0dp" />
 </LinearLayout>
