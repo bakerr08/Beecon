@@ -11,35 +11,27 @@ namespace BeeconDbExport.UI
     public class CGetProcedures
     {
         BeeconDB beeconDBD = new BeeconDB();
-        List<string> sUsers = new List<string>();
+        private string sConnectionString = "";
+        public CGetProcedures()
+        {
+            if (System.Environment.MachineName == "JOSHUA-WIN7")
+            {
+                sConnectionString = BeeconDbExport.UI.Properties.Settings.Default.HomeBeeconDBConnectionString;
+                
+            }
+            else
+            {
+                sConnectionString = BeeconDbExport.UI.Properties.Settings.Default.BeeconDBConnectionString;
+
+
+            }
+           
+               
+            
+        }
         public List<string> GetAllUsers()
         {
-            //BeeconDBConnectionString
-            SqlConnection con = new SqlConnection(BeeconDbExport.UI.Properties.Settings.Default.BeeconDBConnectionString);
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
-
-            cmd.CommandText = "spGetAllUsers";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Connection = con;
-
-            con.Open();
-
-            reader = cmd.ExecuteReader();
-            // Data is accessible through the DataReader object here.
-            while (reader.Read())
-            {
-                string sUser = "";
-                for (int i = 0; i < 10; i++)
-			{
-               
-                    sUser = SafeGetString(reader, i) + ",";
-
-			}
-                sUsers.Add(sUser);				
-				}
-            con.Close();
-            return sUsers;
+            return GetFromProcedure("spGetAllUsers", 10);
         }
         private static string SafeGetString(SqlDataReader reader, int colIndex)
         {
@@ -71,13 +63,23 @@ namespace BeeconDbExport.UI
 
         public List<string> GetAllTags()
         {
-            List<string> sTags = new List<string>();
+            return GetFromProcedure("spGetAllTag", 9);
+        }
+
+        public List<string> GetAllTagPrivacyTypes()
+        {
+            return GetFromProcedure("spGetAllTagPrivacyType", 2);
+        }
+
+        private List<string> GetFromProcedure(string vsProcedureName, int columns)
+        {
+            List<string> rows = new List<string>();
             //BeeconDBConnectionString
-            SqlConnection con = new SqlConnection(BeeconDbExport.UI.Properties.Settings.Default.BeeconDBConnectionString);
+            SqlConnection con = new SqlConnection(sConnectionString);
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
 
-            cmd.CommandText = "spGetAllTags";
+            cmd.CommandText = vsProcedureName;
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = con;
 
@@ -87,53 +89,49 @@ namespace BeeconDbExport.UI
             // Data is accessible through the DataReader object here.
             while (reader.Read())
             {
-                string sTag = "";
-                for (int i = 0; i < 10; i++)
+                string row = "";
+                for (int i = 0; i < columns; i++)
                 {
 
-                    sTag = SafeGetString(reader, i) + ",";
+                    row = SafeGetString(reader, i) + ",";
 
                 }
-                sTags.Add(sTag);
+                rows.Add(row);
             }
             con.Close();
-            return sTags;
+            return rows;
         }
-
-        public List<string> GetAllTagPrivacyTypes()
-        {
-            throw new NotImplementedException();
-        }
-
         public List<string> GetAllTagRatings()
         {
-            throw new NotImplementedException();
+            return GetFromProcedure("spGetAllTagRating", 4);
         }
 
         public List<string> GetAllCategories()
         {
-            throw new NotImplementedException();
+            return GetFromProcedure("spGetAllCategory", 2);
         }
 
         public List<string> GetAllTagCategories()
         {
-            throw new NotImplementedException();
+            return GetFromProcedure("spGetAllTagCategory", 2);
         }
 
         public List<string> GetAllFriendLists()
         {
-            throw new NotImplementedException();
+            return GetFromProcedure("spGetAllFriendList", 4);
         }
 
         public List<string> GetAllTagsVisited()
         {
-            throw new NotImplementedException();
+            return GetFromProcedure("spGetAllTagVisited", 4);
         }
 
         public List<string> GetAllInvites()
         {
-            throw new NotImplementedException();
+            return GetFromProcedure("spGetAllInvites", 6);
         }
+
+       
     }
 
 }

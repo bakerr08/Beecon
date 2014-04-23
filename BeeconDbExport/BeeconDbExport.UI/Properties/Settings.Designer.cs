@@ -33,5 +33,15 @@ namespace BeeconDbExport.UI.Properties {
                 return ((string)(this["BeeconDBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JOSHUA-WIN7;Initial Catalog=BeeconDB;Integrated Security=True")]
+        public string HomeBeeconDBConnectionString {
+            get {
+                return ((string)(this["HomeBeeconDBConnectionString"]));
+            }
+        }
     }
 }

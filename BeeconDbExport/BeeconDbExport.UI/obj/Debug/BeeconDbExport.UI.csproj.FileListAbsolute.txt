@@ -7,3 +7,6 @@ C:\Users\500124115\Desktop\GitHub\Beecon\BeeconDbExport\BeeconDbExport.UI\obj\De
 C:\G\Beecon\BeeconDbExport\BeeconDbExport.UI\bin\Debug\BeeconDbExport.UI.exe.config
 C:\G\Beecon\BeeconDbExport\BeeconDbExport.UI\obj\Debug\BeeconDbExport.UI.exe
 C:\G\Beecon\BeeconDbExport\BeeconDbExport.UI\obj\Debug\BeeconDbExport.UI.pdb
+C:\G\Beecon\BeeconDbExport\BeeconDbExport.UI\bin\Debug\BeeconDbExport.UI.exe
+C:\G\Beecon\BeeconDbExport\BeeconDbExport.UI\bin\Debug\BeeconDbExport.UI.pdb
+C:\G\Beecon\BeeconDbExport\BeeconDbExport.UI\obj\Debug\BeeconDbExport.UI.csprojResolveAssemblyReference.cache

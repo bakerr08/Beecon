@@ -3,3 +3,8 @@ C:\Users\500124115\Desktop\GitHub\Beecon\BeeconDbExport\BeeconDbExport.DL\bin\De
 C:\Users\500124115\Desktop\GitHub\Beecon\BeeconDbExport\BeeconDbExport.DL\obj\Debug\BeeconDbExport.DL.csprojResolveAssemblyReference.cache
 C:\Users\500124115\Desktop\GitHub\Beecon\BeeconDbExport\BeeconDbExport.DL\obj\Debug\BeeconDbExport.DL.dll
 C:\Users\500124115\Desktop\GitHub\Beecon\BeeconDbExport\BeeconDbExport.DL\obj\Debug\BeeconDbExport.DL.pdb
+C:\G\Beecon\BeeconDbExport\BeeconDbExport.DL\bin\Debug\BeeconDbExport.DL.dll
+C:\G\Beecon\BeeconDbExport\BeeconDbExport.DL\bin\Debug\BeeconDbExport.DL.pdb
+C:\G\Beecon\BeeconDbExport\BeeconDbExport.DL\obj\Debug\BeeconDbExport.DL.csprojResolveAssemblyReference.cache
+C:\G\Beecon\BeeconDbExport\BeeconDbExport.DL\obj\Debug\BeeconDbExport.DL.dll
+C:\G\Beecon\BeeconDbExport\BeeconDbExport.DL\obj\Debug\BeeconDbExport.DL.pdb
