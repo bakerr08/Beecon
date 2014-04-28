@@ -129,10 +129,6 @@ namespace Beecon.MVC.Controllers
             base.Dispose(disposing);
         }
 
-
-
-
-
         public ActionResult GetAllBeecons()
         {
 
@@ -160,6 +156,57 @@ namespace Beecon.MVC.Controllers
             ViewData["Categories"] = Categories;
             return View();
         }
+
+        public ActionResult CreateBeacon(string json)
+        {
+
+            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+
+            Tag tag = new Tag();
+
+            tag.TagLongitude = data.TagLongitude;
+            tag.TagLatitude = data.TagLatitude;
+            tag.TagDescription = data.TagDescription;
+            tag.TagDateCreated = DateTime.Now;
+            tag.TagExpired = data.TagExpired;
+            tag.UserID = data.UserID;
+            tag.TagContent_URL = data.TagContent_URL;
+            tag.TagPrivacyType = data.PrivacyTypeID;
+
+            db.Tags.Add(tag);
+            db.SaveChanges();
+
+
+            ViewData["TagLongitude"] = data.TagLongitude;
+            ViewData["TagLatitude"] = data.TagLatitude;
+            ViewData["TagDescription"] = data.TagDescription;
+            ViewData["DateCreated"] = DateTime.Now;
+            ViewData["TagExpired"] = data.TagExpired;
+            ViewData["UserID"] = data.UserID;
+            ViewData["TagContent_URL"] = data.TagContent_URL;
+            ViewData["PrivacyTypeID"] = data.PrivacyTypeID;
+
+
+            return View();
+
+        }
+
+        public ActionResult GetBeeconByFilter(string json)
+        {
+
+
+
+            return View();
+        }
+
+        public ActionResult GetBeeconByProximity(string json)
+        {
+
+
+
+            return View();
+        }
+
 
     }
 }

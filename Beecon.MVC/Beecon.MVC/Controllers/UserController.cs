@@ -22,26 +22,6 @@ namespace Beecon.MVC.Controllers
             return View(db.Users.ToList());
         }
 
-        public ActionResult GetAllUsers()
-        {
-
-            var users = db.Users.ToList();
-            ViewData["users"] = users;
-            return View();
-        }
-
-        public ActionResult GetUser(string json)
-        {
-
-            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
-
-            int _userid = data.UserID;
-
-            var BeeconUser = db.Users.First(u => u.UserID == _userid);
-
-            ViewData["BeeconUser"] = BeeconUser;
-            return View();
-        }
 
         //
         // GET: /User/Details/5
@@ -141,5 +121,136 @@ namespace Beecon.MVC.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+        public ActionResult GetAllUsers()
+        {
+
+            var users = db.Users.ToList();
+            ViewData["users"] = users;
+            return View();
+        }
+
+        public ActionResult GetUser(string json)
+        {
+
+            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+
+            int _userid = data.UserID;
+
+            var BeeconUser = db.Users.First(u => u.UserID == _userid);
+
+            ViewData["BeeconUser"] = BeeconUser;
+            return View();
+        }
+
+        public ActionResult CreateUser(string json)
+        {
+
+            ViewBag.status = "ok";
+            ViewBag.operation = "createuser";
+            ViewBag.message = "Operation Successful";
+
+
+            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+
+            User user = new User();
+
+            user.Dob = data.Dob;
+            user.Email = data.Email;
+            user.FirstName = data.FirstName;
+            user.LastName = data.LastName;
+            user.ZipCode = data.ZipCode;
+            user.PasswordHashed = data.PasswprdHashed;
+            user.TagsFound = 0;
+            user.TagsPosted = 0;
+            user.Gender = data.Gender;
+
+            db.Users.Add(user);
+            db.SaveChanges();
+
+            ViewData["Dob"] = data.Dob;
+            ViewData["TagLongitude"] = data.Email;
+            ViewData["TagLongitude"] = data.FirstName;
+            ViewData["TagLongitude"] = data.LastName;
+            ViewData["TagLongitude"] = data.ZipCode;
+            ViewData["TagLongitude"] = data.PasswprdHashed;
+            ViewData["TagLongitude"] = user.TagsFound;
+            ViewData["TagLongitude"] = user.TagsPosted;
+            ViewData["TagLongitude"] = user.Gender;
+
+
+
+
+
+            return View();
+        }
+
+        public ActionResult UpdateUser(string json)
+        {
+
+            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+
+            User user = new User();
+
+
+            user.Dob = data.Dob;
+            user.Email = data.Email;
+            user.FirstName = data.FirstName;
+            user.LastName = data.LastName;
+            user.ZipCode = data.ZipCode;
+            user.PasswordHashed = data.PasswprdHashed;
+            user.TagsFound = data.TagsFound;
+            user.TagsPosted = data.TagsPosted;
+            user.Gender = data.Gender;
+
+            db.Entry(user).State = EntityState.Modified;
+            db.SaveChanges();
+
+
+
+            return View();
+        }
+
+        public ActionResult AddFriend(string json)
+        {
+
+            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+
+            FriendList friendlist = new FriendList();
+
+            friendlist.Created = data.Created;
+            friendlist.UserID = data.UserID;
+            friendlist.UserIDRequested = data.UserIDRequested;
+
+            db.FriendLists.Add(friendlist);
+            db.SaveChanges();
+
+            return View();
+        }
+
+        public ActionResult RemoveFriend(string json)
+        {
+
+            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+
+
+            return View();
+        }
+
+        public ActionResult ViewFriendList(string json)
+        {
+
+            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+            var userid = data.UserID;
+
+            var friendlist = db.FriendLists.Where(f => f.UserID == userid)
+                                            .Select(f => f.UserID).ToList();
+
+
+
+
+            return View();
+        }
+
     }
 }
