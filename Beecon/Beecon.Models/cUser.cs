@@ -109,6 +109,90 @@ namespace Beecon.Models
 			beeconsCreated = _beeconsCreated;
 			beeconsFound = _beeconsFound;
 		}
+
+		public string PostDataWithOperation(string operation, string JSON)
+		{
+			//build request
+			System.Net.HttpWebRequest request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(string.Format("{0}/{1}", getTargetUrl(), operation));
+			//set http method
+			request.Method = "POST";
+			//content type
+			request.ContentType = "text/html";
+			//build json
+			//encode json
+			byte[] buffer = Encoding.UTF8.GetBytes(JSON);
+			//write to request body
+			Stream PostData = request.GetRequestStream();
+			PostData.Write(buffer, 0, buffer.Length);
+			PostData.Close();
+			//get response
+			Stream response = request.GetResponse().GetResponseStream();
+			//read response body
+			StreamReader response_reader = new StreamReader(response);
+			string response_json = response_reader.ReadToEnd();
+			processResponse(response_json);
+			return response_json;
+
+		}
+
+		private void processResponse(string response_json)
+		{
+
+			try
+			{
+				dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(response_json);
+
+				if (data.operation == "SignIn")
+				{
+					user = UserProfile.FromData(data.user);
+					if (user != null)
+					{
+						byte[] buffer = user.ProfileImage; 
+						MemoryStream ms = new MemoryStream(buffer);
+						picProfileImage.Image = Image.FromStream(ms);
+
+						txtUpdateUser_Bio.Text = user.Bio;
+						txtUpdateUser_Name.Text = user.Name;
+						txtUpdateUser_Zip.Text = user.Zip;
+						if (user.Sex == Sex.Male)
+						{
+							rbUpdateUser_Male.Checked = true;
+							rbUpdateUser_Female.Checked = false;
+						}
+						else
+						{
+							rbUpdateUser_Male.Checked = false;
+							rbUpdateUser_Female.Checked = true;
+						}
+
+						DateTime birthdate =(DateTime) user.Birthdate;  //FromUnixTime((string) user.birthdate);
+						dateUpdateUser_Birthdate.Value = birthdate;
+						string location = user.Location;
+						if (location != "")
+						{
+							string[] splitString = { "," };
+							double latitude = Convert.ToDouble(location.Split(splitString, StringSplitOptions.None)[0]);
+							double longitude = Convert.ToDouble(location.Split(splitString, StringSplitOptions.None)[1]);
+							txtUpdateUser_Latitude.Text = latitude.ToString();
+							txtUpdateUser_Longitude.Text = longitude.ToString();
+						}
+					}
+
+				}
+				else if (data.operation == "allgames")
+				{
+					List<Game> games = new List<Game>();
+					foreach (dynamic g in data.games)
+					{
+						Game game = Game.FromData(g);
+						games.Add(game);
+					}
+				}
+
+		private string getTargetUrl()
+		{
+			string targetURL = "http://itweb.fvtc.edu/beecon/User";
+		}
 			
 		public string ConvertToJson(cUser _user)
 		{
