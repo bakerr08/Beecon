@@ -449,6 +449,8 @@
     <Content Include="Views\Beecon\GetAllBeecons.cshtml" />
     <Content Include="Views\Beecon\GetBeecon.cshtml" />
     <Content Include="Views\Beecon\GetAllCategories.cshtml" />
+    <Content Include="Views\User\CreateUser.cshtml" />
+    <Content Include="Views\User\SignIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

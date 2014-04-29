@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "SignIn";
+    Layout = null;
+
+
+
+    var BeeconUser = ViewBag.BeeconUser;
+
+    
+}
+
+
+
+            @Html.Raw("{")
+              
+            @{     
+               @Html.Raw(String.Format("\"message\": \"{0}\"", ViewBag.Message))
+          
+            @Html.Raw("}")
+
+            }

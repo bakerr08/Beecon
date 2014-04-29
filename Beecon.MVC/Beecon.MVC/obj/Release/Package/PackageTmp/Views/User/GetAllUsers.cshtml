@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "GetAllUsers";
+    Layout = null;
+
+
+
+    var users = ViewBag.users;
+
+    var userCount = 1;
+    
+    
+    
+}
+
+
+
+
+
+ @Html.Raw("{\"users\":[")  
+        @foreach(var u in users) 
+        {
+            if (userCount > 1) 
+            {
+                @Html.Raw(",")
+            }
+            
+            
+            
+            @Html.Raw("{")
+               @Html.Raw(String.Format("\"user_id\": \"{0}\",", u.UserID))
+            if (u.Email == null)
+            {
+                u.Email = "Simpsons@gmail.com";
+            }
+               @Html.Raw(String.Format("\"Email\": \"{0}\",", u.Email))
+            if (u.FirstName == null)
+            {
+                u.FirstName = "Bart";
+            }
+               @Html.Raw(String.Format("\"firstname\": \"{0}\",", u.FirstName))
+            if (u.LastName == null)
+            {
+                u.LastName = "Simpsons";
+            }
+               @Html.Raw(String.Format("\"LastName\": \"{0}\",", u.LastName))
+            if (u.ZipCode == null)
+            {
+                u.ZipCode = "54911";
+            }
+               @Html.Raw(String.Format("\"zipcode\": \"{0}\",", u.ZipCode))
+            if (u.TagsFound == null)
+            {
+                u.TagsFound = 0;
+            }
+               @Html.Raw(String.Format("\"tagsfound\": \"{0}\",", u.TagsFound))
+            if (u.TagsPosted == null)
+            {
+                u.TagsPosted = 0;
+            }
+               @Html.Raw(String.Format("\"tagsPosted\": \"{0}\",", u.TagsPosted))
+            if (u.Gender == null)
+            {
+                u.Gender = "Male";
+            }
+               @Html.Raw(String.Format("\"gender\": \"{0}\"", u.Gender))
+            userCount++;
+            @Html.Raw("}")
+        }
+         @Html.Raw("]}")  

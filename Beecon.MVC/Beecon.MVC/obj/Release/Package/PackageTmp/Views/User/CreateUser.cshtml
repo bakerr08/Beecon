@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "CreateUser";
+    Layout = null;
+
+
+
+    var BeeconUser = ViewBag.BeeconUser;
+    
+    
+    //ViewData["Dob"] 
+    
+    
+    
+    
+    //ViewData["PasswprdHashed"] 
+    
+    
+    
+
+
+               // ViewBag.status 
+               // ViewBag.operation 
+               // ViewBag.message
+    
+    
+    
+    
+    
+}
+
+
+
+@Html.Raw("{")
+
+ @Html.Raw("\"user\":")  
+
+    
+
+                 
+            
+            @Html.Raw("{")
+              
+            @{
+                if (ViewData["Email"] == null)
+            {
+                ViewData["Email"] = "Simpsons@gmail.com";
+            }
+            
+               @Html.Raw(String.Format("\"Email\": \"{0}\",", ViewData["Email"]))
+                if (ViewData["FirstName"] == null)
+            {
+                ViewData["FirstName"] = "Bart";
+            }
+               @Html.Raw(String.Format("\"firstname\": \"{0}\",", ViewData["FirstName"]))
+                if (ViewData["LastName"] == null)
+            {
+                ViewData["LastName"] = "Simpsons";
+            }
+               @Html.Raw(String.Format("\"LastName\": \"{0}\",", ViewData["LastName"]))
+                if (ViewData["ZipCode"] == null)
+            {
+                ViewData["ZipCode"] = "54911";
+            }
+               @Html.Raw(String.Format("\"zipcode\": \"{0}\",", ViewData["ZipCode"] ))
+                if (ViewData["TagsFound"] == null)
+            {
+                ViewData["TagsFound"] = 0;
+            }
+               @Html.Raw(String.Format("\"tagsfound\": \"{0}\",", ViewData["TagsFound"]))
+                if (ViewData["TagsPosted"] == null)
+            {
+                ViewData["TagsPosted"] = 0;
+            }
+               @Html.Raw(String.Format("\"tagsPosted\": \"{0}\",", ViewData["TagsPosted"] ))
+                if (ViewData["Gender"] == null)
+            {
+                ViewData["Gender"] = "Male";
+            }
+               @Html.Raw(String.Format("\"gender\": \"{0}\"", ViewData["Gender"]))
+
+            @Html.Raw("}")
+                 @Html.Raw("}")
+            }

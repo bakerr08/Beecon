@@ -16,13 +16,61 @@
     </section>
 }
 
-@{
-    var users = ViewBag.users;
-}
+
 
 
 <ul>
-
+    @*    Link text, Action, Controler    *@
+    <li>@Html.ActionLink("Users", "GetAllUsers", "User")</li>
+    <li>@Html.ActionLink("Get One User", "GetUser", "User")</li>
+    <li>@Html.ActionLink("Beecons", "GetAllBeecons", "Beecon")</li>
+    <li>@Html.ActionLink("One Beecon", "GetBeecon", "Beecon")</li>
+    <li>@Html.ActionLink("All Categories", "GetAllCategories", "Beecon")</li>
+    @*<li>@Html.ActionLink("Create User", "CreateUser", "User")</li>
+    <li>@Html.ActionLink("Create Beecon", "CreateBeecon", "Beecon")</li>
+    <li>@Html.ActionLink("Delete User", "DeleteUser", "User")</li>
+    <li>@Html.ActionLink("Delete Beecon", "DeleteBeecon", "Beecon")</li>*@
+  
 </ul>
 
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
 
+    $('#Get all Users').change(function () {
+        $.post('@Url.Action("GetAllUsers","Home")', function (data) {
+            $('#txtJson').text("Json is " + data);
+        });
+    });
+
+
+    $('#Get all Users').change(function () {
+        $.post('@Url.Action("GetAllUsers","Home")', function (data) {
+             $('#txtJson').text("Json is " + data);
+         });
+     });
+
+
+    $('#Get all Users').change(function () {
+        $.post('@Url.Action("GetAllUsers","Home")', function (data) {
+            $('#txtJson').text("Json is " + data);
+        });
+    });
+
+    $('#Get all Users').change(function () {
+        $.post('@Url.Action("GetAllUsers","Home")', function (data) {
+            $('#txtJson').text("Json is " + data);
+        });
+    });
+
+    $('#Get all Users').change(function () {
+        $.post('@Url.Action("GetAllUsers","Home")', function (data) {
+            $('#txtJson').text("Json is " + data);
+        });
+    });
+
+    $('#Get all Users').change(function () {
+        $.post('@Url.Action("GetAllUsers","Home")', function (data) {
+            $('#txtJson').text("Json is " + data);
+        });
+    });
+</script>

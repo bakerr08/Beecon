@@ -132,57 +132,70 @@ namespace Beecon.MVC.Controllers
 
         public ActionResult GetUser(string json)
         {
+            
 
-            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
 
-            int _userid = data.UserID;
+           
+           //dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+           //int _userid = data.UserID;
+            
 
-            var BeeconUser = db.Users.First(u => u.UserID == _userid);
+            
 
-            ViewData["BeeconUser"] = BeeconUser;
+           // var BeeconUser = db.Users.First(u => u.UserID == _userid);
+
+           // ViewData["BeeconUser"] = BeeconUser;
             return View();
         }
 
         public ActionResult CreateUser(string json)
         {
-
-            ViewBag.status = "ok";
-            ViewBag.operation = "createuser";
-            ViewBag.message = "Operation Successful";
-
-
-            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
-
-            User user = new User();
-
-            user.Dob = data.Dob;
-            user.Email = data.Email;
-            user.FirstName = data.FirstName;
-            user.LastName = data.LastName;
-            user.ZipCode = data.ZipCode;
-            user.PasswordHashed = data.PasswprdHashed;
-            user.TagsFound = 0;
-            user.TagsPosted = 0;
-            user.Gender = data.Gender;
-
-            db.Users.Add(user);
-            db.SaveChanges();
-
-            ViewData["Dob"] = data.Dob;
-            ViewData["TagLongitude"] = data.Email;
-            ViewData["TagLongitude"] = data.FirstName;
-            ViewData["TagLongitude"] = data.LastName;
-            ViewData["TagLongitude"] = data.ZipCode;
-            ViewData["TagLongitude"] = data.PasswprdHashed;
-            ViewData["TagLongitude"] = user.TagsFound;
-            ViewData["TagLongitude"] = user.TagsPosted;
-            ViewData["TagLongitude"] = user.Gender;
+            try
+            {
+                ViewBag.status = "ok";
+                ViewBag.operation = "createuser";
+                ViewBag.message = "Operation Successful";
 
 
+                dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+
+                User user = new User();
+
+                user.Dob = data.Dob;
+                user.Email = data.Email;
+                user.FirstName = data.FirstName;
+                user.LastName = data.LastName;
+                user.ZipCode = data.ZipCode;
+                user.PasswordHashed = data.PasswprdHashed;
+                user.TagsFound = 0;
+                user.TagsPosted = 0;
+                user.Gender = data.Gender;
+
+                db.Users.Add(user);
+                db.SaveChanges();
+
+                ViewData["Dob"] = data.Dob;
+                ViewData["Email"] = data.Email;
+                ViewData["FirstName"] = data.FirstName;
+                ViewData["LastName"] = data.LastName;
+                ViewData["ZipCode"] = data.ZipCode;
+                ViewData["PasswprdHashed"] = data.PasswprdHashed;
+                ViewData["TagsFound"] = user.TagsFound;
+                ViewData["TagsPosted"] = user.TagsPosted;
+                ViewData["Gender"] = user.Gender;
 
 
+                return View();
+            }
+            catch (Exception ex)
+            {
 
-            return View();
+                ViewBag.status = "denied";
+                ViewBag.operation = "createuser";
+                ViewBag.message = ex;
+                return View();
+            }
+            
         }
 
         public ActionResult UpdateUser(string json)
@@ -233,24 +246,56 @@ namespace Beecon.MVC.Controllers
 
             dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
 
-
             return View();
         }
 
         public ActionResult ViewFriendList(string json)
         {
 
-            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
-            var userid = data.UserID;
+            //dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+            //var userid = data.UserID;
 
-            var friendlist = db.FriendLists.Where(f => f.UserID == userid)
-                                            .Select(f => f.UserID).ToList();
-
-
-
+            //var friendlist = db.FriendLists.Where(f => f.UserID == userid)
+                                           //.Select(f => f.UserID).ToList();
 
             return View();
         }
 
+        public ActionResult SignIn(string json)
+        {
+            if (json == null)
+            {
+
+
+                json = "{  \"email\": \"owuvoc96@ciqbkr.org\", \"password\": \"SL5UUBA0NHSJRJISVVE67K5A9URAQ34\"  } ";
+            }
+            
+            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+            string _email = data.email;
+            string _password = data.password;
+
+            var BeeconUser = db.Users.SingleOrDefault(u => u.Email == _email);
+
+            if (BeeconUser.Email != _email)
+            {
+                if (BeeconUser.PasswordHashed == _password)
+                {
+                    ViewBag.Message = "Success";
+                    ViewData["BeeconUser"] = BeeconUser;
+
+                }
+                else
+                {
+                    ViewBag.Message = "Passwords don't match";
+                }
+            }
+            else
+            {
+                ViewBag.Message = "Email not found";
+            }
+
+            //ViewData["BeeconUser"] = BeeconUser;
+            return View();
+        }
     }
 }
