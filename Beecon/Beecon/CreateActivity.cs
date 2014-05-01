@@ -19,6 +19,12 @@ namespace Beecon
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.Create);
 
+			Button TakePhoto = FindViewById<Button> (Resource.Id.btnCapture);
+
+			TakePhoto.Click += delegate {
+				// Capture Photo Code
+			};
+
 		}
 	}
 }

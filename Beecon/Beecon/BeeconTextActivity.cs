@@ -18,7 +18,9 @@ namespace Beecon
 		{
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.BeeconText);
-			// Create your application here
+
+			// Add text to Beecon
+
 		}
 	}
 }

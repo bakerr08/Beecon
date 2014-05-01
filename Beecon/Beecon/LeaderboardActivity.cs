@@ -18,7 +18,9 @@ namespace Beecon
 		{
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.Leaderboard);
-			// Create your application here
+
+			// Pull In Friend Leadboard Information 
+
 		}
 	}
 }

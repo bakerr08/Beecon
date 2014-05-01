@@ -18,7 +18,45 @@ namespace Beecon
 		{
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.Home);
-			// Create your application here
+
+			// ****Buttons That will be in pull out menu****
+			//Button CreateBeecon = FindViewById<Button> (Resource.Id.btnCreate);
+			//Button Friends = FindViewById<Button> (Resource.Id.btnFriends);
+			//Button Leaderboard = FindViewById<Button> (Resource.Id.btnLeaderborad);
+			//Button Settings = FindViewById<Button> (Resource.Id.btnSettings);
+			//******************************************************************
+
+
+			//Pull in Map View
+
+			//Create Gesture to pull out menu
+
+			// Need to add buttons to pull out menu
+
+
+
+
+
+			//******************************************************************
+			// On Click Events for specific Buttons
+			/*
+			CreateBeecon.Click += (sender, e) =>  {
+				StartActivity (typeof(CreateActivity));
+			};
+			*/
+
+			/*
+			Friends.Click += (sender, e) =>  {
+				StartActivity (typeof(FriendActivity));
+			};
+			*/
+
+			/*
+			Leaderboard.Click += (sender, e) =>  {
+				StartActivity (typeof(LeaderboardActivity));
+			};
+			*/
+			//******************************************************************
 		}
 	}
 }

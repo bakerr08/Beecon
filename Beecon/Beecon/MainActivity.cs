@@ -17,11 +17,17 @@ namespace Beecon
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-			Button btnCreateBeecon = FindViewById<Button> (Resource.Id.btnCreateBeecon);
+			Button CreateBeecon = FindViewById<Button> (Resource.Id.btnCreateBeecon);
+			Button ViewMap = FindViewById<Button> (Resource.Id.btnViewMap);
 
-			btnCreateBeecon.Click += delegate {
-				//switch to view to gather beecon deatails
+			CreateBeecon.Click += delegate {
+				// Switch to view to gather beecon deatails
 				StartActivity (typeof(CreateActivity));
+			};
+
+			ViewMap.Click += delegate {
+				// Switch to view to Map
+				StartActivity (typeof(HomeActivity));
 			};
 		}
 	}

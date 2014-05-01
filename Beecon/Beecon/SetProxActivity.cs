@@ -18,7 +18,20 @@ namespace Beecon
 		{
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.SetProx);
-			// Create your application here
+
+			Button Next = FindViewById<Button> (Resource.Id.btnNext);
+
+			// have to figure out how to be able to pick --SR
+
+			// Default Prox and Date Experation 
+
+
+			Next.Click += (sender, e) =>  {
+				// Switching to add text to Beecon
+				StartActivity (typeof(BeeconTextActivity));
+			};
+
+
 		}
 	}
 }

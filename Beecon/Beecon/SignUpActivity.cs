@@ -18,7 +18,42 @@ namespace Beecon
 		{
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.SignUp);
-			// Create Sign Up application here
+
+			Button Submit = FindViewById<Button> (Resource.Id.btnSubmit);
+			// User Information
+			String FirstName = (Resource.Id.txtFirstName.ToString());
+			String LastName = (Resource.Id.txtLastName.ToString ());
+			String Email = (Resource.Id.txtEmailSignUp.ToString ());
+			String Password = (Resource.Id.txtPasswordSignUp.ToString ());
+			String DoB = (Resource.Id.txtDOB.ToString ());
+			String Geneder;
+
+			RadioButton Male = (Resource.Id.rbMale); 
+			RadioButton Female = (Resource.Id.rbFemale); 
+
+
+			// Submitting new sign up code
+			Submit.Click += delegate 
+			{
+				if (Male.Checked == true)
+				{
+					Geneder = Male;
+				}
+				else if ( Female.Checked == true)
+				{
+					Geneder = Female;
+				}
+				else
+				{
+					// Error Handling Display message to select Geneder 
+				}
+
+				// Submitting new sign up code
+
+
+
+			};
+
 		}
 	}
 }

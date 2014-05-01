@@ -18,7 +18,8 @@ namespace Beecon
 		{
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.Friends);
-			// Create your application here
+
+			// Pull in Friends list
 		}
 	}
 }
