@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-namespace Beecon.Models
+namespace Beecon.Models2
 {
 	public class cUsers
 	{

@@ -182,12 +182,12 @@ CREATE  TABLE Invites (
 go
 USE [BeeconDB]
 GO
-create proc spGetAllTag
+create proc spGetAllTags
 as
 select * 
 from Tag;
 GO
-create proc spGetAllTagPrivacyType
+create proc spGetAllTagPrivacyTypes
 as
 select * 
 from TagPrivacyType;
@@ -197,27 +197,27 @@ as
 select * 
 from Users;
 go
-create proc spGetAllTagRating
+create proc spGetAllTagRatings
 as
 select * 
 from TagRating;
 go
-create proc spGetAllCategory
+create proc spGetAllCategories
 as
 select * 
 from Category;
 go
-create proc spGetAllTagCategory
+create proc spGetAllTagCategories
 as
 select * 
 from TagCategory;
 go
-create proc spGetAllFriendList
+create proc spGetAllFriendLists
 as
 select * 
 from FriendList;
 go
-create proc spGetAllTagVisited
+create proc spGetAllTagsVisited
 as
 select * 
 from TagVisited;
