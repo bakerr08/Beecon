@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.IO;
+using System.Net;
 
 namespace Beecon.Models2
 {
@@ -130,71 +132,54 @@ namespace Beecon.Models2
 			//read response body
 			StreamReader response_reader = new StreamReader(response);
 			string response_json = response_reader.ReadToEnd();
-			processResponse(response_json);
+			response_json = processResponse(response_json);
 			return response_json;
-
 		}
 
-		private void processResponse(string response_json)
+		public string processResponse(string response_json)
 		{
+			//puts the response into a dynamic object
+			dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(response_json);
 
-			try
+			if (data.operation == "SignIn")//Name of the opperation 
 			{
-				dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(response_json);
-
-				if (data.operation == "SignIn")
+				//check for success
+				if(data.message == "Success")
 				{
-					user = UserProfile.FromData(data.user);
-					if (user != null)
-					{
-						byte[] buffer = user.ProfileImage; 
-						MemoryStream ms = new MemoryStream(buffer);
-						picProfileImage.Image = Image.FromStream(ms);
-
-						txtUpdateUser_Bio.Text = user.Bio;
-						txtUpdateUser_Name.Text = user.Name;
-						txtUpdateUser_Zip.Text = user.Zip;
-						if (user.Sex == Sex.Male)
-						{
-							rbUpdateUser_Male.Checked = true;
-							rbUpdateUser_Female.Checked = false;
-						}
-						else
-						{
-							rbUpdateUser_Male.Checked = false;
-							rbUpdateUser_Female.Checked = true;
-						}
-
-						DateTime birthdate =(DateTime) user.Birthdate;  //FromUnixTime((string) user.birthdate);
-						dateUpdateUser_Birthdate.Value = birthdate;
-						string location = user.Location;
-						if (location != "")
-						{
-							string[] splitString = { "," };
-							double latitude = Convert.ToDouble(location.Split(splitString, StringSplitOptions.None)[0]);
-							double longitude = Convert.ToDouble(location.Split(splitString, StringSplitOptions.None)[1]);
-							txtUpdateUser_Latitude.Text = latitude.ToString();
-							txtUpdateUser_Longitude.Text = longitude.ToString();
-						}
-					}
-
+					this.FromData(data.user);//deserilize the JSON into a user
+					return data.message; //return the Success to the form
 				}
-				else if (data.operation == "allgames")
+				else
 				{
-					List<Game> games = new List<Game>();
-					foreach (dynamic g in data.games)
-					{
-						Game game = Game.FromData(g);
-						games.Add(game);
-					}
+					return false;
 				}
 
+			}
+			else if (data.operation == "allgames")
+			{
+				return false;
+			}
+		}
 
-		private string getTargetUrl()
+		public static cUser FromData(dynamic data)
+		{
+			cUser user = new cUser();
+			user.Id = data.user_id;
+			user.Email = data.email;
+			user.FirstName = data.firstname;
+			user.LastName = data.lastname;
+			user.Zip = data.zip;
+			user.Dob = data.dob;
+			user.Gender = data.gender;
+			user.Address = data.address;
+			return user;
+		}
+
+		public string getTargetUrl()
 		{
 			string targetURL = "http://itweb.fvtc.edu/beecon/User";
+			return targetURL;
 		}
-			
 		public string ConvertToJson(cUser _user)
 		{
 			var json = JsonConvert.SerializeObject (_user);

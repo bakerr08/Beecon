@@ -9,7 +9,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
-using Beecon.Models;
+using Beecon.Models2;
 
 
 namespace Beecon
@@ -29,36 +29,48 @@ namespace Beecon
 			String Password = (Resource.Id.txtPassword.ToString());
 			String TextError = (Resource.Id.InputError.ToString());
 
+			//create a user and get it's email and password
+			cUser User = new cUser();
+			User.Email = Email;
+			User.Password = Password;
+
+			//put that email and password into a dictionary 
+			Dictionary<string, string> dict = new Dictionary<string,string>();
+			dict.Add("email", User.Email);
+			dict.Add("password", User.Password);
+
+			// serialize that dictionary into JSON
+			dict = JsonConvert.SerializeObject (dict);
+
 			SignIn.Click += delegate {
 				//Error Handling
-
-				if (Email == String.Empty){
-
-				
+				if (Email == String.Empty){				
 					return;
 				};
 				if (Password == String.Empty) {
-
-
 					return;
 				};
+
 				//Sign In Code
-				cUser User = new cUser();
-				User.Email = Email;
-				User.Password = Password;
-
-				Dictionary<string, string> dict = new Dictionary<string,string>();
-				dict.Add("email", User.Email);
-				dict.Add("password", User.Password);
-
-				dict = JsonConvert.SerializeObject (dict);
-
-				//checks if worked
+				//call the PostData method that posts the JSON to the service
 				string result = cUser.PostDataWithOperation("SingIn", dict);
+				//check that the JSON response is valid
 				if(result == "Success")
 				{
-					//move to next activity
-					StartActivity (typeof(MainActivity));
+					dict = JsonConvert.DeserializeObject (dict);
+					//reserialize the object to pass it to the next activity
+					//dict already contraints email and password
+					dict.Add("user_id", User.Id);
+					dict.Add("firstname", User.FirstName);
+					dict.Add("lastname", User.LastName);
+					dict.Add("zip", User.Zip);
+					dict.Add("dob", User.Dob);
+					dict.Add("gender", User.Gender);
+					dict.Add("address", User.Address);
+
+					var userIntent = new Intent(this, typeof(MainActivity));
+					userIntent.PutExtra("User", JsonConvert.SerializeObject (dict));
+					StartActivity(userIntent);
 				}
 				else
 				{
