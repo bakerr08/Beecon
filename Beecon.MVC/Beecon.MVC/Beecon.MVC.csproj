@@ -443,7 +443,6 @@
     <Content Include="Views\Beecon\Create.cshtml" />
     <Content Include="Views\Beecon\Edit.cshtml" />
     <Content Include="Views\Beecon\Delete.cshtml" />
-    <Content Include="Views\GetAllUsers\GetAllUsers.cshtml" />
     <Content Include="Views\User\GetAllUsers.cshtml" />
     <Content Include="Views\User\GetUser.cshtml" />
     <Content Include="Views\Beecon\GetAllBeecons.cshtml" />
@@ -451,6 +450,10 @@
     <Content Include="Views\Beecon\GetAllCategories.cshtml" />
     <Content Include="Views\User\CreateUser.cshtml" />
     <Content Include="Views\User\SignIn.cshtml" />
+    <Content Include="Views\User\UpdateUser.cshtml" />
+    <Content Include="Views\Beecon\CreateBeacon.cshtml" />
+    <Content Include="Views\Beecon\GetBeeconByProximity.cshtml" />
+    <Content Include="Views\Beecon\GetBeeconByFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

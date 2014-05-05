@@ -137,14 +137,28 @@ namespace Beecon.MVC.Controllers
             return View();
         }
 
-        public ActionResult GetBeecon()
+        public ActionResult GetBeecon(string json)
         {
+            ViewBag.Operation = "GetBeecon";
 
-            var Beecons = db.Tags.ToList();
+            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
 
-            var Beecon = Beecons[1];
+            int id = data.tagid;
 
-            ViewData["Beecon"] = Beecon;
+            var Beecon = db.Tags.Find(id);
+
+
+            ViewBag.Beecon = Beecon;
+
+            if (Beecon != null)
+            {
+                ViewBag.Message = "Success";
+            }
+            else
+            {
+                ViewBag.Message = "Fail";
+            }
+
             return View();
         }
 
@@ -159,6 +173,9 @@ namespace Beecon.MVC.Controllers
 
         public ActionResult CreateBeacon(string json)
         {
+
+            ViewBag.Operation = "CreateBeecon";
+
 
             dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
 
@@ -177,14 +194,26 @@ namespace Beecon.MVC.Controllers
             db.SaveChanges();
 
 
-            ViewData["TagLongitude"] = data.TagLongitude;
-            ViewData["TagLatitude"] = data.TagLatitude;
-            ViewData["TagDescription"] = data.TagDescription;
-            ViewData["DateCreated"] = DateTime.Now;
-            ViewData["TagExpired"] = data.TagExpired;
-            ViewData["UserID"] = data.UserID;
-            ViewData["TagContent_URL"] = data.TagContent_URL;
-            ViewData["PrivacyTypeID"] = data.PrivacyTypeID;
+
+            ViewBag.Beecon = tag;
+
+            if (ViewBag.Beecon != null)
+            {
+                ViewBag.Message = "Success";
+            }
+            else
+            {
+                ViewBag.Message = "Fail";
+            }
+
+            //ViewData["TagLongitude"] = data.TagLongitude;
+            //ViewData["TagLatitude"] = data.TagLatitude;
+            //ViewData["TagDescription"] = data.TagDescription;
+            //ViewData["DateCreated"] = DateTime.Now;
+            //ViewData["TagExpired"] = data.TagExpired;
+            //ViewData["UserID"] = data.UserID;
+            //ViewData["TagContent_URL"] = data.TagContent_URL;
+            //ViewData["PrivacyTypeID"] = data.PrivacyTypeID;
 
 
             return View();
@@ -194,6 +223,43 @@ namespace Beecon.MVC.Controllers
         public ActionResult GetBeeconByFilter(string json)
         {
 
+            //dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+            //var CategoryToFilter = data.category;
+
+            //var CategorySearch = db.Categories.SingleOrDefault(c => c.Category1 == CategoryToFilter);
+
+
+            //var CategoryID = CategorySearch.CategoryID;
+
+            //var Tags = db.Tags.ToList();
+
+            ////var categoriesList = db.Categories.ToList();
+
+
+            //List<Tag> TagWithFilter = new List<Tag>();
+
+            //foreach (Tag t in Tags)
+            //{
+
+            //    if (t.TagID == CategoryID)
+            //    {
+
+            //        TagWithFilter.Add(t);
+            //    }
+                
+
+            //}
+
+            //ViewBag.Beecons = TagWithFilter;
+
+            //if (TagWithFilter != null)
+            //{
+            //    ViewBag.Message = "Success";
+            //}
+            //else
+            //{
+            //    ViewBag.Message = "Fail";
+            //}
 
 
             return View();
@@ -202,9 +268,55 @@ namespace Beecon.MVC.Controllers
         public ActionResult GetBeeconByProximity(string json)
         {
 
+            ViewBag.Operation = "GetBeeconByProximity";
 
+            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+
+            double prox = double.Parse(data.proximity);
+            var CurrentLatitude = double.Parse(data.currentlatitude);
+            var CurrentLongitude = double.Parse(data.currentlongitude);
+
+
+            var Tags = db.Tags.ToList();
+
+            List<Tag> TagWithProx = new List<Tag>();
+
+            foreach (Tag t in Tags)
+            {
+                double CalcProx = CalculateGreatCircleDistance(double.Parse(t.TagLatitude), double.Parse(t.TagLongitude), CurrentLatitude, CurrentLongitude, prox);
+
+
+                if (CalcProx == 20)
+                {
+                    TagWithProx.Add(t);
+                }
+
+            }
+
+            ViewBag.Beecons = TagWithProx;
+
+            if (TagWithProx != null)
+            {
+                ViewBag.Message = "Success";
+            }
+            else
+            {
+                ViewBag.Message = "Fail";
+            }
 
             return View();
+        }
+
+
+        double CalculateGreatCircleDistance(double lat1, double long1, double lat2, double long2, double radius)
+        {
+
+
+            // if your lat and long are in degrees then divide by 180/PI to convert to radians.
+            
+            return radius * Math.Acos(
+                Math.Sin(lat1) * Math.Sin(lat2)
+                + Math.Cos(lat1) * Math.Cos(lat2) * Math.Cos(long2 - long1));
         }
 
 

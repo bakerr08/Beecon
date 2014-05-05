@@ -1,21 +1,68 @@
 ﻿@{
-    ViewBag.Title = "SignIn";
+    ViewBag.Title = "GetAllUsers";
     Layout = null;
 
 
 
     var BeeconUser = ViewBag.BeeconUser;
-
+    
+    
     
 }
 
 
 
-            @Html.Raw("{")
-              
-            @{     
-               @Html.Raw(String.Format("\"message\": \"{0}\"", ViewBag.Message))
-          
-            @Html.Raw("}")
+@Html.Raw("{")
 
+@Html.Raw(String.Format("\"operation\": \"{0}\",", ViewBag.Operation)) 
+@Html.Raw(String.Format("\"message\": \"{0}\",", ViewBag.Message))  
+
+ @Html.Raw("\"user\":")  
+
+    
+
+                 
+            
+            @Html.Raw("{")
+               @Html.Raw(String.Format("\"user_id\": \"{0}\",", BeeconUser.UserID))
+            @{
+                if (BeeconUser.Email == null)
+            {
+                BeeconUser.Email = "Simpsons@gmail.com";
+            }
+            
+               @Html.Raw(String.Format("\"email\": \"{0}\",", BeeconUser.Email))
+            if (BeeconUser.FirstName == null)
+            {
+                BeeconUser.FirstName = "Bart";
+            }
+               @Html.Raw(String.Format("\"firstname\": \"{0}\",", BeeconUser.FirstName))
+            if (BeeconUser.LastName == null)
+            {
+                BeeconUser.LastName = "Simpsons";
+            }
+               @Html.Raw(String.Format("\"lastname\": \"{0}\",", BeeconUser.LastName))
+            if (BeeconUser.ZipCode == null)
+            {
+                BeeconUser.ZipCode = "54911";
+            }
+               @Html.Raw(String.Format("\"zipcode\": \"{0}\",", BeeconUser.ZipCode))
+            if (BeeconUser.TagsFound == null)
+            {
+                BeeconUser.TagsFound = 0;
+            }
+               @Html.Raw(String.Format("\"tagsfound\": \"{0}\",", BeeconUser.TagsFound))
+            if (BeeconUser.TagsPosted == null)
+            {
+                BeeconUser.TagsPosted = 0;
+            }
+               @Html.Raw(String.Format("\"tagsposted\": \"{0}\",", BeeconUser.TagsPosted))
+            if (BeeconUser.Gender == null)
+            {
+                BeeconUser.Gender = "Male";
+            }
+               @Html.Raw(String.Format("\"gender\": \"{0}\"", BeeconUser.Gender))
+
+            @Html.Raw("}")
+                 @Html.Raw("}")
             }

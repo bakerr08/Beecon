@@ -132,29 +132,46 @@ namespace Beecon.MVC.Controllers
 
         public ActionResult GetUser(string json)
         {
-            
 
+            ViewBag.Operation = "GetUser";
 
+            if (json == null)
+            {
+
+                json = "{  \"user_id\": \"owuvoc96@ciqbkr.org\", \"password\": \"SL5UUBA0NHSJRJISVVE67K5A9URAQ34\"  } ";
+            }
+
+            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+            int _user_id = data.user_id;
            
-           //dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
-           //int _userid = data.UserID;
-            
 
-            
+            var BeeconUser = db.Users.SingleOrDefault(u => u.UserID == _user_id);
 
-           // var BeeconUser = db.Users.First(u => u.UserID == _userid);
+            if (BeeconUser != null)
+            {
+                
+                    ViewBag.Message = "Success";
+                    ViewBag.BeeconUser = BeeconUser;
+  
+            }
+            else
+            {
+                ViewBag.Message = "Fail";
+            }
 
-           // ViewData["BeeconUser"] = BeeconUser;
+
+            //ViewData["BeeconUser"] = BeeconUser;
             return View();
         }
 
         public ActionResult CreateUser(string json)
         {
+            ViewBag.operation = "CreateUser";
+
+
             try
             {
-                ViewBag.status = "ok";
-                ViewBag.operation = "createuser";
-                ViewBag.message = "Operation Successful";
+                ViewBag.message = "Success";
 
 
                 dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
@@ -174,15 +191,22 @@ namespace Beecon.MVC.Controllers
                 db.Users.Add(user);
                 db.SaveChanges();
 
-                ViewData["Dob"] = data.Dob;
-                ViewData["Email"] = data.Email;
-                ViewData["FirstName"] = data.FirstName;
-                ViewData["LastName"] = data.LastName;
-                ViewData["ZipCode"] = data.ZipCode;
-                ViewData["PasswprdHashed"] = data.PasswprdHashed;
-                ViewData["TagsFound"] = user.TagsFound;
-                ViewData["TagsPosted"] = user.TagsPosted;
-                ViewData["Gender"] = user.Gender;
+
+                var BeeconUser = db.Users.SingleOrDefault(u => u.Email == user.Email);
+
+                ViewBag.BeeconUser = BeeconUser;
+
+
+
+                //ViewData["Dob"] = data.Dob;
+                //ViewData["Email"] = data.Email;
+                //ViewData["FirstName"] = data.FirstName;
+                //ViewData["LastName"] = data.LastName;
+                //ViewData["ZipCode"] = data.ZipCode;
+                //ViewData["PasswprdHashed"] = data.PasswprdHashed;
+                //ViewData["TagsFound"] = user.TagsFound;
+                //ViewData["TagsPosted"] = user.TagsPosted;
+                //ViewData["Gender"] = user.Gender;
 
 
                 return View();
@@ -190,8 +214,8 @@ namespace Beecon.MVC.Controllers
             catch (Exception ex)
             {
 
-                ViewBag.status = "denied";
-                ViewBag.operation = "createuser";
+                ViewBag.status = "Failed";
+               
                 ViewBag.message = ex;
                 return View();
             }
@@ -201,17 +225,26 @@ namespace Beecon.MVC.Controllers
         public ActionResult UpdateUser(string json)
         {
 
+            ViewBag.Operation = "UpdateUser";
+
+
+            try
+            {
+
+            ViewBag.Message = "Success";
+            
             dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
 
             User user = new User();
 
 
             user.Dob = data.Dob;
+            user.PasswordHashed = data.PasswordHashed;
             user.Email = data.Email;
             user.FirstName = data.FirstName;
             user.LastName = data.LastName;
             user.ZipCode = data.ZipCode;
-            user.PasswordHashed = data.PasswprdHashed;
+            user.PasswordHashed = data.PasswordHashed;
             user.TagsFound = data.TagsFound;
             user.TagsPosted = data.TagsPosted;
             user.Gender = data.Gender;
@@ -219,9 +252,24 @@ namespace Beecon.MVC.Controllers
             db.Entry(user).State = EntityState.Modified;
             db.SaveChanges();
 
+            var BeeconUser = db.Users.SingleOrDefault(u => u.Email == user.Email);
 
+            ViewBag.BeeconUser = BeeconUser;
 
             return View();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = "Fail";
+                ViewBag.Message2 = ex;
+                return View();
+
+            }
+            
+
+
+
+            
         }
 
         public ActionResult AddFriend(string json)
@@ -246,6 +294,7 @@ namespace Beecon.MVC.Controllers
 
             dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
 
+
             return View();
         }
 
@@ -256,46 +305,50 @@ namespace Beecon.MVC.Controllers
             //var userid = data.UserID;
 
             //var friendlist = db.FriendLists.Where(f => f.UserID == userid)
-                                           //.Select(f => f.UserID).ToList();
+            //                               .Select(f => f.UserID).ToList();
 
             return View();
         }
 
         public ActionResult SignIn(string json)
         {
+            ViewBag.Operation = "SignIn";
+
             if (json == null)
             {
 
-
                 json = "{  \"email\": \"owuvoc96@ciqbkr.org\", \"password\": \"SL5UUBA0NHSJRJISVVE67K5A9URAQ34\"  } ";
             }
-            
+
             dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
             string _email = data.email;
             string _password = data.password;
 
             var BeeconUser = db.Users.SingleOrDefault(u => u.Email == _email);
 
-            if (BeeconUser.Email != _email)
+            if (BeeconUser != null)
             {
                 if (BeeconUser.PasswordHashed == _password)
                 {
                     ViewBag.Message = "Success";
-                    ViewData["BeeconUser"] = BeeconUser;
+                    ViewBag.BeeconUser = BeeconUser;
+
 
                 }
                 else
                 {
-                    ViewBag.Message = "Passwords don't match";
+                    ViewBag.Message = "Fail";
                 }
             }
             else
             {
-                ViewBag.Message = "Email not found";
+                ViewBag.Message = "Fail";
             }
+
 
             //ViewData["BeeconUser"] = BeeconUser;
             return View();
+            
         }
     }
 }

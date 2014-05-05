@@ -14,6 +14,9 @@
 
 @Html.Raw("{")
 
+@Html.Raw(String.Format("\"operation\": \"{0}\",", ViewBag.Operation)) 
+@Html.Raw(String.Format("\"message\": \"{0}\",", ViewBag.Message))  
+
  @Html.Raw("\"user\":")  
 
     
@@ -28,7 +31,7 @@
                 BeeconUser.Email = "Simpsons@gmail.com";
             }
             
-               @Html.Raw(String.Format("\"Email\": \"{0}\",", BeeconUser.Email))
+               @Html.Raw(String.Format("\"email\": \"{0}\",", BeeconUser.Email))
             if (BeeconUser.FirstName == null)
             {
                 BeeconUser.FirstName = "Bart";
@@ -38,7 +41,7 @@
             {
                 BeeconUser.LastName = "Simpsons";
             }
-               @Html.Raw(String.Format("\"LastName\": \"{0}\",", BeeconUser.LastName))
+               @Html.Raw(String.Format("\"lastname\": \"{0}\",", BeeconUser.LastName))
             if (BeeconUser.ZipCode == null)
             {
                 BeeconUser.ZipCode = "54911";
@@ -53,7 +56,7 @@
             {
                 BeeconUser.TagsPosted = 0;
             }
-               @Html.Raw(String.Format("\"tagsPosted\": \"{0}\",", BeeconUser.TagsPosted))
+               @Html.Raw(String.Format("\"tagsposted\": \"{0}\",", BeeconUser.TagsPosted))
             if (BeeconUser.Gender == null)
             {
                 BeeconUser.Gender = "Male";

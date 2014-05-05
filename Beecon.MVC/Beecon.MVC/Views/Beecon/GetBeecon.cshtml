@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "GetAllTags";
+    ViewBag.Title = "GetBeecon";
     Layout = null;
 
 
@@ -11,7 +11,10 @@
     
 }
 
+@Html.Raw("{")
 
+@Html.Raw(String.Format("\"operation\": \"{0}\",", ViewBag.Operation)) 
+@Html.Raw(String.Format("\"message\": \"{0}\",", ViewBag.Message))  
 
  @Html.Raw("{\"Tag\":")  
 
@@ -21,48 +24,48 @@
             
             
             @Html.Raw("{")
-               @Html.Raw(String.Format("\"Tag_id\": \"{0}\",", Beecon.TagID))
+               @Html.Raw(String.Format("\"tag_id\": \"{0}\",", Beecon.TagID))
 @{
             if (Beecon.TagLongitude == null)
             {
                 Beecon.TagLongitude = "32165498";
             }
-               @Html.Raw(String.Format("\"TagLongitude\": \"{0}\",", Beecon.TagLongitude))
+               @Html.Raw(String.Format("\"taglongitude\": \"{0}\",", Beecon.TagLongitude))
             if (Beecon.TagLatitude == null)
             {
                 Beecon.TagLatitude = "3216546";
             }
-               @Html.Raw(String.Format("\"TagLatitude\": \"{0}\",", Beecon.TagLatitude))
+               @Html.Raw(String.Format("\"taglatitude\": \"{0}\",", Beecon.TagLatitude))
             if (Beecon.TagDescription == null)
             {
                 Beecon.TagDescription = "Simpsons";
             }
-               @Html.Raw(String.Format("\"TagDescription\": \"{0}\",", Beecon.TagDescription))
+               @Html.Raw(String.Format("\"tagdescription\": \"{0}\",", Beecon.TagDescription))
             if (Beecon.TagDateCreated == null)
             {
                 Beecon.TagDateCreated = DateTime.Now;
             }
-               @Html.Raw(String.Format("\"TagDateCreated\": \"{0}\",", Beecon.TagDateCreated))
+               @Html.Raw(String.Format("\"tagdatecreated\": \"{0}\",", Beecon.TagDateCreated))
             if (Beecon.TagExpired == null)
             {
                 Beecon.TagExpired = DateTime.Now;
             }
-               @Html.Raw(String.Format("\"TagExpired\": \"{0}\",", Beecon.TagExpired))
+               @Html.Raw(String.Format("\"tagexpired\": \"{0}\",", Beecon.TagExpired))
             if (Beecon.UserID == null)
             {
                 Beecon.UserID = 1;
             }
-               @Html.Raw(String.Format("\"UserID\": \"{0}\",", Beecon.UserID))
+               @Html.Raw(String.Format("\"userid\": \"{0}\",", Beecon.UserID))
             if (Beecon.TagContent_URL == null)
             {
                 Beecon.TagContent_URL = "Male";
             }
-               @Html.Raw(String.Format("\"TagContent_URL\": \"{0}\",", Beecon.TagContent_URL))
+               @Html.Raw(String.Format("\"tagcontent_url\": \"{0}\",", Beecon.TagContent_URL))
             if (Beecon.PrivacyTypeID == null)
             {
                 Beecon.PrivacyTypeID = "Friends";
             }
-               @Html.Raw(String.Format("\"PrivacyTypeID\": \"{0}\"", Beecon.PrivacyTypeID))
+               @Html.Raw(String.Format("\"privacytypeid\": \"{0}\"", Beecon.PrivacyTypeID))
             
 
             @Html.Raw("}")
