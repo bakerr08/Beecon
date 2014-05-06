@@ -1,0 +1,5 @@
+C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models2\bin\Debug\Beecon.Models2.dll
+C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models2\bin\Debug\Beecon.Models2.pdb
+C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models2\obj\Debug\Beecon.Models2.dll
+C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models2\obj\Debug\Beecon.Models2.pdb

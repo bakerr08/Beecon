@@ -1,10 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Beecon\StartActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Beecon.Models2\cUser.cs">
     <Files>
-      <File FileName="Beecon\StartActivity.cs" Line="60" Column="42" />
-      <File FileName="Beecon.Models2\cUser.cs" Line="136" Column="25" />
+      <File FileName="Beecon\StartActivity.cs" Line="42" Column="42" />
+      <File FileName="Beecon.Models2\cUser.cs" Line="131" Column="51" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Beecon.Android" expanded="True">
+            <Node name="ComponentReferenceFolder" expanded="True" />
+          </Node>
+          <Node name="Beecon.Models2" expanded="True">
+            <Node name="cUser.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.IO;
 using System.Net;
+using System.Linq;
+using System.Collections;
+using System.Dynamic;
+using System.ComponentModel;
 
 namespace Beecon.Models2
 {
@@ -118,60 +122,63 @@ namespace Beecon.Models2
 			System.Net.HttpWebRequest request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(string.Format("{0}/{1}", getTargetUrl(), operation));
 			//set http method
 			request.Method = "POST";
-			//content type
-			request.ContentType = "text/html";
-			//build json
-			//encode json
-			byte[] buffer = Encoding.UTF8.GetBytes(JSON);
-			//write to request body
-			Stream PostData = request.GetRequestStream();
-			PostData.Write(buffer, 0, buffer.Length);
-			PostData.Close();
-			//get response
-			Stream response = request.GetResponse().GetResponseStream();
-			//read response body
-			StreamReader response_reader = new StreamReader(response);
-			string response_json = response_reader.ReadToEnd();
-			response_json = processResponse(response_json);
-			return response_json;
+			////content type
+			//request.ContentType = "text/html";
+			////build json
+			////encode json
+			//byte[] buffer = Encoding.UTF8.GetBytes(JSON);
+			////write to request body
+			//Stream PostData = request.GetRequestStream();
+			//PostData.Write(buffer, 0, buffer.Length);
+			//PostData.Close();
+			////get response
+			//Stream response = request.GetResponse().GetResponseStream();
+			////read response body
+			//StreamReader response_reader = new StreamReader(response);
+			//string response_json = response_reader.ReadToEnd();
+			//response_json = processResponse(response_json);
+			//return response_json;
+			return "true";
 		}
 
 		public string processResponse(string response_json)
 		{
 			//puts the response into a dynamic object
-			dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(response_json);
+			//dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(response_json);
+			Dictionary<string, string> data = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string,string>>(response_json);
 
-			if (data.operation == "SignIn")//Name of the opperation 
+			if (data["operation"] == "SignIn")//Name of the opperation 
 			{
 				//check for success
-				if(data.message == "Success")
+				if(data["message"] == "Success")
 				{
-					this.FromData(data.user);//deserilize the JSON into a user
-					return data.message; //return the Success to the form
+					FromData(data);//deserilize the JSON into a user
+					return data["message"]; //return the Success to the form
 				}
 				else
 				{
-					return false;
+					return data["message"]; //return the Fail to the form
 				}
-
 			}
-			else if (data.operation == "allgames")
+			else if (data["operation"] == "allgames")
 			{
-				return false;
+				return data["message"];
 			}
+
+			return "true";
 		}
 
-		public static cUser FromData(dynamic data)
+		public static cUser FromData(Dictionary<string, string> data)
 		{
 			cUser user = new cUser();
-			user.Id = data.user_id;
-			user.Email = data.email;
-			user.FirstName = data.firstname;
-			user.LastName = data.lastname;
-			user.Zip = data.zip;
-			user.Dob = data.dob;
-			user.Gender = data.gender;
-			user.Address = data.address;
+			user.Id = Convert.ToInt32(data["user_id"]);
+			user.Email = data["email"];
+			user.FirstName = data["firstname"];
+			user.LastName = data["lastname"];
+			user.Zip = data["zip"];
+			user.Dob = Convert.ToDateTime(data["dob"]);
+			user.Gender = data["gender"];
+			user.Address = data["address"];
 			return user;
 		}
 
