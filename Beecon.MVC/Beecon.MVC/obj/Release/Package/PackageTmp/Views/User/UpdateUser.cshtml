@@ -21,9 +21,11 @@
 
     
 
-
+                 
+            
             @Html.Raw("{")
                @Html.Raw(String.Format("\"user_id\": \"{0}\",", BeeconUser.UserID))
+               @Html.Raw(String.Format("\"password\": \"{0}\",", BeeconUser.PasswordHashed))
             @{
                 if (BeeconUser.Email == null)
             {

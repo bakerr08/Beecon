@@ -138,11 +138,11 @@ namespace Beecon.MVC.Controllers
             if (json == null)
             {
 
-                json = "{  \"user_id\": \"owuvoc96@ciqbkr.org\", \"password\": \"SL5UUBA0NHSJRJISVVE67K5A9URAQ34\"  } ";
+                json = "{  \"user_id\": \"10\", \"password\": \"UUSZE8\"  } ";
             }
 
             dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
-            int _user_id = data.user_id;
+            int _user_id = Int32.Parse(data.user_id);
            
 
             var BeeconUser = db.Users.SingleOrDefault(u => u.UserID == _user_id);
@@ -178,15 +178,15 @@ namespace Beecon.MVC.Controllers
 
                 User user = new User();
 
-                user.Dob = data.Dob;
-                user.Email = data.Email;
-                user.FirstName = data.FirstName;
-                user.LastName = data.LastName;
-                user.ZipCode = data.ZipCode;
-                user.PasswordHashed = data.PasswprdHashed;
+                user.Dob = data.dob;
+                user.Email = data.email;
+                user.FirstName = data.firstName;
+                user.LastName = data.lastName;
+                user.ZipCode = data.zipCode;
+                user.PasswordHashed = data.passwordhashed;
                 user.TagsFound = 0;
                 user.TagsPosted = 0;
-                user.Gender = data.Gender;
+                user.Gender = data.gender;
 
                 db.Users.Add(user);
                 db.SaveChanges();
@@ -238,16 +238,16 @@ namespace Beecon.MVC.Controllers
             User user = new User();
 
 
-            user.Dob = data.Dob;
-            user.PasswordHashed = data.PasswordHashed;
-            user.Email = data.Email;
-            user.FirstName = data.FirstName;
-            user.LastName = data.LastName;
-            user.ZipCode = data.ZipCode;
-            user.PasswordHashed = data.PasswordHashed;
-            user.TagsFound = data.TagsFound;
-            user.TagsPosted = data.TagsPosted;
-            user.Gender = data.Gender;
+            user.Dob = data.dob;
+            user.PasswordHashed = data.passwordhashed;
+            user.Email = data.email;
+            user.FirstName = data.firstname;
+            user.LastName = data.lastname;
+            user.ZipCode = data.zipcode;
+            user.PasswordHashed = data.passwordhashed;
+            user.TagsFound = data.tagsfound;
+            user.TagsPosted = data.tagsposted;
+            user.Gender = data.gender;
 
             db.Entry(user).State = EntityState.Modified;
             db.SaveChanges();
@@ -279,9 +279,9 @@ namespace Beecon.MVC.Controllers
 
             FriendList friendlist = new FriendList();
 
-            friendlist.Created = data.Created;
-            friendlist.UserID = data.UserID;
-            friendlist.UserIDRequested = data.UserIDRequested;
+            friendlist.Created = data.created;
+            friendlist.UserID = data.userid;
+            friendlist.UserIDRequested = data.useridrequested;
 
             db.FriendLists.Add(friendlist);
             db.SaveChanges();
@@ -301,13 +301,40 @@ namespace Beecon.MVC.Controllers
         public ActionResult ViewFriendList(string json)
         {
 
-            //dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
-            //var userid = data.UserID;
+            ViewBag.Operation = "ViewFriendList";
 
-            //var friendlist = db.FriendLists.Where(f => f.UserID == userid)
-            //                               .Select(f => f.UserID).ToList();
+            try
+            {
+                ViewBag.Message = "Fail";
 
-            return View();
+                    if (json == null)
+                    {
+
+                        json = "{  \"userid\": \"10\"  } ";
+                    }
+
+
+                    dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+                    string userid = data.userid;
+                    ViewBag.UserID = data.userid;
+
+                    var friendlist = db.FriendLists.Select(u => u.UserID == int.Parse(userid));
+
+                    //var friendlist = db.spGetFriendListByUserID(int.Parse(userid));
+
+                    ViewBag.FriendList = friendlist;
+
+                        //db.spGetFriendListByUserID(int.Parse(userid));
+
+                    return View();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = "Success";
+                ViewBag.Message2 = ex;
+                return View();
+            }
+            
         }
 
         public ActionResult SignIn(string json)

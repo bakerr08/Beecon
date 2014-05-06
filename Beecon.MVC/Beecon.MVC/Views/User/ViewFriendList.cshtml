@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "GetAllUsers";
+    Layout = null;
+
+
+
+    var friendlist = ViewBag.FriendList;
+    var userid = ViewBag.UserID;
+    
+    
+}
+
+
+
+@Html.Raw("{")
+
+@Html.Raw(String.Format("\"operation\": \"{0}\",", ViewBag.Operation)) 
+@Html.Raw(String.Format("\"message\": \"{0}\",", ViewBag.Message))  
+@Html.Raw(String.Format("\"userid\": \"{0}\",", userid))  
+
+ @Html.Raw("\"friendlist\":")  
+
+    
+    @foreach(var u in friendlist)
+    {        
+    
+            //@Html.Raw("{")
+               @Html.Raw(String.Format("\"useridrequested\": \"{0}\",", friendlist.UserIDRequested))
+    }
+            @Html.Raw("}")
+                 @Html.Raw("}")
+            }

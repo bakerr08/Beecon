@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "GetBeeconByProximity";
+    Layout = null;
+
+
+
+    var Beecons = ViewBag.Beecons;
+
+    var TagCount = 1;
+    
+    
+    
+}
+
+@Html.Raw("{")
+
+@Html.Raw(String.Format("\"operation\": \"{0}\",", ViewBag.Operation)) 
+@Html.Raw(String.Format("\"message\": \"{0}\",", ViewBag.Message)) 
+
+
+ @Html.Raw("{\"Tags\":[")  
+        @foreach(var t in Beecons) 
+        {
+            if (TagCount > 1) 
+            {
+                @Html.Raw(",")
+            }
+            
+            
+            
+            @Html.Raw("{")
+               @Html.Raw(String.Format("\"Tag_id\": \"{0}\",", t.TagID))
+            if (t.TagLongitude == null)
+            {
+                t.TagLongitude = "32165498";
+            }
+               @Html.Raw(String.Format("\"TagLongitude\": \"{0}\",", t.TagLongitude))
+            if (t.TagLatitude == null)
+            {
+                t.TagLatitude = "3216546";
+            }
+               @Html.Raw(String.Format("\"TagLatitude\": \"{0}\",", t.TagLatitude))
+            if (t.TagDescription == null)
+            {
+                t.TagDescription = "Simpsons";
+            }
+               @Html.Raw(String.Format("\"TagDescription\": \"{0}\",", t.TagDescription))
+            if (t.TagDateCreated == null)
+            {
+                t.TagDateCreated = DateTime.Now;
+            }
+               @Html.Raw(String.Format("\"TagDateCreated\": \"{0}\",", t.TagDateCreated))
+            if (t.TagExpired == null)
+            {
+                t.TagExpired = DateTime.Now;
+            }
+               @Html.Raw(String.Format("\"TagExpired\": \"{0}\",", t.TagExpired))
+            if (t.UserID == null)
+            {
+                t.UserID = 1;
+            }
+               @Html.Raw(String.Format("\"UserID\": \"{0}\",", t.UserID))
+            if (t.TagContent_URL == null)
+            {
+                t.TagContent_URL = "Male";
+            }
+               @Html.Raw(String.Format("\"TagContent_URL\": \"{0}\",", t.TagContent_URL))
+            if (t.PrivacyTypeID == null)
+            {
+                t.PrivacyTypeID = "Friends";
+            }
+               @Html.Raw(String.Format("\"PrivacyTypeID\": \"{0}\"", t.PrivacyTypeID))
+            
+            TagCount++;
+            @Html.Raw("}")
+         }
+         @Html.Raw("]}")  
+       

@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "CreateBeecon";
+    Layout = null;
+
+
+
+    var Beecon= ViewBag.Beecon;
+    
+    
+    
+}
+
+
+
+@Html.Raw("{")
+
+@Html.Raw(String.Format("\"operation\": \"{0}\",", ViewBag.Operation)) 
+@Html.Raw(String.Format("\"message\": \"{0}\",", ViewBag.Message))  
+
+ @Html.Raw("\"tag\":")  
+
+    
+
+
+            @Html.Raw("{")
+            @{
+               @Html.Raw(String.Format("\"taglongitude\": \"{0}\",", Beecon.TagLongitude))
+           
+               @Html.Raw(String.Format("\"taglatitude\": \"{0}\",", Beecon.TagLatitude))
+           
+               @Html.Raw(String.Format("\"tagdescription\": \"{0}\",", Beecon.TagDescription))
+           
+               @Html.Raw(String.Format("\"tagdatecreated\": \"{0}\",", Beecon.TagDateCreated))
+            
+               @Html.Raw(String.Format("\"tagexpired\": \"{0}\",", Beecon.TagExpired))
+           
+               @Html.Raw(String.Format("\"userid\": \"{0}\",", Beecon.UserID))
+            
+               @Html.Raw(String.Format("\"tagcontent_url\": \"{0}\"", Beecon.TagContent_URL))
+
+               @Html.Raw(String.Format("\"privacytypeid\": \"{0}\"", Beecon.PrivacyType))
+
+            @Html.Raw("}")
+                 @Html.Raw("}")
+            }

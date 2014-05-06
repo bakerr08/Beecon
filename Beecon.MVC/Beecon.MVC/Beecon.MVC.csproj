@@ -454,6 +454,7 @@
     <Content Include="Views\Beecon\CreateBeacon.cshtml" />
     <Content Include="Views\Beecon\GetBeeconByProximity.cshtml" />
     <Content Include="Views\Beecon\GetBeeconByFilter.cshtml" />
+    <Content Include="Views\User\ViewFriendList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
