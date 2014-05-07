@@ -2,36 +2,32 @@
     ViewBag.Title = "Index Page";
    
 }
-@section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@ViewBag.Message.</h1>
-                <h2>@ViewBag.Title</h2>
-                
-                
-            </hgroup>
-            
-        </div>
-    </section>
-}
+
+
+ <div class="JsonList">
+            <h3>Some of Beecon's Json Operations</h3>
+
+            <br />
+            <p>@Html.ActionLink("Show All Users", "GetAllUsers", "User")</p>
+     <br />
+            <p>@Html.ActionLink("Get One User", "GetUser", "User")</p><br />
+            <p>@Html.ActionLink("Show All Beecons", "GetAllBeecons", "Beecon")</p><br />
+            <p>@Html.ActionLink("Get Beecon", "GetBeecon", "Beecon")</p><br />
+            <p>@Html.ActionLink("Show All Categories", "GetAllCategories", "Beecon")</p>
+
+
+           </div>
 
 
 
-
-<ul>
     @*    Link text, Action, Controler    *@
-    <li>@Html.ActionLink("Users", "GetAllUsers", "User")</li>
-    <li>@Html.ActionLink("Get One User", "GetUser", "User")</li>
-    <li>@Html.ActionLink("Beecons", "GetAllBeecons", "Beecon")</li>
-    <li>@Html.ActionLink("One Beecon", "GetBeecon", "Beecon")</li>
-    <li>@Html.ActionLink("All Categories", "GetAllCategories", "Beecon")</li>
+
     @*<li>@Html.ActionLink("Create User", "CreateUser", "User")</li>
     <li>@Html.ActionLink("Create Beecon", "CreateBeecon", "Beecon")</li>
     <li>@Html.ActionLink("Delete User", "DeleteUser", "User")</li>
     <li>@Html.ActionLink("Delete Beecon", "DeleteBeecon", "Beecon")</li>*@
   
-</ul>
+
 
 @Scripts.Render("~/bundles/jquery")
 <script type="text/javascript">
@@ -45,9 +41,9 @@
 
     $('#Get all Users').change(function () {
         $.post('@Url.Action("GetAllUsers","Home")', function (data) {
-             $('#txtJson').text("Json is " + data);
-         });
-     });
+            $('#txtJson').text("Json is " + data);
+        });
+    });
 
 
     $('#Get all Users').change(function () {

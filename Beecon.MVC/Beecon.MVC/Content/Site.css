@@ -1,11 +1,67 @@
-﻿html {
+﻿
+/*to make my json operations look neat*/
+
+.JsonList
+{
+    width: 600px;
+    position: relative;
+    background: #ffe200;
+    min-height: 200px;
+    float: left;
+    border-style: outset;
+    border-width: 1px;
+    margin-top: auto;
+    margin-left: auto;
+}
+
+.JsonList a
+{
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.JsonList b
+{
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight:normal;
+    display:block;
+}
+
+.JsonList p
+{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5px;
+    margin-bottom: auto;
+    display:inline;
+    color:#660033;
+    text-align: center;
+}
+.JsonList h3
+{
+    margin-top: 0px;
+    text-align: center;
+    color: #660033;
+    background-color: #ffe200;
+    margin-bottom: 5px;
+}
+
+
+
+/*bottom was given at proj create*/
+
+
+html {
     background-color: #e2e2e2;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #fff;
+    background-color: #660033;
     border-top: solid 10px #000;
     color: #333;
     font-size: .85em;
@@ -36,11 +92,6 @@ nav, section {
     display: block;
 }
 
-mark {
-    background-color: #a6dbed;
-    padding-left: 5px;
-    padding-right: 5px;
-}
 
 .float-left {
     float: left;
@@ -99,20 +150,10 @@ h5, h6 {
 }
 
 #body {
-    background-color: #efeeef;
+    background-color: #ff9c00;
     clear: both;
     padding-bottom: 35px;
 }
-
-    .main-content {
-        background: url("../Images/accent.png") no-repeat;
-        padding-left: 10px;
-        padding-top: 30px;
-    }
-
-    .featured + .main-content {
-        background: url("../Images/heroAccent.png") no-repeat;
-    }
 
 header .content-wrapper {
     padding-top: 20px; 
@@ -129,10 +170,11 @@ footer {
 /* site title
 ----------------------------------------------------------*/
 .site-title {
-    color: #c8c8c8;
-    font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
-    font-size: 2.3em;
-    margin: 0;
+    background: url(../content/images/logo.jpg) no-repeat top left;
+    width: 200px;
+    height: 150px;
+    text-indent: -9999px;
+    
 }
 
 .site-title a, .site-title a:hover, .site-title a:active {
@@ -213,7 +255,7 @@ ul#menu {
 }
 
     .featured .content-wrapper {
-        background-color: #7ac0da;
+        background-color: #660033;
         background-image: -ms-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
         background-image: -o-linear-gradient(left, #7ac0da 0%, #a4d4e6 100%);
         background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #7ac0da), color-stop(1, #a4d4e6));
