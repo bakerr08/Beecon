@@ -3,3 +3,14 @@ C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models2\bin\Debug\Beecon.Models2.p
 C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models2\bin\Debug\Newtonsoft.Json.dll
 C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models2\obj\Debug\Beecon.Models2.dll
 C:\Users\student\Desktop\Beecon\Beecon\Beecon.Models2\obj\Debug\Beecon.Models2.pdb
+C:\G\Beecon\Beecon\Beecon.Models2\bin\Debug\Beecon.Models2.dll
+C:\G\Beecon\Beecon\Beecon.Models2\bin\Debug\Beecon.Models2.pdb
+C:\G\Beecon\Beecon\Beecon.Models2\bin\Debug\Newtonsoft.Json.dll
+C:\G\Beecon\Beecon\Beecon.Models2\bin\Debug\System.IO.dll
+C:\G\Beecon\Beecon\Beecon.Models2\bin\Debug\System.Runtime.dll
+C:\G\Beecon\Beecon\Beecon.Models2\bin\Debug\System.Threading.Tasks.dll
+C:\G\Beecon\Beecon\Beecon.Models2\bin\Debug\System.IO.xml
+C:\G\Beecon\Beecon\Beecon.Models2\bin\Debug\System.Runtime.xml
+C:\G\Beecon\Beecon\Beecon.Models2\bin\Debug\System.Threading.Tasks.xml
+C:\G\Beecon\Beecon\Beecon.Models2\obj\Debug\Beecon.Models2.dll
+C:\G\Beecon\Beecon\Beecon.Models2\obj\Debug\Beecon.Models2.pdb

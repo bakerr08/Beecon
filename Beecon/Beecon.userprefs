@@ -1,26 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Beecon\MainActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\Program Files (x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets">
     <Files>
-      <File FileName="Beecon\BeeconTextActivity.cs" Line="27" Column="61" />
-      <File FileName="Beecon\StartActivity.cs" Line="37" Column="52" />
-      <File FileName="Beecon\HomeActivity.cs" Line="33" Column="1" />
-      <File FileName="Beecon\MainActivity.cs" Line="29" Column="29" />
+      <File FileName="Beecon.Models2\cUser.cs" Line="164" Column="6" />
+      <File FileName="..\..\..\Program Files (x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets" Line="268" Column="2" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Beecon.Android" expanded="True">
-            <Node name="ComponentReferenceFolder" expanded="True" />
-            <Node name="Assets" expanded="True" />
-            <Node name="Properties" expanded="True" />
-            <Node name="Resources" expanded="True" />
-            <Node name="MainActivity.cs" selected="True" />
-          </Node>
-          <Node name="Beecon.Models2" expanded="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

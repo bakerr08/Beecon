@@ -116,30 +116,54 @@ namespace Beecon.Models2
 			beeconsFound = _beeconsFound;
 		}
 
-		public string PostDataWithOperation(string operation, string JSON)
+		public void PostDataWithOperation(string operation, string JSON)
 		{
-			//build request
-			System.Net.HttpWebRequest request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(string.Format("{0}/{1}", getTargetUrl(), operation));
-			//set http method
-			request.Method = "POST";
-			////content type
-			//request.ContentType = "text/html";
-			////build json
-			////encode json
-			//byte[] buffer = Encoding.UTF8.GetBytes(JSON);
-			////write to request body
-			//Stream PostData = request.GetRequestStream();
-			//PostData.Write(buffer, 0, buffer.Length);
-			//PostData.Close();
-			////get response
-			//Stream response = request.GetResponse().GetResponseStream();
-			////read response body
-			//StreamReader response_reader = new StreamReader(response);
-			//string response_json = response_reader.ReadToEnd();
-			//response_json = processResponse(response_json);
-			//return response_json;
-			return "true";
+			var httpReq = (HttpWebRequest)HttpWebRequest.Create (string.Format("{0}/{1}", getTargetUrl(), operation));
+
+			httpReq.BeginGetResponse ((ar) => {
+
+				var request = (HttpWebRequest)ar.AsyncState;
+				//set http method
+				request.Method = "POST";
+				//content type
+				request.ContentType = "text/html";
+				byte[] buffer = Encoding.UTF8.GetBytes(JSON);
+				using (var response = (HttpWebResponse)request.EndGetResponse (ar)) {
+
+					//var s = response.GetResponseStream ();
+					Stream PostData = response.GetResponseStream ();
+					StreamReader response_reader = new StreamReader(PostData);
+					string response_json = response_reader.ReadToEnd();
+					response_json = processResponse(response_json);
+					//RunOnUiThread (() => {
+					LoadJson(response_json);
+					//	});
+					//return response_json;
+
+					//get response
+					//Stream response = request.GetResponse().GetResponseStream();
+					//read response body
+					//StreamReader response_reader = new StreamReader(response);
+					//string response_json = response_reader.ReadToEnd();
+					//response_json = processResponse(response_json);
+					//return response_json;
+					//	return "true";
+					//	var j = (JsonObject)JsonObject.Load (s);
+
+					//	var results = (from result in (JsonArray)j ["results"]
+					//		let jResult = result as JsonObject
+					//		select jResult ["text"].ToString ()).ToArray ();
+
+					//	RunOnUiThread (() => {
+					//	ListAdapter = new ArrayAdapter<string> (this, Resource.Layout.TweetItemView, results);
+					//	});
+				}            
+
+			}, httpReq);
+
+			//return "true";
 		}
+
 
 		public string processResponse(string response_json)
 		{
@@ -191,6 +215,22 @@ namespace Beecon.Models2
 		{
 			var json = JsonConvert.SerializeObject (_user);
 			return json;
+
+		}
+		public void LoadJson(string json)
+		{
+			var user = JsonConvert.DeserializeObject<cUser> (json);
+			id = user.id;
+			lastName = user.lastName;
+			firstName = user.firstName;
+			email = user.email;
+			gender = user.gender;
+			address = user.address;
+			zip = user.zip;
+			dob = user.dob;
+			password = user.password;
+			beeconsCreated = user.beeconsCreated;
+			beeconsFound = user.beeconsFound;
 
 		}
 
