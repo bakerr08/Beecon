@@ -8,6 +8,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Xamarin.Media;
 
 namespace Beecon
 {
@@ -21,10 +22,29 @@ namespace Beecon
 
 			Button TakePhoto = FindViewById<Button> (Resource.Id.btnCapture);
 
-			TakePhoto.Click += delegate {
-				// Capture Photo Code
-			};
 
+			TakePhoto.Click += delegate 
+			{
+				var picker = new MediaPicker (this);
+				if (!picker.IsCameraAvailable)
+				{
+					Console.WriteLine ("No camera!");
+				return;
+				}
+				picker.GetTakePhotoUI(new StoreCameraMediaOptions
+				{
+						Name = "BeeconTemp.jpg",
+						Directory = "BeeconPictures"
+				})
+				.ContinueWith (t =>
+				{
+					//User Cancled or Error
+					if (t.IsCanceled)
+								return;
+					Console.WriteLine (t.Result.Path);
+				}, TaskScheduler.FromCurrentSynchronizationContext())
+				
+			}
 		}
 	}
 }

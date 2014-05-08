@@ -1,19 +1,23 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Beecon.Models2\cUser.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Beecon\MainActivity.cs">
     <Files>
-      <File FileName="Beecon\StartActivity.cs" Line="42" Column="42" />
-      <File FileName="Beecon.Models2\cUser.cs" Line="131" Column="51" />
+      <File FileName="Beecon\BeeconTextActivity.cs" Line="27" Column="61" />
+      <File FileName="Beecon\StartActivity.cs" Line="37" Column="52" />
+      <File FileName="Beecon\HomeActivity.cs" Line="33" Column="1" />
+      <File FileName="Beecon\MainActivity.cs" Line="29" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Beecon.Android" expanded="True">
             <Node name="ComponentReferenceFolder" expanded="True" />
+            <Node name="Assets" expanded="True" />
+            <Node name="Properties" expanded="True" />
+            <Node name="Resources" expanded="True" />
+            <Node name="MainActivity.cs" selected="True" />
           </Node>
-          <Node name="Beecon.Models2" expanded="True">
-            <Node name="cUser.cs" selected="True" />
-          </Node>
+          <Node name="Beecon.Models2" expanded="True" />
         </State>
       </Pad>
     </Pads>
@@ -22,4 +26,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Beecon.Android MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" />
 </Properties>

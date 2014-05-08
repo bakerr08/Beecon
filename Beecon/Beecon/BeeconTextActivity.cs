@@ -18,8 +18,13 @@ namespace Beecon
 		{
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.BeeconText);
+			Button Submit = FindViewById<Button> (Resource.Id.btnSubmitBeecon);
+			String BeeconTxt = (Resource.Id.txtBeeconText);
 
-			// Add text to Beecon
+			if (BeeconTxt == String.Empty)
+				return;
+
+			// Take Beecon Text Send Serialize it to JSON and Send it
 
 		}
 	}
