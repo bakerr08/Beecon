@@ -20,7 +20,7 @@ namespace Beecon
 			base.OnCreate (bundle);
 			SetContentView (Resource.Layout.BeeconText);
 			Button Submit = FindViewById<Button> (Resource.Id.btnSubmitBeecon);
-			String BeeconTxt = (Resource.Id.txtBeeconText);
+			String BeeconTxt = (Resource.Id.txtBeeconText).ToString();
 
 			string Time;
 			string Latitude;

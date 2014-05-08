@@ -54,6 +54,5 @@
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
         p1:id="@+id/InputError"
-        p1:textAlignment="center"
         p1:text="//Error" />
 </LinearLayout>

@@ -28,8 +28,8 @@ namespace Beecon
 			String DoB = (Resource.Id.txtDOB.ToString ());
 			String Geneder;
 
-			RadioButton Male = (Resource.Id.rbMale); 
-			RadioButton Female = (Resource.Id.rbFemale); 
+			RadioButton Male = FindViewById<RadioButton>(Resource.Id.rbMale); 
+			RadioButton Female = FindViewById<RadioButton>(Resource.Id.rbFemale); 
 
 
 			// Submitting new sign up code
@@ -37,11 +37,11 @@ namespace Beecon
 			{
 				if (Male.Checked == true)
 				{
-					Geneder = Male;
+					Geneder = "Male";
 				}
 				else if ( Female.Checked == true)
 				{
-					Geneder = Female;
+					Geneder = "Female";
 				}
 				else
 				{

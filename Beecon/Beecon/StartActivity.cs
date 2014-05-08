@@ -40,7 +40,7 @@ namespace Beecon
 			dict.Add("password", User.Password);
 
 			// serialize that dictionary into JSON
-			dict = JsonConvert.SerializeObject (dict);
+			string json = JsonConvert.SerializeObject (dict, Formatting.Indented);
 
 			SignIn.Click += delegate {
 				//Error Handling
@@ -53,18 +53,18 @@ namespace Beecon
 
 				//Sign In Code
 				//call the PostData method that posts the JSON to the service
-				string result = cUser.PostDataWithOperation("SingIn", dict);
+				string result = User.PostDataWithOperation("SingIn", json);
 				//check that the JSON response is valid
 				if(result == "Success")
 				{
-					dict = JsonConvert.DeserializeObject (dict);
+					//dict = JsonConvert.DeserializeObject (dict);
 					//reserialize the object to pass it to the next activity
 					//dict already contraints email and password
-					dict.Add("user_id", User.Id);
+					dict.Add("user_id", User.Id.ToString());
 					dict.Add("firstname", User.FirstName);
 					dict.Add("lastname", User.LastName);
 					dict.Add("zip", User.Zip);
-					dict.Add("dob", User.Dob);
+					dict.Add("dob", User.Dob.ToString());
 					dict.Add("gender", User.Gender);
 					dict.Add("address", User.Address);
 
@@ -75,9 +75,9 @@ namespace Beecon
 				else
 				{
 					//display error message
-					//txtError.Text = cUser.PostDataWithOperation("SingIn", dict);
-					ErrorsBox();
-				}
+					//	string sError = cUser.PostDataWithOperation("SingIn", dict);
+					//ErrorsBox(sError);
+					}
 
 			};
 			SignUp.Click += (sender, e) =>  {
@@ -85,7 +85,7 @@ namespace Beecon
 			};
 		}
 		//Error Box Pop up
-		private void ErrorsBox(Object, EventArgs e)
+		private void ErrorsBox(Object o, EventArgs e)
 		{
 			AlertDialog.Builder ErrorMessage;
 			ErrorMessage = new AlertDialog.Builder(this);

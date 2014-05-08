@@ -19,19 +19,19 @@
             android:layout_marginTop="125.0dp"
             android:layout_marginLeft="5.0dp" />
         <Button
-            android:text="Scores"
-            android:layout_width="85.0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnLeaderBoard"
-            android:layout_toRightOf="@id/btnCreate"
-            android:layout_marginTop="125.0dp"
-            android:layout_marginLeft="25.0dp" />
-        <Button
             android:text="Create"
             android:layout_width="85.0dp"
             android:layout_height="wrap_content"
             android:id="@+id/btnCreate"
             android:layout_toRightOf="@id/btnFriends"
+            android:layout_marginTop="125.0dp"
+            android:layout_marginLeft="25.0dp" />
+        <Button
+            android:text="Scores"
+            android:layout_width="85.0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnLeaderBoard"
+            android:layout_toRightOf="@id/btnCreate"
             android:layout_marginTop="125.0dp"
             android:layout_marginLeft="25.0dp" />
     </RelativeLayout>

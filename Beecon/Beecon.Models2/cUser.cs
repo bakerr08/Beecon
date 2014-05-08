@@ -116,7 +116,7 @@ namespace Beecon.Models2
 			beeconsFound = _beeconsFound;
 		}
 
-		public void PostDataWithOperation(string operation, string JSON)
+		public string PostDataWithOperation(string operation, string JSON)
 		{
 			var httpReq = (HttpWebRequest)HttpWebRequest.Create (string.Format("{0}/{1}", getTargetUrl(), operation));
 
@@ -161,7 +161,7 @@ namespace Beecon.Models2
 
 			}, httpReq);
 
-			//return "true";
+			return "Success";
 		}
 
 

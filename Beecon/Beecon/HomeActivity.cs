@@ -22,7 +22,7 @@ namespace Beecon
 			// ****Buttons That will be in pull out menu****
 			Button CreateBeecon = FindViewById<Button> (Resource.Id.btnCreate);
 			Button Friends = FindViewById<Button> (Resource.Id.btnFriends);
-			Button Leaderboard = FindViewById<Button> (Resource.Id.btnLeaderborad);
+			Button Leaderboard = FindViewById<Button> (Resource.Id.btnLeaderBoard);
 			//Button Settings = FindViewById<Button> (Resource.Id.btnSettings);
 			//******************************************************************
 

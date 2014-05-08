@@ -35,16 +35,16 @@ namespace Beecon
 				{
 						Name = "BeeconTemp.jpg",
 						Directory = "BeeconPictures"
-				})
-				.ContinueWith (t =>
-				{
+					});
+				//	.ContinueWith (t =>
+				//	{
 					//User Cancled or Error
-					if (t.IsCanceled)
+					//		if (t.IsCanceled)
 								return;
-					Console.WriteLine (t.Result.Path);
-				}, TaskScheduler.FromCurrentSynchronizationContext())
+				//		Console.WriteLine (t.Result.Path);
+				//			}, TaskScheduler.FromCurrentSynchronizationContext());
 				
-			}
+			};
 		}
 	}
 }
