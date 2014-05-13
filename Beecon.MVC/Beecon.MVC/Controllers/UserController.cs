@@ -133,31 +133,31 @@ namespace Beecon.MVC.Controllers
         public ActionResult GetUser(string json)
         {
 
-            ViewBag.Operation = "GetUser";
+            //ViewBag.Operation = "GetUser";
 
-            if (json == null)
-            {
+            //if (json == null)
+            //{
 
-                json = "{  \"user_id\": \"10\", \"password\": \"UUSZE8\"  } ";
-            }
+            //    json = "{  \"user_id\": \"10\", \"password\": \"UUSZE8\"  } ";
+            //}
 
-            dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
-            int _user_id = Int32.Parse(data.user_id);
+            //dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+            //var _user_id = data.user_id;
            
 
-            var BeeconUser = db.Users.SingleOrDefault(u => u.UserID == _user_id);
+            //var BeeconUser = db.Users.SingleOrDefault(u => u.UserID == _user_id);
 
-            if (BeeconUser != null)
-            {
+            //if (BeeconUser != null)
+            //{
                 
-                    ViewBag.Message = "Success";
-                    ViewBag.BeeconUser = BeeconUser;
+            //        ViewBag.Message = "Success";
+            //        ViewBag.BeeconUser = BeeconUser;
   
-            }
-            else
-            {
-                ViewBag.Message = "Fail";
-            }
+            //}
+            //else
+            //{
+            //    ViewBag.Message = "Fail";
+            //}
 
 
             //ViewData["BeeconUser"] = BeeconUser;
@@ -171,6 +171,13 @@ namespace Beecon.MVC.Controllers
 
             try
             {
+
+                if (json == null)
+                {
+                    json = "{  \"user\": {\"firstname\": \"Cherie\", \"lastname\": \"Riddle\",\"zipcode\": \"49615\",\"tagsfound\": \"0\",\"tagsposted\": \"0\", \"gender\": \"Female\", \"email\": \"owuvoc96@ciqbkr.org\" }} ";
+                }
+
+
                 ViewBag.message = "Success";
 
 
@@ -178,23 +185,25 @@ namespace Beecon.MVC.Controllers
 
                 User user = new User();
 
-                user.Dob = data.dob;
+                
                 user.Email = data.email;
-                user.FirstName = data.firstName;
-                user.LastName = data.lastName;
-                user.ZipCode = data.zipCode;
+                user.FirstName = data.firstname;
+                user.LastName = data.lastname;
+                user.ZipCode = data.zipcode;
                 user.PasswordHashed = data.passwordhashed;
                 user.TagsFound = 0;
                 user.TagsPosted = 0;
                 user.Gender = data.gender;
 
+                ViewBag.BeeconUser = user;
+
                 db.Users.Add(user);
                 db.SaveChanges();
 
 
-                var BeeconUser = db.Users.SingleOrDefault(u => u.Email == user.Email);
+                //var BeeconUser = db.Users.SingleOrDefault(u => u.Email == user.Email);
 
-                ViewBag.BeeconUser = BeeconUser;
+                
 
 
 
@@ -214,9 +223,9 @@ namespace Beecon.MVC.Controllers
             catch (Exception ex)
             {
 
-                ViewBag.status = "Failed";
-               
-                ViewBag.message = ex;
+                ViewBag.message = "Failed";
+                ViewBag.Break = null;
+                ViewBag.status = ex;
                 return View();
             }
             
@@ -377,5 +386,16 @@ namespace Beecon.MVC.Controllers
             return View();
             
         }
+
+        public ActionResult CreateUserExample()
+        {
+            return View();
+        }
+
+        public ActionResult SignInExample()
+        {
+            return View();
+        }
+
     }
 }

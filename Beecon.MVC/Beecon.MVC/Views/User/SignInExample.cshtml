@@ -1,0 +1,71 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SignInSample</title>
+</head>
+<body>
+      <h2>Sign in</h2>
+
+<h4>POST Request to <em>http://itweb.fvtc.edu/beecon/Uswer/CreateUser</em></h4>
+
+<p>Sign in and message</p>
+
+<ul>
+    <li><strong>operation</strong>: Sign In</li>
+    <li><strong>message</strong>: Success or Fail</li>
+<li><strong>user_id</strong>: user id</li>
+<li><strong>email</strong>: user email</li>
+<li><strong>password</strong>: user password</li>
+<li><strong>firstname</strong>: user first name</li>
+<li><strong>lastname</strong>: user last name</li>
+<li><strong>zip</strong>: user zip code</li>
+<li><strong>dob</strong>: user dob</li>
+<li><strong>gender</strong>: user gender</li>
+<li><strong>address</strong>: user address</li>
+</ul>
+
+<hr />
+
+<h2>Sample request body:</h2>
+
+<pre><code>
+{
+        "email": "FriendsEmail@beecon.com"
+        "password": "123"
+}
+</code></pre>
+
+<hr />
+
+<h2>Sample response data:</h2>
+
+<pre><code>
+    {
+"operation": "SignIn",
+"message": "Success",
+"user": {
+    "user_id": "21",
+    “email”: “21st@beecon.com”,
+    “password”: “password”,
+    "firstname": "Chester"
+    "lastname": "Arthur",
+    "zip": "20500",
+    "dob": "8/5/1829",
+    "gender": "male",
+    "address": "1600 Pennsylvannia Ave NW Washington D.C."
+    }
+}
+
+</code></pre>
+
+
+
+            </div> 
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BeeconJsonSample</title>
+</head>
+<body>
+      <h2>Create User</h2>
+
+<h4>POST Request to <em>http://itweb.fvtc.edu/service/v0/createuser</em></h4>
+
+<p>Creates a user and returns a user_id, or existing user_id if given login name already exists.</p>
+
+<ul>
+<li><strong>username</strong>: add explanation</li>
+<li><strong>password</strong>: add explanation</li>
+<li><strong>email</strong>: add explanation</li>
+<li><strong>status</strong>: "ok" if successful, "error" if problem with request</li>
+<li><strong>message</strong>: Message associated with the response</li>
+<li><strong>user</strong>: Array of user attributes</li>
+<li><strong>user_id</strong>: Id of user authenticated</li>
+<li><strong>authentication_token</strong>: add explanation</li>
+<li><strong>authentication_token_expires</strong>: add explanation</li>
+</ul>
+
+<hr />
+
+<h2>Sample request body:</h2>
+
+<pre><code>{
+"username": "test34",
+"password": "test34",
+"email": "test34@test.com"
+}
+</code></pre>
+
+<hr />
+
+<h2>Sample response data:</h2>
+
+<pre><code>{
+"status": "ok",
+"operation": "createuser",
+"message": "Successfully created user",
+"user": {
+    "user_id": "4",
+    "username": "test34",
+    "name": "test34",
+    "bio": "",
+    "Email": "test34@test.com",
+    "created": "1396331441",
+    "device_token": "",
+    "zip": "",
+    "birthdate": "246603600",
+    "receive_emails": "True",
+    "authentication_token": "33b887b5-2520-440a-bdb4-4b254ae7d726",
+    "authentication_token_expires": "1396936241",
+    "active": "True",
+    "sex": "Female",
+    "confirmed": "True",
+    "location": "88,-120"
+    }
+}
+</code></pre>
+
+
+
+            </div> 
+</body>
+</html>

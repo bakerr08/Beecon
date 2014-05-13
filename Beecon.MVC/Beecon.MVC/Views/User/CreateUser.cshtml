@@ -14,21 +14,23 @@
 
 @Html.Raw("{")
 
-@Html.Raw(String.Format("\"operation\": \"{0}\",", ViewBag.Operation)) 
-@Html.Raw(String.Format("\"message\": \"{0}\",", ViewBag.Message))  
+@Html.Raw(String.Format("\"operation\": \"{0}\",", ViewBag.operation)) 
+ 
 
+@{
+    @*if(ViewBag.Break != null)*@
+    
+        @Html.Raw(String.Format("\"message\": \"{0}\",", ViewBag.message))  
  @Html.Raw("\"user\":")  
 
     
-
-
             @Html.Raw("{")
-               @Html.Raw(String.Format("\"user_id\": \"{0}\",", BeeconUser.UserID))
-            @{
-                if (BeeconUser.Email == null)
-            {
-                BeeconUser.Email = "Simpsons@gmail.com";
-            }
+              
+    if (BeeconUser.Email == null)
+    {
+        BeeconUser.Email = "Blab@gmail.com";
+    }
+
             
                @Html.Raw(String.Format("\"email\": \"{0}\",", BeeconUser.Email))
             if (BeeconUser.FirstName == null)
@@ -63,5 +65,13 @@
                @Html.Raw(String.Format("\"gender\": \"{0}\"", BeeconUser.Gender))
 
             @Html.Raw("}")
+
+
+    @*else
+    {
+     @Html.Raw(String.Format("\"message\": \"{0}\"", ViewBag.message))    
+    }
+    *@
+                
                  @Html.Raw("}")
             }

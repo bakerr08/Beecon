@@ -141,6 +141,11 @@ namespace Beecon.MVC.Controllers
         {
             ViewBag.Operation = "GetBeecon";
 
+            if (json == null)
+            {
+                json = "{  \"tagid\": \"10\"  } ";
+            }
+
             dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
 
             int id = data.tagid;
@@ -171,27 +176,38 @@ namespace Beecon.MVC.Controllers
             return View();
         }
 
-        public ActionResult CreateBeacon(string json)
+        public ActionResult BeeconJsonSample()
+        {
+            return View();
+        }
+
+        public ActionResult CreateBeecon(string json)
         {
 
-            ViewBag.Operation = "CreateBeecon";
+            ViewBag.operation = "CreateBeecon";
+
+            if (json == null)
+            {
+                json = "{  \"tag\": {\"taglongitude\": \"32.32165\", \"taglatitude\": \"23.2316\",\"tagdescription\": \"something\",\"tagexpired\": \"10/10/2020\",\"userid\": \"10\", \"tagcontent_url\": \"../content/images/logo.jpg\", \"privacytypeid\": \"2\" }} ";
+            }
 
 
             dynamic data = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
 
             Tag tag = new Tag();
 
-            tag.TagLongitude = data.TagLongitude;
-            tag.TagLatitude = data.TagLatitude;
-            tag.TagDescription = data.TagDescription;
+            tag.TagLongitude = data.taglongitude;
+            tag.TagLatitude = data.taglatitude;
+            tag.TagDescription = data.tagdescription;
             tag.TagDateCreated = DateTime.Now;
-            tag.TagExpired = data.TagExpired;
-            tag.UserID = data.UserID;
-            tag.TagContent_URL = data.TagContent_URL;
-            tag.TagPrivacyType = data.PrivacyTypeID;
+            tag.TagExpired = data.tagexpired;
+            tag.UserID = 10;
+            tag.TagContent_URL = data.tagcontent_url ;
+            tag.TagPrivacyType = data.privacytypeid;
 
-            db.Tags.Add(tag);
-            db.SaveChanges();
+
+            //db.Tags.Add(tag);
+            //db.SaveChanges();
 
 
 
@@ -199,11 +215,11 @@ namespace Beecon.MVC.Controllers
 
             if (ViewBag.Beecon != null)
             {
-                ViewBag.Message = "Success";
+                ViewBag.message = "Success";
             }
             else
             {
-                ViewBag.Message = "Fail";
+                ViewBag.message = "Fail";
             }
 
             //ViewData["TagLongitude"] = data.TagLongitude;
@@ -317,6 +333,16 @@ namespace Beecon.MVC.Controllers
             return radius * Math.Acos(
                 Math.Sin(lat1) * Math.Sin(lat2)
                 + Math.Cos(lat1) * Math.Cos(lat2) * Math.Cos(long2 - long1));
+        }
+
+        public ActionResult CreateBeeconExample()
+        {
+            return View();
+        }
+
+        public ActionResult GetBeeconExample()
+        {
+            return View();
         }
 
 

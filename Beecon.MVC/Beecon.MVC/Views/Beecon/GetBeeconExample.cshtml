@@ -1,0 +1,69 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetBeeconSample</title>
+</head>
+<body>
+      <h2>Get Beecon</h2>
+
+<h4>POST Request to <em>http://itweb.fvtc.edu/beecon/beecon/getbeecon</em></h4>
+
+<p>Get a beecon and message</p>
+
+<ul>
+    <li><strong>operation</strong>: GetBeecon</li>
+    <li><strong>message</strong>: Success or Fail</li>
+<li><strong>tag_id</strong>: tag id</li>
+<li><strong>taglongitude</strong>: geo coordinate</li>
+<li><strong>taglatitude</strong>: geo coordinate</li>
+<li><strong>tagdescription</strong>: description</li>
+<li><strong>tagdatecreated</strong>: date created</li>
+<li><strong>tagexpired</strong>: expiration date</li>
+<li><strong>userid</strong>: Id of owner</li>
+<li><strong>tagcontent_url</strong>: url to tag content</li>
+<li><strong>privacytypeid</strong>: privacy type</li>
+</ul>
+
+<hr />
+
+<h2>Sample request body:</h2>
+
+<pre><code>
+    "{
+ “tagid”: “20”,
+}"
+</code></pre>
+
+<hr />
+
+<h2>Sample response data:</h2>
+
+<pre><code>
+    {
+    "operation": "GetBeecon",
+    "message": "Success",
+    "Tag": {
+        "tag_id": "20",
+        "taglongitude": "32.165498",
+        "taglatitude": "32.16546",
+        "tagdescription": "Something weird",
+        "tagdatecreated": "5/13/2014 10:55:58 AM",
+        "tagexpired": "5/13/2014 10:55:58 AM",
+        "userid": "205",
+        "tagcontent_url": "../content/images/Something.jpg",
+        "privacytypeid": "2"
+    }
+}
+</code></pre>
+
+
+
+            </div> 
+</body>
+</html>

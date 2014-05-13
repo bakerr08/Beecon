@@ -452,10 +452,15 @@
     <Content Include="Views\User\CreateUser.cshtml" />
     <Content Include="Views\User\SignIn.cshtml" />
     <Content Include="Views\User\UpdateUser.cshtml" />
-    <Content Include="Views\Beecon\CreateBeacon.cshtml" />
     <Content Include="Views\Beecon\GetBeeconByProximity.cshtml" />
     <Content Include="Views\Beecon\GetBeeconByFilter.cshtml" />
     <Content Include="Views\User\ViewFriendList.cshtml" />
+    <Content Include="Views\Beecon\CreateBeecon.cshtml" />
+    <Content Include="Views\Beecon\BeeconJsonSample.cshtml" />
+    <Content Include="Views\Beecon\CreateBeeconExample.cshtml" />
+    <Content Include="Views\Beecon\GetBeeconExample.cshtml" />
+    <Content Include="Views\User\CreateUserExample.cshtml" />
+    <Content Include="Views\User\SignInExample.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
