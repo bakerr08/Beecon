@@ -22,7 +22,7 @@ namespace Beecon
 			Button Submit = FindViewById<Button> (Resource.Id.btnSubmitBeecon);
 			String BeeconTxt = (Resource.Id.txtBeeconText).ToString();
 
-			string Time;
+		/* 	string Time;
 			string Latitude;
 			string Longitude;
 			string Proximity;
@@ -37,17 +37,17 @@ namespace Beecon
 				Longitude.text = t.Result.Longitude.ToString("N4");
 
 			}, TaskScheduler.FromCurrentSynchronizationContext());
+ */
 
 
-
-			btnSubmitBeecon.Click += (sender, e) =>  {
+			/* btnSubmitBeecon.Click += (sender, e) =>  {
 			if (BeeconTxt == String.Empty)
 				return;
-
+ */
 				// Take Beecon Text Send Serialize it to JSON and Send it
 
 
-			}
+			//	}
 
 
 		}

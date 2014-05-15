@@ -98,6 +98,16 @@ namespace Beecon.Models2
 			beeconContentURL = _beeconcontentURL;
 			BeeconPrivacyTypeID = _beeconprivacytypeid;
 		}
+		//public void GetBeecon(int query_user_id, Action completion)
+		public void GetBeecon(int query_user_id)
+        {
+            //_Completion = completion;
+            Dictionary<string, string> d = new Dictionary<string, string>();
+			d.Add("tagid", query_user_id.ToString());
+            string post_json = Newtonsoft.Json.JsonConvert.SerializeObject(d);
+            PostDataWithOperation("getbeecon", post_json);
+          
+        }
 
 		public string ConvertToJson(cBeecon _beecon)
 		{

@@ -1,4 +1,5 @@
-C:\Users\student\Documents\GitHub\Beecon\Beecon\Beecon\bin\Debug\Beecon.dll
-C:\Users\student\Documents\GitHub\Beecon\Beecon\Beecon.Models2\bin\Debug\Beecon.Models2.dll
-C:\Users\student\Documents\GitHub\Beecon\Beecon\Components\json.net-4.5.11\lib\android\Newtonsoft.Json.dll
-C:\Users\student\Documents\GitHub\Beecon\Beecon\Components\xamarin.mobile-0.7.1\lib\android\Xamarin.Mobile.dll
+C:\G\Beecon\Beecon\Beecon\bin\Debug\Beecon.dll
+C:\G\Beecon\Beecon\Beecon.Models2\bin\Debug\Beecon.Models2.dll
+C:\G\Beecon\Beecon\Components\googleplayservices-13.0\lib\android\GooglePlayServicesLib.dll
+C:\G\Beecon\Beecon\Components\json.net-4.5.11\lib\android\Newtonsoft.Json.dll
+C:\G\Beecon\Beecon\Components\xamarin.mobile-0.7.1\lib\android\Xamarin.Mobile.dll
